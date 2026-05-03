@@ -5,7 +5,7 @@ import AuthorCard from '../../components/AuthorCard.astro';
 import { getBooksByCategory } from '../../data/books';
 import { authors } from '../../data/authors';
 
-const obrasProipas = getBooksByCategory('obras-propias');
+const obrasPropias = getBooksByCategory('obras-propias');
 const colaboracionOngs = getBooksByCategory('colaboracion-ongs');
 ---
 
@@ -35,12 +35,12 @@ const colaboracionOngs = getBooksByCategory('colaboracion-ongs');
         </div>
         <div class="flex-1 h-px bg-cream-300 ml-4" aria-hidden="true"></div>
         <span class="text-sm text-gray-400 whitespace-nowrap">
-          {obrasProipas.length} {obrasProipas.length === 1 ? 'título' : 'títulos'}
+          {obrasPropias.length} {obrasPropias.length === 1 ? 'título' : 'títulos'}
         </span>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {obrasProipas.map((book) => (
+        {obrasPropias.map((book) => (
           <BookCard book={book} />
         ))}
       </div>

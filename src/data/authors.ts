@@ -38,7 +38,7 @@ export const authors: Author[] = [
   {
     id: 'celestina-abeso-mba',
     name: 'Celestina Abeso Mba',
-    bio: 'Poeta y profesora de lengua española en Malabo, Celestina Abeso Mba explora en su obra la intersección entre feminismo, espiritualidad africana y ecología. "Voces del mango" es su primera colección de poesía publicada, aunque su obra ha aparecido en numerosas revistas literarias de Africa y España.',
+    bio: 'Poeta y profesora de lengua española en Malabo, Celestina Abeso Mba explora en su obra la intersección entre feminismo, espiritualidad africana y ecología. "Voces del mango" es su primera colección de poesía publicada, aunque su obra ha aparecido en numerosas revistas literarias de África y España.',
     photo: '/images/authors/celestina-abeso-mba.jpg',
     origin: 'Malabo, Guinea Ecuatorial',
     bookIds: ['voces-del-mango'],
