@@ -1,0 +1,73 @@
+---
+import type { BlogPost } from '../data/posts';
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300">
+  <div class="aspect-video bg-gradient-to-br from-forest-100 to-forest-200 relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center p-6">
+      <div class="text-center">
+        <span class="inline-block px-3 py-1 bg-forest-700/80 text-cream-100 text-xs font-medium rounded-full mb-3">
+          {post.category}
+        </span>
+        <p class="font-serif text-xl font-bold text-forest-800 leading-tight">
+          {post.title}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-5">
+    <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+      <time datetime={post.date}>{formattedDate}</time>
+      <span aria-hidden="true">&middot;</span>
+      <span>{post.author}</span>
+    </div>
+
+    <h3 class="font-serif font-bold text-lg text-gray-900 leading-tight mb-2 group-hover:text-terracotta-500 transition-colors">
+      <a href={`/blog/${post.slug}`} class="focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2 rounded">
+        {post.title}
+      </a>
+    </h3>
+
+    <p class="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
+      {post.excerpt}
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {post.tags.map((tag) => (
+        <span class="inline-block px-2 py-0.5 bg-cream-200 text-gray-500 text-xs rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <a
+      href={`/blog/${post.slug}`}
+      class="inline-flex items-center gap-1 text-sm font-medium text-terracotta-500 hover:text-terracotta-600 transition-colors group/link"
+      aria-label={`Leer artículo: ${post.title}`}
+    >
+      Leer más
+      <svg
+        class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</article>
