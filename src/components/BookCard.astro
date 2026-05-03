@@ -1,0 +1,70 @@
+---
+import type { Book } from '../data/books';
+
+interface Props {
+  book: Book;
+}
+
+const { book } = Astro.props;
+
+const categoryLabel = {
+  'obras-propias': 'Obra propia',
+  'colaboracion-ongs': 'Colaboración ONG',
+};
+---
+
+<article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300">
+  <div class="aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center px-6 py-8">
+        <div class="w-12 h-1 bg-terracotta-400 mx-auto mb-4 rounded"></div>
+        <p class="font-serif text-lg font-bold text-terracotta-700 leading-tight mb-2">{book.title}</p>
+        <div class="w-8 h-0.5 bg-terracotta-300 mx-auto mb-3 rounded"></div>
+        <p class="font-sans text-xs text-terracotta-500 uppercase tracking-widest">{book.author}</p>
+        <div class="mt-6 text-xs font-mono text-terracotta-300 uppercase tracking-widest">Editorial Lenoy</div>
+      </div>
+    </div>
+    <div class="absolute top-3 left-3">
+      <span class="inline-block px-2 py-0.5 bg-forest-700/80 text-cream-100 text-xs font-medium rounded-full">
+        {categoryLabel[book.category]}
+      </span>
+    </div>
+  </div>
+
+  <div class="p-5">
+    <div class="mb-3">
+      <h3 class="font-serif font-bold text-lg text-gray-900 leading-tight mb-1 group-hover:text-terracotta-500 transition-colors">
+        {book.title}
+      </h3>
+      <p class="text-sm text-gray-500 font-medium">{book.author} &middot; {book.year}</p>
+    </div>
+
+    <div class="flex flex-wrap gap-1.5 mb-3">
+      {book.genre.map((g) => (
+        <span class="inline-block px-2 py-0.5 bg-cream-200 text-gray-600 text-xs rounded-full">
+          {g}
+        </span>
+      ))}
+    </div>
+
+    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+      {book.synopsis}
+    </p>
+
+    <div class="flex items-center justify-between pt-3 border-t border-cream-200">
+      <span class="font-serif font-bold text-lg text-terracotta-500">
+        {book.price.toFixed(2)} &euro;
+      </span>
+      <button
+        class="inline-flex items-center gap-1.5 px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
+        aria-label={`Comprar ${book.title}`}
+        type="button"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        Comprar
+      </button>
+    </div>
+  </div>
+</article>

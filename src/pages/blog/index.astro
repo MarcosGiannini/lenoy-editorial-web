@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { blogPosts } from '../../data/posts';
+
+const sortedPosts = [...blogPosts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Artículos, reflexiones y noticias sobre literatura feminista y LGTB de Guinea Ecuatorial en el blog de Editorial Lenoy."
+>
+  <section class="bg-terracotta-500 py-16 px-4" aria-labelledby="blog-heading">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 id="blog-heading" class="font-serif text-5xl font-bold text-white mb-4">
+        Blog
+      </h1>
+      <p class="text-terracotta-100 max-w-xl mx-auto leading-relaxed">
+        Reflexiones, noticias y análisis sobre literatura feminista y LGTB de Guinea Ecuatorial y el mundo hispanohablante africano.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4" aria-labelledby="posts-heading">
+    <div class="max-w-6xl mx-auto">
+      <h2 id="posts-heading" class="sr-only">Artículos del blog</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedPosts.map((post) => (
+          <BlogPostCard post={post} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
