@@ -36,8 +36,18 @@ const siteTitle = title === 'Inicio' ? 'Editorial Lenoy' : `${title} — Editori
       rel="stylesheet"
     />
     <title>{siteTitle}</title>
+    <!-- Dark mode: aplica la clase ANTES de pintar para evitar destello blanco -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('lenoy-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-cream-100 text-gray-900 font-sans antialiased">
+  <body class="bg-cream-100 dark:bg-[#1a1510] text-gray-900 dark:text-cream-100 font-sans antialiased transition-colors duration-200">
     <!-- Redirección post-login de Netlify Identity hacia el panel /admin -->
     <script>
       if (window.netlifyIdentity) {

@@ -25,7 +25,7 @@ const categoryLabel = {
 };
 ---
 
-<article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300">
+<article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300 dark:border-gray-700">
   <a href={`/publicaciones/${book.id}`} class="block aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 relative overflow-hidden" aria-label={`Ver ficha de ${book.title}`} tabindex="-1">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center px-6 py-8">
@@ -45,25 +45,25 @@ const categoryLabel = {
 
   <div class="p-5">
     <div class="mb-3">
-      <a href={`/publicaciones/${book.id}`} class="font-serif font-bold text-lg text-gray-900 leading-tight mb-1 group-hover:text-terracotta-500 transition-colors hover:underline decoration-terracotta-300">
+      <a href={`/publicaciones/${book.id}`} class="font-serif font-bold text-lg text-gray-900 dark:text-cream-100 leading-tight mb-1 group-hover:text-terracotta-500 transition-colors hover:underline decoration-terracotta-300">
         {book.title}
       </a>
-      <p class="text-sm text-gray-500 font-medium">{book.author} &middot; {book.year}</p>
+        <p class="text-sm text-gray-500 dark:text-cream-400 font-medium">{book.author} &middot; {book.year}</p>
     </div>
 
     <div class="flex flex-wrap gap-1.5 mb-3">
       {book.genre.map((g) => (
-        <span class="inline-block px-2 py-0.5 bg-cream-200 text-gray-600 text-xs rounded-full">
+        <span class="inline-block px-2 py-0.5 bg-cream-200 dark:bg-gray-700 text-gray-600 dark:text-cream-300 text-xs rounded-full">
           {g}
         </span>
       ))}
     </div>
 
-    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+    <p class="text-sm text-gray-600 dark:text-cream-400 leading-relaxed line-clamp-3 mb-4">
       {book.synopsis}
     </p>
 
-    <div class="flex items-center justify-between pt-3 border-t border-cream-200">
+    <div class="flex items-center justify-between pt-3 border-t border-cream-200 dark:border-gray-700">
       <span class="font-serif font-bold text-lg text-terracotta-500">
         {book.price.toFixed(2)} &euro;
       </span>

@@ -10,14 +10,14 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-cream-100/95 backdrop-blur-sm border-b border-cream-300">
+<header class="sticky top-0 z-50 bg-cream-100/95 dark:bg-[#1a1510]/95 backdrop-blur-sm border-b border-cream-300 dark:border-gray-700 transition-colors duration-200">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
     <div class="flex items-center justify-between h-16">
       <a href="/" class="flex items-center gap-2 group" aria-label="Editorial Lenoy - Inicio">
         <div class="w-8 h-8 bg-terracotta-500 rounded-full flex items-center justify-center">
           <span class="text-white font-serif font-bold text-sm" aria-hidden="true">L</span>
         </div>
-        <span class="font-serif font-semibold text-xl text-gray-900 group-hover:text-terracotta-500 transition-colors">
+        <span class="font-serif font-semibold text-xl text-gray-900 dark:text-cream-100 group-hover:text-terracotta-500 transition-colors">
           Editorial Lenoy
         </span>
       </a>
@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
               class={`font-medium text-sm transition-colors hover:text-terracotta-500 ${
                 currentPath === href
                   ? 'text-terracotta-500 border-b-2 border-terracotta-500 pb-0.5'
-                  : 'text-gray-600'
+                  : 'text-gray-600 dark:text-cream-300'
               }`}
               aria-current={currentPath === href ? 'page' : undefined}
             >
@@ -40,29 +40,59 @@ const currentPath = Astro.url.pathname;
         ))}
       </ul>
 
-      <a
-        href="/publicaciones"
-        class="hidden lg:inline-flex items-center px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
-      >
-        Ver publicaciones
-      </a>
+      <div class="hidden lg:flex items-center gap-3">
+        <button
+          id="theme-toggle"
+          class="p-2 rounded-lg text-gray-600 dark:text-cream-300 hover:text-terracotta-500 dark:hover:text-terracotta-400 hover:bg-cream-200 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Activar modo oscuro"
+        >
+          <!-- Icono sol (visible en modo oscuro para volver al claro) -->
+          <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+          <!-- Icono luna (visible en modo claro para activar el oscuro) -->
+          <svg id="icon-moon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <a
+          href="/publicaciones"
+          class="inline-flex items-center px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2 dark:focus:ring-offset-[#1a1510]"
+        >
+          Ver publicaciones
+        </a>
+      </div>
 
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-lg text-gray-600 hover:text-terracotta-500 hover:bg-cream-200 transition-colors"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Abrir menú"
-      >
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <div class="md:hidden flex items-center gap-2">
+        <button
+          id="theme-toggle-mobile"
+          class="p-2 rounded-lg text-gray-600 dark:text-cream-300 hover:text-terracotta-500 dark:hover:text-terracotta-400 hover:bg-cream-200 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Activar modo oscuro"
+        >
+          <svg id="icon-sun-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+          <svg id="icon-moon-mobile" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <button
+          id="mobile-menu-btn"
+          class="p-2 rounded-lg text-gray-600 dark:text-cream-300 hover:text-terracotta-500 hover:bg-cream-200 dark:hover:bg-gray-800 transition-colors"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <div
       id="mobile-menu"
-      class="md:hidden hidden border-t border-cream-300 py-4"
+      class="md:hidden hidden border-t border-cream-300 dark:border-gray-700 py-4"
       role="region"
       aria-label="Menú móvil"
     >
@@ -73,8 +103,8 @@ const currentPath = Astro.url.pathname;
               href={href}
               class={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 currentPath === href
-                  ? 'bg-terracotta-50 text-terracotta-600'
-                  : 'text-gray-600 hover:bg-cream-200 hover:text-gray-900'
+                  ? 'bg-terracotta-50 dark:bg-terracotta-900/30 text-terracotta-600 dark:text-terracotta-400'
+                  : 'text-gray-600 dark:text-cream-300 hover:bg-cream-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-cream-100'
               }`}
               aria-current={currentPath === href ? 'page' : undefined}
             >
@@ -96,6 +126,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
+  // Menú móvil
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
 
@@ -104,5 +135,34 @@ const currentPath = Astro.url.pathname;
     menu?.classList.toggle('hidden');
     btn.setAttribute('aria-expanded', String(!isOpen));
     btn.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+  });
+
+  // Toggle dark mode (desktop + móvil)
+  function applyTheme(dark: boolean) {
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('lenoy-theme', dark ? 'dark' : 'light');
+
+    // Iconos desktop
+    document.getElementById('icon-sun')?.classList.toggle('hidden', !dark);
+    document.getElementById('icon-moon')?.classList.toggle('hidden', dark);
+    // Iconos móvil
+    document.getElementById('icon-sun-mobile')?.classList.toggle('hidden', !dark);
+    document.getElementById('icon-moon-mobile')?.classList.toggle('hidden', dark);
+
+    const label = dark ? 'Activar modo claro' : 'Activar modo oscuro';
+    document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
+    document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);
+  }
+
+  // Sincronizar iconos con el estado actual al cargar
+  const isDark = document.documentElement.classList.contains('dark');
+  applyTheme(isDark);
+
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    applyTheme(!document.documentElement.classList.contains('dark'));
+  });
+
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', () => {
+    applyTheme(!document.documentElement.classList.contains('dark'));
   });
 </script>
