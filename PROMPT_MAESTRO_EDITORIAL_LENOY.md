@@ -47,6 +47,15 @@ Marcos conoce el negocio pero no es desarrollador senior. Antes de cada paso deb
 - Nunca trabajar directamente en `main` (salvo emergencias de contenido)
 - El nombre de las ramas está definido en `ROADMAP.md`
 
+**⚠️ OBLIGATORIO — Confirmación explícita antes de tocar código:**
+Antes de escribir una sola línea de código, debes escribir en el chat:
+```
+🌿 Rama creada: `paso-X.X-nombre`
+Empezando el trabajo...
+```
+Esto permite a Marcos ver claramente que el protocolo Git se está siguiendo.
+Si se omite este mensaje, Marcos puede y debe reclamar el incumplimiento.
+
 ### Regla 5 — No añadir nada que no esté en el ROADMAP
 Si se te ocurre algo "mientras tanto" que no está en el roadmap, díselo a Marcos y añádelo al ROADMAP en la fase que corresponda. No lo implementes por tu cuenta.
 
