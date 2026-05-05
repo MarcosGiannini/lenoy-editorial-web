@@ -45,8 +45,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, sitio estático, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **0.2** — Páginas base de las 5 secciones (5 mayo 2026) |
-| **Siguiente paso** | **1.1** — Ficha individual de libro `/publicaciones/[id].astro` |
+| **Último paso completado** | **1.1** — Ficha individual de libro (5 mayo 2026) |
+| **Siguiente paso** | **1.2** — Contenido real de `/que-es-lenoy` |
 | **Bloqueantes externos** | Portadas reales (Andrea) · Cuenta Stripe (Andrea+Melibea) · Dominio (pendiente) |
 
 ---
@@ -94,23 +94,16 @@
 
 ### Paso 1.1 — Ficha individual de libro `/publicaciones/[id].astro`
 - **Rama:** `paso-1.1-ficha-libro`
-- **Estado:** ⬜ No iniciado
-- **Por qué es crítico:** Actualmente no existe. Al pulsar "Comprar" o el título de un libro, no pasa nada. Es el paso más importante del flujo de venta.
-- **Contenido de la página:**
-  - Breadcrumb: Inicio > Publicaciones > [Título]
-  - Portada a tamaño grande (columna izquierda, ratio 2:3)
-  - Título (Playfair Display, grande), autor/a, año, géneros como chips
-  - Sinopsis COMPLETA (sin truncar)
-  - Precio prominente en terracotta
-  - Botón "Comprar esta obra" (grande, terracotta, preparado para Stripe aunque aún sin link)
-  - Bloque informativo: "Envío físico desde Madrid · Plazo estimado 3-5 días hábiles"
-  - Sección "Sobre la autora" con `AuthorCard` correspondiente
-  - Si es colaboración ONG: sección especial con contexto del proyecto
-  - Meta SEO único por libro (title, description, og:image)
-- **Archivos nuevos:** `src/pages/publicaciones/[id].astro`
-- **Archivos a tocar:** `BookCard.astro` (añadir link a la ficha)
-- **Test manual:** Entrar a cada ficha de libro. Verificar en móvil. Verificar que el SEO del `<head>` cambia por libro.
-- **Criterio de éxito:** Las 5 fichas de libros mock cargan sin error, son responsivas y tienen contenido diferente cada una.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `src/pages/publicaciones/[id].astro`: ruta dinámica con `getStaticPaths()`, genera 5 fichas estáticas
+  - Layout 2 columnas (portada sticky izquierda + contenido derecha), responsive (1 col en móvil)
+  - Breadcrumb Inicio › Publicaciones › [Título], SEO único por libro (title + description)
+  - Precio en terracotta, botón "Comprar" activo si `stripeButtonId` existe, disabled si no
+  - Sección "Sobre la autora" cruzada con `authors.ts` por `bookIds`
+  - Sección "Proyecto solidario" solo para libros `category: 'colaboracion-ongs'`
+  - `BookCard.astro`: portada y título enlazados a la ficha, botón "Comprar" → "Ver ficha"
+- **Build:** ✅ 15 páginas, 0 errores
 
 ### Paso 1.2 — Página "Qué es Lenoy" (`/que-es-lenoy`)
 - **Rama:** `paso-1.2-que-es-lenoy`

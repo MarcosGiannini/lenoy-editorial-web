@@ -14,7 +14,7 @@ const categoryLabel = {
 ---
 
 <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300">
-  <div class="aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 relative overflow-hidden">
+  <a href={`/publicaciones/${book.id}`} class="block aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 relative overflow-hidden" aria-label={`Ver ficha de ${book.title}`} tabindex="-1">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center px-6 py-8">
         <div class="w-12 h-1 bg-terracotta-400 mx-auto mb-4 rounded"></div>
@@ -29,13 +29,13 @@ const categoryLabel = {
         {categoryLabel[book.category]}
       </span>
     </div>
-  </div>
+  </a>
 
   <div class="p-5">
     <div class="mb-3">
-      <h3 class="font-serif font-bold text-lg text-gray-900 leading-tight mb-1 group-hover:text-terracotta-500 transition-colors">
+      <a href={`/publicaciones/${book.id}`} class="font-serif font-bold text-lg text-gray-900 leading-tight mb-1 group-hover:text-terracotta-500 transition-colors hover:underline decoration-terracotta-300">
         {book.title}
-      </h3>
+      </a>
       <p class="text-sm text-gray-500 font-medium">{book.author} &middot; {book.year}</p>
     </div>
 
@@ -55,16 +55,16 @@ const categoryLabel = {
       <span class="font-serif font-bold text-lg text-terracotta-500">
         {book.price.toFixed(2)} &euro;
       </span>
-      <button
+      <a
+        href={`/publicaciones/${book.id}`}
         class="inline-flex items-center gap-1.5 px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
-        aria-label={`Comprar ${book.title}`}
-        type="button"
+        aria-label={`Ver ficha y comprar ${book.title}`}
       >
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
-        Comprar
-      </button>
+        Ver ficha
+      </a>
     </div>
   </div>
 </article>

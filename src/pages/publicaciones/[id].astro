@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { books } from '../../data/books';
+import { authors } from '../../data/authors';
+
+export function getStaticPaths() {
+  return books.map((book) => ({
+    params: { id: book.id },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+
+// Buscar la autora cuyo bookIds incluya este libro
+const author = authors.find((a) => a.bookIds.includes(book.id));
+
+const categoryLabel: Record<string, string> = {
+  'obras-propias': 'Obra propia',
+  'colaboracion-ongs': 'Colaboración con ONG',
+};
+
+// El botón de compra solo es activo cuando Stripe esté configurado
+const hasStripe = Boolean(book.stripeButtonId);
+---
+
+<BaseLayout
+  title={`${book.title} — Editorial Lenoy`}
+  description={book.synopsis.slice(0, 155)}
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-cream-100 border-b border-cream-300 px-4 py-3" aria-label="Navegación de migas de pan">
+    <ol class="max-w-6xl mx-auto flex items-center gap-2 text-sm text-gray-500">
+      <li><a href="/" class="hover:text-terracotta-500 transition-colors">Inicio</a></li>
+      <li aria-hidden="true"><span class="mx-1">›</span></li>
+      <li><a href="/publicaciones" class="hover:text-terracotta-500 transition-colors">Publicaciones</a></li>
+      <li aria-hidden="true"><span class="mx-1">›</span></li>
+      <li class="text-gray-900 font-medium truncate max-w-[200px]" aria-current="page">{book.title}</li>
+    </ol>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12 lg:gap-16 items-start">
+
+      <!-- COLUMNA IZQUIERDA: portada -->
+      <aside class="lg:sticky lg:top-8">
+        <div class="aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 rounded-2xl overflow-hidden shadow-lg relative">
+          <div class="absolute inset-0 flex items-center justify-center p-8">
+            <div class="text-center">
+              <div class="w-12 h-1 bg-terracotta-400 mx-auto mb-4 rounded"></div>
+              <p class="font-serif text-xl font-bold text-terracotta-700 leading-tight mb-2">{book.title}</p>
+              <div class="w-8 h-0.5 bg-terracotta-300 mx-auto mb-3 rounded"></div>
+              <p class="font-sans text-xs text-terracotta-500 uppercase tracking-widest">{book.author}</p>
+              <div class="mt-6 text-xs font-mono text-terracotta-300 uppercase tracking-widest">Editorial Lenoy</div>
+            </div>
+          </div>
+          <!-- Badge de categoría -->
+          <div class="absolute top-3 left-3">
+            <span class="inline-block px-2 py-0.5 bg-forest-700/80 text-cream-100 text-xs font-medium rounded-full">
+              {categoryLabel[book.category]}
+            </span>
+          </div>
+        </div>
+
+        <!-- Precio y compra (visible solo en escritorio junto a la portada) -->
+        <div class="hidden lg:block mt-6 space-y-3">
+          <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          {hasStripe ? (
+            <a
+              href={`https://buy.stripe.com/${book.stripeButtonId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-terracotta-500 text-white font-semibold rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              Comprar esta obra
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="Pago online disponible próximamente"
+              class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-terracotta-200 text-terracotta-400 font-semibold rounded-full cursor-not-allowed opacity-70"
+            >
+              Comprar — Próximamente
+            </button>
+          )}
+          <p class="text-xs text-gray-500 text-center leading-relaxed">
+            Envío físico desde Madrid<br />
+            Plazo estimado: 3–5 días hábiles<br />
+            <a href="mailto:[PENDIENTE: email]" class="text-terracotta-500 hover:underline">Pedido por email</a>
+          </p>
+        </div>
+      </aside>
+
+      <!-- COLUMNA DERECHA: contenido -->
+      <div class="space-y-8">
+
+        <!-- Título y metadatos -->
+        <div>
+          <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-3">
+            {book.title}
+          </h1>
+          <p class="text-lg text-gray-600 font-medium mb-4">
+            {book.author} &middot; {book.year}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {book.genre.map((g) => (
+              <span class="inline-block px-3 py-1 bg-cream-200 text-gray-700 text-sm rounded-full">
+                {g}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Precio y compra (visible en móvil, bajo el título) -->
+        <div class="lg:hidden space-y-3">
+          <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          {hasStripe ? (
+            <a
+              href={`https://buy.stripe.com/${book.stripeButtonId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-terracotta-500 text-white font-semibold rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              Comprar esta obra
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="Pago online disponible próximamente"
+              class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-terracotta-200 text-terracotta-400 font-semibold rounded-full cursor-not-allowed opacity-70"
+            >
+              Comprar — Próximamente
+            </button>
+          )}
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Envío físico desde Madrid · Plazo estimado: 3–5 días hábiles ·{' '}
+            <a href="mailto:[PENDIENTE: email]" class="text-terracotta-500 hover:underline">Pedido por email</a>
+          </p>
+        </div>
+
+        <!-- Sinopsis completa -->
+        <section aria-labelledby="sinopsis-heading">
+          <h2 id="sinopsis-heading" class="font-serif text-2xl font-bold text-gray-900 mb-3">Sinopsis</h2>
+          <p class="text-gray-700 leading-relaxed text-lg">{book.synopsis}</p>
+        </section>
+
+        <!-- Sección ONG (solo para libros de colaboración) -->
+        {book.category === 'colaboracion-ongs' && (
+          <section class="bg-forest-700 rounded-2xl p-6 text-cream-100" aria-labelledby="ong-heading">
+            <h2 id="ong-heading" class="font-serif text-xl font-bold mb-2">Proyecto solidario</h2>
+            <p class="text-cream-300 leading-relaxed text-sm">
+              Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro de Guinea Ecuatorial. Una parte de los beneficios se destina al proyecto origen.
+              [PENDIENTE: descripción específica de la ONG y el proyecto — Andrea]
+            </p>
+          </section>
+        )}
+
+        <!-- Sobre la autora -->
+        {author && (
+          <section class="border-t border-cream-300 pt-8" aria-labelledby="autora-heading">
+            <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 mb-5">Sobre la autora</h2>
+            <div class="flex items-start gap-5">
+              <!-- Avatar placeholder -->
+              <div
+                class="flex-shrink-0 w-16 h-16 rounded-full bg-terracotta-100 flex items-center justify-center text-terracotta-500 font-serif font-bold text-2xl"
+                aria-hidden="true"
+              >
+                {author.name.charAt(0)}
+              </div>
+              <div class="space-y-2">
+                <div>
+                  <p class="font-semibold text-gray-900">{author.name}</p>
+                  <p class="text-sm text-gray-500">{author.origin}</p>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-sm">{author.bio}</p>
+                {author.socialLinks && (
+                  <div class="flex gap-3 pt-1">
+                    {author.socialLinks.instagram && (
+                      <a
+                        href={author.socialLinks.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-terracotta-500 hover:text-terracotta-700 transition-colors font-medium"
+                        aria-label={`Instagram de ${author.name}`}
+                      >
+                        Instagram →
+                      </a>
+                    )}
+                    {author.socialLinks.twitter && (
+                      <a
+                        href={author.socialLinks.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-terracotta-500 hover:text-terracotta-700 transition-colors font-medium"
+                        aria-label={`Twitter de ${author.name}`}
+                      >
+                        Twitter →
+                      </a>
+                    )}
+                    {author.socialLinks.web && (
+                      <a
+                        href={author.socialLinks.web}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-terracotta-500 hover:text-terracotta-700 transition-colors font-medium"
+                        aria-label={`Web de ${author.name}`}
+                      >
+                        Web →
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <!-- Navegación: volver al listado -->
+        <div class="border-t border-cream-300 pt-8">
+          <a
+            href="/publicaciones"
+            class="inline-flex items-center gap-2 text-terracotta-500 font-medium hover:text-terracotta-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Ver todas las publicaciones
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>
