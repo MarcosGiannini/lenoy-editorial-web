@@ -38,6 +38,18 @@ const siteTitle = title === 'Inicio' ? 'Editorial Lenoy' : `${title} — Editori
     <title>{siteTitle}</title>
   </head>
   <body class="bg-cream-100 text-gray-900 font-sans antialiased">
+    <!-- Redirección post-login de Netlify Identity hacia el panel /admin -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
     <Navbar />
     <main id="main-content">
       <slot />

@@ -1,0 +1,138 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Idioma del panel
+locale: es
+
+# Carpeta donde se suben las imágenes (portadas, fotos de autoras, imágenes de blog)
+media_folder: public/images
+public_folder: /images
+
+# ─────────────────────────────────────────────
+# COLECCIONES
+# ─────────────────────────────────────────────
+
+collections:
+
+  # ── LIBROS ──────────────────────────────────
+  - name: books
+    label: "📚 Libros"
+    label_singular: "Libro"
+    folder: src/content/books
+    create: true
+    delete: true
+    format: json
+    extension: json
+    identifier_field: title
+    slug: "{{slug}}"
+    media_folder: /public/images/books
+    public_folder: /images/books
+    summary: "{{title}} — {{author}} ({{year}})"
+    fields:
+      - { label: "Título", name: title, widget: string }
+      - { label: "Autora", name: author, widget: string }
+      - { label: "Sinopsis", name: synopsis, widget: text }
+      - label: "Portada"
+        name: cover
+        widget: image
+        required: false
+        hint: "Imagen JPG o PNG, mínimo 600×900 px"
+      - { label: "Año de publicación", name: year, widget: number, value_type: int, min: 2000, max: 2030 }
+      - label: "Categoría"
+        name: category
+        widget: select
+        options:
+          - { label: "Obra propia", value: "obras-propias" }
+          - { label: "Colaboración con ONG", value: "colaboracion-ongs" }
+      - label: "Géneros"
+        name: genre
+        widget: list
+        hint: "Añade los géneros uno a uno (ej: Feminismo, LGTB+, Poesía)"
+        field: { label: "Género", name: genre, widget: string }
+      - { label: "Precio (€)", name: price, widget: number, value_type: float, min: 0, step: 0.01 }
+      - label: "Enlace de pago Stripe"
+        name: stripeButtonId
+        widget: string
+        required: false
+        hint: "El código que aparece al final de la URL de Stripe Payment Link (ej: abc123xyz)"
+      - label: "Destacado del mes"
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+        hint: "Si está activado, este libro aparece en el hero de la portada"
+
+  # ── AUTORAS ─────────────────────────────────
+  - name: authors
+    label: "✍️ Autoras"
+    label_singular: "Autora"
+    folder: src/content/authors
+    create: true
+    delete: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: "{{slug}}"
+    media_folder: /public/images/authors
+    public_folder: /images/authors
+    summary: "{{name}} — {{origin}}"
+    fields:
+      - { label: "Nombre completo", name: name, widget: string }
+      - { label: "Biografía", name: bio, widget: text, hint: "Breve bio de la autora (2-4 frases)" }
+      - label: "Foto"
+        name: photo
+        widget: image
+        required: false
+        hint: "Foto de perfil de la autora (formato cuadrado recomendado)"
+      - { label: "Ciudad de origen", name: origin, widget: string, hint: "Ej: Malabo, Guinea Ecuatorial" }
+      - label: "IDs de sus libros"
+        name: bookIds
+        widget: list
+        hint: "Escribe el ID (slug) de cada libro que ha publicado con la editorial"
+        field: { label: "ID del libro", name: bookId, widget: string }
+      - label: "Redes sociales"
+        name: socialLinks
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Twitter / X", name: twitter, widget: string, required: false }
+          - { label: "Instagram", name: instagram, widget: string, required: false }
+          - { label: "Web personal", name: web, widget: string, required: false }
+
+  # ── BLOG ────────────────────────────────────
+  - name: blog
+    label: "📝 Blog"
+    label_singular: "Artículo"
+    folder: src/content/blog
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    slug: "{{slug}}"
+    media_folder: /public/images/blog
+    public_folder: /images/blog
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Título", name: title, widget: string }
+      - { label: "Extracto", name: excerpt, widget: text, hint: "Resumen breve (2-3 frases) que aparece en la lista del blog" }
+      - label: "Fecha de publicación"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+      - { label: "Autora", name: author, widget: string, hint: "Nombre de quien escribe el artículo" }
+      - { label: "Categoría", name: category, widget: string, hint: "Ej: Literatura, Feminismo, Eventos" }
+      - label: "Etiquetas"
+        name: tags
+        widget: list
+        hint: "Añade etiquetas una a una"
+        field: { label: "Etiqueta", name: tag, widget: string }
+      - label: "Imagen de portada"
+        name: coverImage
+        widget: image
+        required: false
+      - { label: "Contenido del artículo", name: body, widget: markdown }
