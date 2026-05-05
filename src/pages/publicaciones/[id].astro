@@ -33,13 +33,13 @@ const hasStripe = Boolean(book.stripeButtonId);
   description={book.synopsis.slice(0, 155)}
 >
   <!-- Breadcrumb -->
-  <nav class="bg-cream-100 border-b border-cream-300 px-4 py-3" aria-label="Navegación de migas de pan">
-    <ol class="max-w-6xl mx-auto flex items-center gap-2 text-sm text-gray-500">
+  <nav class="bg-cream-100 dark:bg-[#1a1510] border-b border-cream-300 dark:border-gray-700 px-4 py-3" aria-label="Navegación de migas de pan">
+    <ol class="max-w-6xl mx-auto flex items-center gap-2 text-sm text-gray-500 dark:text-cream-400">
       <li><a href="/" class="hover:text-terracotta-500 transition-colors">Inicio</a></li>
       <li aria-hidden="true"><span class="mx-1">›</span></li>
       <li><a href="/publicaciones" class="hover:text-terracotta-500 transition-colors">Publicaciones</a></li>
       <li aria-hidden="true"><span class="mx-1">›</span></li>
-      <li class="text-gray-900 font-medium truncate max-w-[200px]" aria-current="page">{book.title}</li>
+      <li class="text-gray-900 dark:text-cream-100 font-medium truncate max-w-[200px]" aria-current="page">{book.title}</li>
     </ol>
   </nav>
 
@@ -92,7 +92,7 @@ const hasStripe = Boolean(book.stripeButtonId);
               Comprar — Próximamente
             </button>
           )}
-          <p class="text-xs text-gray-500 text-center leading-relaxed">
+          <p class="text-xs text-gray-500 dark:text-cream-400 text-center leading-relaxed">
             Envío físico desde Madrid<br />
             Plazo estimado: 3–5 días hábiles<br />
             <a href="mailto:[PENDIENTE: email]" class="text-terracotta-500 hover:underline">Pedido por email</a>
@@ -105,15 +105,15 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Título y metadatos -->
         <div>
-          <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-3">
+          <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 dark:text-cream-100 leading-tight mb-3">
             {book.title}
           </h1>
-          <p class="text-lg text-gray-600 font-medium mb-4">
+          <p class="text-lg text-gray-600 dark:text-cream-300 font-medium mb-4">
             {book.author} &middot; {book.year}
           </p>
           <div class="flex flex-wrap gap-2">
             {book.genre.map((g) => (
-              <span class="inline-block px-3 py-1 bg-cream-200 text-gray-700 text-sm rounded-full">
+              <span class="inline-block px-3 py-1 bg-cream-200 dark:bg-gray-700 text-gray-700 dark:text-cream-200 text-sm rounded-full">
                 {g}
               </span>
             ))}
@@ -146,7 +146,7 @@ const hasStripe = Boolean(book.stripeButtonId);
               Comprar — Próximamente
             </button>
           )}
-          <p class="text-xs text-gray-500 leading-relaxed">
+          <p class="text-xs text-gray-500 dark:text-cream-400 leading-relaxed">
             Envío físico desde Madrid · Plazo estimado: 3–5 días hábiles ·{' '}
             <a href="mailto:[PENDIENTE: email]" class="text-terracotta-500 hover:underline">Pedido por email</a>
           </p>
@@ -154,8 +154,8 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Sinopsis completa -->
         <section aria-labelledby="sinopsis-heading">
-          <h2 id="sinopsis-heading" class="font-serif text-2xl font-bold text-gray-900 mb-3">Sinopsis</h2>
-          <p class="text-gray-700 leading-relaxed text-lg">{book.synopsis}</p>
+          <h2 id="sinopsis-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-3">Sinopsis</h2>
+          <p class="text-gray-700 dark:text-cream-300 leading-relaxed text-lg">{book.synopsis}</p>
         </section>
 
         <!-- Sección ONG (solo para libros de colaboración) -->
@@ -171,8 +171,8 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Sobre la autora -->
         {author && (
-          <section class="border-t border-cream-300 pt-8" aria-labelledby="autora-heading">
-            <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 mb-5">Sobre la autora</h2>
+          <section class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="autora-heading">
+            <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-5">Sobre la autora</h2>
             <div class="flex items-start gap-5">
               <!-- Avatar placeholder -->
               <div
@@ -183,10 +183,10 @@ const hasStripe = Boolean(book.stripeButtonId);
               </div>
               <div class="space-y-2">
                 <div>
-                  <p class="font-semibold text-gray-900">{author.name}</p>
-                  <p class="text-sm text-gray-500">{author.origin}</p>
+                  <p class="font-semibold text-gray-900 dark:text-cream-100">{author.name}</p>
+                  <p class="text-sm text-gray-500 dark:text-cream-400">{author.origin}</p>
                 </div>
-                <p class="text-gray-600 leading-relaxed text-sm">{author.bio}</p>
+                <p class="text-gray-600 dark:text-cream-300 leading-relaxed text-sm">{author.bio}</p>
                 {author.socialLinks && (
                   <div class="flex gap-3 pt-1">
                     {author.socialLinks.instagram && (
@@ -230,7 +230,7 @@ const hasStripe = Boolean(book.stripeButtonId);
         )}
 
         <!-- Navegación: volver al listado -->
-        <div class="border-t border-cream-300 pt-8">
+        <div class="border-t border-cream-300 dark:border-gray-700 pt-8">
           <a
             href="/publicaciones"
             class="inline-flex items-center gap-2 text-terracotta-500 font-medium hover:text-terracotta-700 transition-colors"
