@@ -53,8 +53,12 @@ Antes de escribir una sola línea de código, debes escribir en el chat:
 🌿 Rama creada: `paso-X.X-nombre`
 Empezando el trabajo...
 ```
-Esto permite a Marcos ver claramente que el protocolo Git se está siguiendo.
-Si se omite este mensaje, Marcos puede y debe reclamar el incumplimiento.
+Y al terminar el paso, antes del bloque de verificación, debes escribir:
+```
+✅ Merge completado: `paso-X.X-nombre` → main. Rama borrada.
+```
+Esto permite a Marcos ver claramente que el protocolo Git se está siguiendo, tanto al inicio como al cierre.
+Si se omite cualquiera de estos dos mensajes, Marcos puede y debe reclamar el incumplimiento.
 
 ### Regla 5 — No añadir nada que no esté en el ROADMAP
 Si se te ocurre algo "mientras tanto" que no está en el roadmap, díselo a Marcos y añádelo al ROADMAP en la fase que corresponda. No lo implementes por tu cuenta.
