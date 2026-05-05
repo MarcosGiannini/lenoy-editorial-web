@@ -67,10 +67,27 @@ Al terminar cualquier cambio de código, SIEMPRE debes proporcionar a Marcos una
 ### Qué NO debe pasar (señales de error):
 - ❌ Descripción de lo que sería un error
 
+### 📸 Mándame un pantallazo de:
+- [descripción exacta de qué zona de la pantalla capturar]
+- Ejemplo: "el menú de navegación completo en escritorio" o "el error en rojo de la consola"
+
 ### Si algo falla:
-→ Dime exactamente qué ves y te digo cómo arreglarlo.
+→ Mándame el pantallazo + dime qué esperabas ver. Lo diagnostico en segundos.
 ---
 ```
+
+**Por qué los pantallazos son útiles:** Una imagen muestra en un segundo lo que 10 mensajes de texto no pueden describir con precisión. Especialmente para problemas de layout, colores, errores de consola o comportamiento inesperado.
+
+**Cuándo pedirlos siempre:**
+- Al verificar cambios visuales (navbar, footer, páginas nuevas)
+- Cuando hay un error que Marcos no sabe describir con palabras
+- Al comprobar responsive (pantallazo en móvil simulado)
+- Cuando el build falla y hay un mensaje de error en la terminal
+
+**Cómo hacer el pantallazo en Codespaces:**
+- Captura de pantalla normal del navegador (Win: `Win+Shift+S` / Mac: `Cmd+Shift+4`)
+- Para errores de consola: `F12` → pestaña "Console" → captura esa zona
+- Para responsive: `F12` → icono de móvil arriba izquierda → elige el dispositivo → captura
 
 Nunca termines un paso sin esta sección. Sin ella, Marcos no puede verificar si el trabajo está bien hecho.
 

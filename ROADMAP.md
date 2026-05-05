@@ -459,9 +459,21 @@
 - **Estado:** ⬜ No iniciado — post-lanzamiento
 - Tiempo de lectura estimado, artículos relacionados, tags navegables.
 
+### Paso 9.4 — Mejoras del blog
+- **Estado:** ⬜ No iniciado — post-lanzamiento
+- Tiempo de lectura estimado, artículos relacionados, tags navegables.
+
 ### Paso 9.5 — Optimización de imágenes con CDN
 - **Estado:** ⬜ No iniciado — si las portadas son muchas y pesadas
 - Cloudinary o Imgix para transformación automática de imágenes. Gratis hasta cierto volumen.
+
+### Paso 9.6 — Revisión y actualización del README
+- **Estado:** ⬜ No iniciado
+- **Cuándo:** El README se revisa en dos momentos concretos:
+  1. **Antes del primer deploy público** (Fase 8): actualizar badges de estado, añadir la URL real de producción, actualizar capturas de pantalla si las hay.
+  2. **Cuando cambie algo estructural**: si cambia el stack, se añade una dependencia importante, o cambia la forma de hacer deploy.
+- **Qué revisar:** URL de producción, estado del proyecto (WIP → Live), instrucciones de instalación, créditos, licencia.
+- **Nota:** El README está orientado a desarrolladores que quieran contribuir o entender el proyecto. No es para Andrea ni para los lectores de la editorial.
 
 ---
 
