@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #4. Paso 1.3 completado: página 404 personalizada.**
+> Última actualización: **5 mayo 2026 — Sesión #4. Paso 2.1 completado: datos migrados a Astro Content Collections.**
 
 ---
 
@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **1.3** — Página 404 personalizada (5 mayo 2026) |
-| **Siguiente paso** | **2.1** — Migrar datos a Astro Content Collections |
+| **Último paso completado** | **2.1** — Migrar datos a Astro Content Collections (5 mayo 2026) |
+| **Siguiente paso** | **2.2** — Instalar y configurar Decap CMS |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -156,15 +156,17 @@
 
 ### Paso 2.1 — Migrar datos a Astro Content Collections
 - **Rama:** `paso-2.1-content-collections`
-- **Estado:** ⬜ No iniciado
-- **Por qué primero:** Decap CMS trabaja con archivos `.md`/`.json`, no con archivos `.ts`. Hay que migrar la forma en que se almacenan los datos antes de instalar el CMS.
-- **Qué cambia:**
-  - `src/data/books.ts` → `src/content/books/[id].json` (uno por libro)
-  - `src/data/authors.ts` → `src/content/authors/[id].json` (uno por autora)
-  - `src/data/posts.ts` → `src/content/blog/[slug].md` (uno por post)
-  - Definir schemas con Zod en `src/content/config.ts`
-- **Qué NO cambia:** El diseño visual, las páginas, los componentes. Solo cambia dónde viven los datos.
-- **Test:** El build debe pasar sin errores. Todas las páginas deben mostrar el mismo contenido que antes.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `src/content/config.ts`: schemas Zod para `books` (type:data), `authors` (type:data) y `blog` (type:content)
+  - `src/content/books/`: 5 archivos JSON (uno por libro)
+  - `src/content/authors/`: 3 archivos JSON (uno por autora)
+  - `src/content/blog/`: 3 archivos Markdown (uno por post, frontmatter + cuerpo)
+  - `src/data/books.ts`, `src/data/authors.ts`, `src/data/posts.ts`: eliminados
+  - 6 páginas actualizadas para usar `getCollection()` de `astro:content`
+  - 3 componentes actualizados (interfaces inline en lugar de imports de data files)
+  - `sharp` instalado como dependencia (requerida por Astro para el build en este entorno)
+- **Build:** ✅ 17 páginas, 0 errores
 
 ### Paso 2.2 — Instalar y configurar Decap CMS
 - **Rama:** `paso-2.2-decap-cms`
