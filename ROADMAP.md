@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #4. Paso 2.2 completado: Decap CMS instalado.**
+> Última actualización: **5 mayo 2026 — Sesión #4. Fase 2 completa: CMS instalado y guia redactada.**
 
 ---
 
@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **2.2** — Decap CMS instalado y configurado (5 mayo 2026) |
-| **Siguiente paso** | **2.3** — Guía de uso y onboarding con Andrea y Melibea |
+| **Último paso completado** | **2.3** — Guía de onboarding redactada (5 mayo 2026) |
+| **Siguiente paso** | **3.1** — Modo oscuro / claro |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -179,16 +179,11 @@
 - **Build:** ✅ 17 páginas, 0 errores
 
 ### Paso 2.3 — Guía de uso y sesión de onboarding con Andrea y Melibea
-- **Rama:** incluido en `paso-2.2`
-- **Estado:** ⬜ No iniciado
-- **Qué es:** Un documento `GUIA-CMS.md` en el repo con capturas de pantalla y pasos numerados: "Cómo añadir un libro nuevo", "Cómo publicar una noticia", "Cómo subir una foto de autora". Sin términos técnicos.
-- **Sesión de onboarding:** Una videollamada o encuentro con Andrea y Melibea donde Marcos les enseña a:
-  1. Entrar al panel `/admin` con su cuenta de GitHub
-  2. Añadir un libro nuevo (título, sinopsis, precio, portada)
-  3. Escribir y publicar un artículo de blog
-  4. Editar el contenido existente (textos `[PENDIENTE]`)
-- **A partir de aquí:** Andrea y Melibea pueden hacer toda la "mudanza" de contenido de forma autónoma.
-- **Formato guía:** Sencillo, sin términos técnicos. Para alguien que nunca ha usado un CMS.
+- **Rama:** `paso-2.3-guia-cms`
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `GUIA-CMS.md`: documento completo sin tecnicismos con instrucciones para añadir libros, editar autoras, escribir posts, subir imágenes y preguntas frecuentes. Tablas con ejemplos para cada campo.
+- **⏳ Pendiente (depende del deploy):** Sesión de onboarding en persona con Andrea y Melibea en Madrid (verano 2026). Entonces les enseñamos a entrar y hacen la mudanza de contenido.
 
 ---
 
