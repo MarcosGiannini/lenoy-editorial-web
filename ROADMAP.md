@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #3. Estrategia de contenidos actualizada: Andrea rellena al final.**
+> Última actualización: **5 mayo 2026 — Sesión #4. Paso 1.3 completado: página 404 personalizada.**
 
 ---
 
@@ -59,10 +59,10 @@
 | Categoría | Estado |
 |---|---|
 | **Rama activa** | `main` |
-| **Build** | ✅ Funciona, 15 páginas estáticas, sin errores |
+| **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **1.2** — Formulario Netlify Forms funcional (5 mayo 2026) |
-| **Siguiente paso** | **1.3** — Página 404 personalizada |
+| **Último paso completado** | **1.3** — Página 404 personalizada (5 mayo 2026) |
+| **Siguiente paso** | **2.1** — Migrar datos a Astro Content Collections |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -133,11 +133,10 @@
 
 ### Paso 1.3 — Página 404 personalizada
 - **Rama:** `paso-1.3-pagina-404`
-- **Estado:** ⬜ No iniciado
-- **Por qué:** Si alguien escribe mal una URL, ve ahora mismo un error genérico del servidor. Una 404 propia mantiene el diseño y propone alternativas.
-- **Archivo:** `src/pages/404.astro`
-- **Contenido:** Título con humor, hero en forest-700, botones a Inicio y Publicaciones.
-- **Test:** Visitar `http://localhost:4321/url-que-no-existe` → debe mostrar la página 404 de Lenoy.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `src/pages/404.astro`: página de error 404 con diseño Editorial Lenoy. Número 404 decorativo en terracotta-100, icono de libro con fondo forest-100, título serif "Esta página no está en el catálogo", dos CTAs (Ver publicaciones → terracotta, Volver al inicio → borde gris). Fondo con círculos difuminados igual que el hero del home.
+- **Build:** ✅ 17 páginas, 0 errores
 
 ### ~~Paso 1.4 — Rellenar contenido de páginas base~~
 > ⏸️ **BLOQUEADO — Esperando mudanza de Andrea**
