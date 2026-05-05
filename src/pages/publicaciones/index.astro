@@ -5,13 +5,14 @@ import AuthorCard from '../../components/AuthorCard.astro';
 import { getBooksByCategory } from '../../data/books';
 import { authors } from '../../data/authors';
 
+
 const obrasPropias = getBooksByCategory('obras-propias');
 const colaboracionOngs = getBooksByCategory('colaboracion-ongs');
 ---
 
 <BaseLayout
-  title="Catálogo"
-  description="Descubre todas las publicaciones de Editorial Lenoy: obras propias y colaboraciones con ONGs de literatura feminista y LGTB de Guinea Ecuatorial."
+  title="Publicaciones"
+  description="Descubre todas las publicaciones de Editorial Lenoy: obras propias y colaboraciones con ONGs de literatura feminista y LGTB+ de Guinea Ecuatorial."
 >
   <section class="bg-forest-700 py-16 px-4" aria-labelledby="catalog-heading">
     <div class="max-w-6xl mx-auto text-center">

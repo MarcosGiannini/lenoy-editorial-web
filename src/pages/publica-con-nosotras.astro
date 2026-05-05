@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Publica con nosotras"
+  description="¿Tienes una obra que quieres publicar? Conoce el proceso editorial de Lenoy y envíanos tu propuesta. Publicamos literatura feminista y LGTB+ con perspectiva afroguineana."
+>
+  <section class="bg-forest-700 py-16 px-4" aria-labelledby="publica-heading">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-forest-300 font-medium text-sm uppercase tracking-widest mb-4">Convocatoria abierta</p>
+      <h1 id="publica-heading" class="font-serif text-5xl font-bold text-cream-100 mb-6">
+        Publica con nosotras
+      </h1>
+      <p class="text-cream-300 max-w-2xl mx-auto leading-relaxed text-lg">
+        Si tu obra tiene algo que decir desde una mirada feminista, LGTB+ o afroguineana, queremos leerla.
+      </p>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-4 py-20">
+    <div class="space-y-16">
+      <div class="space-y-4">
+        <h2 class="font-serif text-3xl font-bold text-gray-900">Qué tipo de obras publicamos</h2>
+        <p class="text-gray-600 leading-relaxed text-lg">[PENDIENTE: texto de Andrea sobre géneros, temáticas y requisitos editoriales]</p>
+      </div>
+
+      <div class="space-y-6">
+        <h2 class="font-serif text-3xl font-bold text-gray-900">Cómo es el proceso</h2>
+        <ol class="space-y-6">
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">1</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Envía tu manuscrito</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">[PENDIENTE: instrucciones de formato, extensión, etc.]</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">2</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Revisión editorial</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">[PENDIENTE: plazo de respuesta y criterios de selección]</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">3</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Propuesta de contrato</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">[PENDIENTE: condiciones generales, derechos, royalties]</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">4</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Proceso de edición y publicación</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">[PENDIENTE: descripción del proceso de edición colaborativo]</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="bg-cream-100 rounded-2xl p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-bold text-gray-900">Envíanos tu propuesta</h2>
+        <p class="text-gray-600">[PENDIENTE: este formulario se activará cuando configuremos Netlify Forms o Formspree]</p>
+        <form
+          action="https://formspree.io/f/[PENDIENTE-ID]"
+          method="POST"
+          class="space-y-4"
+          aria-label="Formulario de propuesta editorial"
+          novalidate
+        >
+          <!-- Campo honeypot anti-spam: no debe ser rellenado por humanos -->
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                autocomplete="given-name"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-400"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-400"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="titulo" class="block text-sm font-medium text-gray-700 mb-1">Título de la obra *</label>
+            <input
+              type="text"
+              id="titulo"
+              name="titulo"
+              required
+              class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-400"
+            />
+          </div>
+
+          <div>
+            <label for="sinopsis" class="block text-sm font-medium text-gray-700 mb-1">Sinopsis breve *</label>
+            <textarea
+              id="sinopsis"
+              name="sinopsis"
+              rows="5"
+              required
+              class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-400 resize-y"
+              placeholder="Máximo 300 palabras"
+            ></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="privacidad"
+              name="privacidad"
+              required
+              class="mt-1 h-4 w-4 rounded border-gray-300 text-terracotta-500 focus:ring-terracotta-400"
+            />
+            <label for="privacidad" class="text-sm text-gray-600">
+              He leído y acepto la <a href="/que-es-lenoy#privacidad" class="text-terracotta-500 underline hover:text-terracotta-700">política de privacidad</a> * [PENDIENTE: añadir enlace real cuando se redacte el aviso legal]
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-terracotta-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-400 focus:ring-offset-2"
+          >
+            Enviar propuesta
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

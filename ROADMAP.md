@@ -45,8 +45,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, sitio estático, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **0.1** — Navbar reorganizado a 5 secciones (5 mayo 2026) |
-| **Siguiente paso** | **0.2** — Crear páginas vacías con estructura base |
+| **Último paso completado** | **0.2** — Páginas base de las 5 secciones (5 mayo 2026) |
+| **Siguiente paso** | **1.1** — Ficha individual de libro `/publicaciones/[id].astro` |
 | **Bloqueantes externos** | Portadas reales (Andrea) · Cuenta Stripe (Andrea+Melibea) · Dominio (pendiente) |
 
 ---
@@ -74,15 +74,17 @@
 
 ### Paso 0.2 — Crear páginas vacías con estructura base
 - **Rama:** `paso-0.2-paginas-base-vacias`
-- **Estado:** ⬜ No iniciado
-- **Qué hace:** Crea cada página nueva con hero básico y placeholder de contenido, para que los links del navbar no rompan.
-  - `src/pages/que-es-lenoy.astro`
-  - `src/pages/editorial-lenoy.astro`
-  - `src/pages/publicaciones/index.astro` (mover/renombrar catalog)
-  - `src/pages/publica-con-nosotras.astro`
-  - `src/pages/donde-comprar.astro`
-- **Archivos a tocar:** Nuevas páginas + posiblemente `catalog/index.astro` → `publicaciones/index.astro`
-- **Test manual:** Hacer clic en cada link del Navbar. Debe cargar sin errores.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `src/pages/que-es-lenoy.astro`: hero forest-700, secciones quiénes somos / objetivos / trayectoria / equipo (Andrea + Melibea)
+  - `src/pages/editorial-lenoy.astro`: hero terracotta-500, secciones línea editorial / misión-visión-valores / prensa
+  - `src/pages/publicaciones/index.astro`: movida desde `catalog/index.astro`, SEO actualizado, anclas #obras-propias #colaboracion-ongs #autoras
+  - `src/pages/publica-con-nosotras.astro`: hero forest-700, proceso 4 pasos, formulario honeypotat + privacidad, honeypot anti-spam
+  - `src/pages/donde-comprar.astro`: hero terracotta-500, grid de libros con botones disabled (pending Stripe), info envío, link a /blog
+  - `src/pages/catalog/` eliminado
+  - `src/pages/index.astro`: 2 refs `/catalog` → `/publicaciones`
+- **Build:** ✅ 10 páginas, 0 errores
+- **Todos los textos:** `[PENDIENTE]` — a rellenar por Andrea
 
 ---
 
