@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 15 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **1.1** — Ficha individual de libro (5 mayo 2026) |
-| **Siguiente paso** | **1.2** — Conectar formulario de contacto (Netlify Forms) |
+| **Último paso completado** | **1.2** — Formulario Netlify Forms funcional (5 mayo 2026) |
+| **Siguiente paso** | **1.3** — Página 404 personalizada |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -124,14 +124,12 @@
 
 ### Paso 1.2 — Formulario de contacto funcional (Netlify Forms)
 - **Rama:** `paso-1.2-formulario-netlify`
-- **Estado:** ⬜ No iniciado
-- **Por qué es el siguiente:** No depende de contenido de Andrea. El formulario de "Publica con nosotras" ya tiene la estructura HTML — solo hay que conectarlo a Netlify Forms para que los mensajes lleguen al email de la editorial.
-- **Qué incluye:**
-  - Añadir atributos `netlify` y `netlify-honeypot` al form de `publica-con-nosotras.astro`
-  - Página de confirmación tipo "Gracias por tu propuesta" (`/gracias.astro`)
-  - Probar que el mensaje llega al email configurado en Netlify
-- **Sin backend. Sin código de servidor. Solo HTML.**
-- **Test:** Enviar el formulario en la URL de deploy → verificar que llega el email.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `publica-con-nosotras.astro`: form migrado de Formspree a Netlify Forms. Atributos `name="propuesta-editorial"`, `data-netlify="true"`, `netlify-honeypot="bot-field"`, `action="/gracias"`. Campo oculto `form-name` requerido por Netlify. Honeypot renombrado a `bot-field` (estándar Netlify).
+  - `src/pages/gracias.astro`: página de confirmación post-envío con icono ✓, mensaje amable, botones a `/publicaciones` y `/`
+- **Cómo activarlo en producción:** En el panel de Netlify → Forms, aparecerá `propuesta-editorial` automáticamente tras el primer deploy. Configurar el email de notificación en `Settings → Forms → Email notifications`.
+- **Build:** ✅ 16 páginas, 0 errores
 
 ### Paso 1.3 — Página 404 personalizada
 - **Rama:** `paso-1.3-pagina-404`

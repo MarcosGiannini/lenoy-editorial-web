@@ -61,16 +61,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="bg-cream-100 rounded-2xl p-8 space-y-6">
         <h2 class="font-serif text-2xl font-bold text-gray-900">Envíanos tu propuesta</h2>
-        <p class="text-gray-600">[PENDIENTE: este formulario se activará cuando configuremos Netlify Forms o Formspree]</p>
         <form
-          action="https://formspree.io/f/[PENDIENTE-ID]"
+          name="propuesta-editorial"
           method="POST"
+          action="/gracias"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
           class="space-y-4"
           aria-label="Formulario de propuesta editorial"
           novalidate
         >
-          <!-- Campo honeypot anti-spam: no debe ser rellenado por humanos -->
-          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <!-- Campos ocultos requeridos por Netlify Forms -->
+          <input type="hidden" name="form-name" value="propuesta-editorial" />
+          <!-- Campo honeypot anti-spam: Netlify descarta el envío si viene relleno -->
+          <p class="hidden" aria-hidden="true">
+            <label>No rellenar: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
