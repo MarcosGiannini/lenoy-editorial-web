@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **2.3** — Guía de onboarding redactada (5 mayo 2026) |
-| **Siguiente paso** | **3.1** — Modo oscuro / claro |
+| **Último paso completado** | **3.1** — Modo oscuro / claro (5 mayo 2026) |
+| **Siguiente paso** | **3.2** — Guiños visuales LGTB+ y feministas |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
