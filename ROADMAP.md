@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #4. Paso 2.1 completado: datos migrados a Astro Content Collections.**
+> Última actualización: **5 mayo 2026 — Sesión #4. Paso 2.2 completado: Decap CMS instalado.**
 
 ---
 
@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **2.1** — Migrar datos a Astro Content Collections (5 mayo 2026) |
-| **Siguiente paso** | **2.2** — Instalar y configurar Decap CMS |
+| **Último paso completado** | **2.2** — Decap CMS instalado y configurado (5 mayo 2026) |
+| **Siguiente paso** | **2.3** — Guía de uso y onboarding con Andrea y Melibea |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -170,13 +170,13 @@
 
 ### Paso 2.2 — Instalar y configurar Decap CMS
 - **Rama:** `paso-2.2-decap-cms`
-- **Estado:** ⬜ No iniciado
-- **Qué instala:**
-  - `public/admin/index.html` — panel de administración accesible en `/admin`
-  - `public/admin/config.yml` — define los formularios para libros, autoras, posts
-  - Autenticación: GitHub OAuth (ellas se loguean con la cuenta de GitHub del proyecto)
-- **Campos del formulario de libro:** título, autora, sinopsis, año, categoría, géneros, precio, stripe link, portada (upload), destacado sí/no
-- **Test:** Entrar a `/admin`, logarse, editar un libro, verificar que se genera un commit en GitHub.
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `public/admin/index.html`: panel cargado desde CDN (sin npm). Decap CMS v3 + Netlify Identity widget. `noindex, nofollow` para que Google no lo indexe.
+  - `public/admin/config.yml`: 3 colecciones en español. Libros (JSON, 10 campos), Autoras (JSON, 6 campos), Blog (Markdown + body). Media folders por colección.
+  - `src/layouts/BaseLayout.astro`: script de redirección post-login (no-op hasta que Netlify Identity esté activo).
+- **⚠️ El login NO funciona hasta el Paso 8.1:** Netlify Identity se activa al hacer deploy en Netlify y configurar Git Gateway.
+- **Build:** ✅ 17 páginas, 0 errores
 
 ### Paso 2.3 — Guía de uso y sesión de onboarding con Andrea y Melibea
 - **Rama:** incluido en `paso-2.2`
