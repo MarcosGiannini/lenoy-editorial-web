@@ -139,7 +139,11 @@ const currentPath = Astro.url.pathname;
 
   // Toggle dark mode (desktop + móvil)
   function applyTheme(dark: boolean) {
-    document.documentElement.classList.toggle('dark', dark);
+    if (dark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     localStorage.setItem('lenoy-theme', dark ? 'dark' : 'light');
 
     // Iconos desktop
