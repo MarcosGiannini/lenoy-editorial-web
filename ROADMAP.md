@@ -61,7 +61,7 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **3.1** — Modo oscuro / claro (5 mayo 2026) |
+| **Último paso completado** | **3.1** — Modo oscuro / claro + auditoría dark mode completa (5 mayo 2026) |
 | **Siguiente paso** | **3.2** — Guiños visuales LGTB+ y feministas |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
@@ -193,14 +193,24 @@
 
 ### Paso 3.1 — Modo oscuro / claro
 - **Rama:** `paso-3.1-modo-oscuro`
-- **Estado:** ⬜ No iniciado
-- **Cómo funciona en Tailwind:** Se activa `darkMode: 'class'` en `tailwind.config.mjs`. Se añade la clase `dark` al `<html>` cuando el usuario elige oscuro.
-- **Lo que incluye:**
-  - Toggle accesible (botón con icono sol/luna) en el Navbar
-  - Respeta la preferencia del sistema operativo (`prefers-color-scheme: dark`) por defecto
-  - Guarda la preferencia en `localStorage` para que se recuerde entre visitas
-  - Paleta oscura: fondo `#1a1510` (marrón muy oscuro, no negro puro), textos cream, acentos terracotta y forest se mantienen
-- **Accesibilidad:** El toggle debe tener `aria-label` descriptivo ("Activar modo oscuro" / "Activar modo claro").
+- **Estado:** ✅ Completado (5 mayo 2026)
+- **Qué se hizo:**
+  - `tailwind.config.mjs`: `darkMode: 'class'` activado
+  - `BaseLayout.astro`: script inline anti-parpadeo (lee `localStorage` o `prefers-color-scheme` antes de renderizar). Body con `dark:bg-[#1a1510]`
+  - `Navbar.astro`: toggle sol/luna en desktop y móvil, `aria-label` dinámico, persiste en `localStorage`
+  - `BookCard`, `AuthorCard`, `BlogPostCard`: fondos, textos y bordes con variantes `dark:`
+  - `index.astro`, `publicaciones/index.astro`: secciones principales adaptadas
+- **Auditoría posterior — archivos corregidos (fix/dark-mode-auditoria):**
+  - `publicaciones/[id].astro`: breadcrumb, título, etiquetas, sinopsis, sección autora — todo adaptado
+  - `blog/[slug].astro`: header, breadcrumb, titulares, cuerpo del artículo, etiquetas
+  - `que-es-lenoy.astro`: headings, párrafos, tarjetas del equipo
+  - `editorial-lenoy.astro`: headings, párrafos, cards misión/visión/valores
+  - `publica-con-nosotras.astro`: headings, pasos, formulario (inputs y labels con dark bg/border/text)
+  - `donde-comprar.astro`: tarjetas de libros, sección envío, sección blog
+  - `gracias.astro`: icono, heading, párrafos, botón secundario
+  - `404.astro`: heading, párrafos, botón secundario
+- **Problema detectado y resuelto:** `classList.toggle('dark', force)` daba comportamiento inconsistente en Astro; cambiado a `classList.add/remove` explícito
+- **Bug `blog/[slug].astro`:** Semicolón mal colocado en `{line.slice(3)}` del renderado dinámico — corregido
 
 ### Paso 3.2 — Guiños visuales LGTB+ y feministas
 - **Rama:** `paso-3.2-identidad-lgtb-feminista`
