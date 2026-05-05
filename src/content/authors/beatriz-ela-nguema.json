@@ -1,0 +1,10 @@
+{
+  "name": "Beatriz Ela Nguema",
+  "bio": "Escritora y activista feminista originaria de Bata, Beatriz Ela Nguema ha dedicado su vida a rescatar y difundir las historias de las mujeres ecuatoguineanas. Su obra \"Hijas de la mujer\" ha sido traducida al francés y al inglés, y se ha convertido en texto de referencia en estudios de literatura africana en España y Francia.",
+  "photo": "/images/authors/beatriz-ela-nguema.jpg",
+  "origin": "Bata, Guinea Ecuatorial",
+  "bookIds": ["hijas-de-la-mujer"],
+  "socialLinks": {
+    "twitter": "https://twitter.com/beatrizelanguema"
+  }
+}

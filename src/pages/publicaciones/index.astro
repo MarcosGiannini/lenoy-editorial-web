@@ -2,12 +2,18 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookCard from '../../components/BookCard.astro';
 import AuthorCard from '../../components/AuthorCard.astro';
-import { getBooksByCategory } from '../../data/books';
-import { authors } from '../../data/authors';
+import { getCollection } from 'astro:content';
 
+const allBooks = await getCollection('books');
+const allAuthors = await getCollection('authors');
 
-const obrasPropias = getBooksByCategory('obras-propias');
-const colaboracionOngs = getBooksByCategory('colaboracion-ongs');
+const obrasPropias = allBooks
+  .filter((b) => b.data.category === 'obras-propias')
+  .map((b) => ({ id: b.id, ...b.data }));
+const colaboracionOngs = allBooks
+  .filter((b) => b.data.category === 'colaboracion-ongs')
+  .map((b) => ({ id: b.id, ...b.data }));
+const authors = allAuthors.map((a) => ({ id: a.id, ...a.data }));
 ---
 
 <BaseLayout

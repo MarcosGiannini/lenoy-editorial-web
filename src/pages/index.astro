@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BookCard from '../components/BookCard.astro';
-import { getFeaturedBook, books } from '../data/books';
+import { getCollection } from 'astro:content';
 
-const featuredBook = getFeaturedBook();
-const recentBooks = books.slice(0, 3);
+const allBooks = await getCollection('books');
+const booksData = allBooks.map((b) => ({ id: b.id, ...b.data }));
+const featuredBook = booksData.find((b) => b.featured);
+const recentBooks = booksData.slice(0, 3);
 ---
 
 <BaseLayout

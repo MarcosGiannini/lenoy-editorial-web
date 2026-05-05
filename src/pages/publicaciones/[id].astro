@@ -1,19 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { books } from '../../data/books';
-import { authors } from '../../data/authors';
+import { getCollection } from 'astro:content';
 
-export function getStaticPaths() {
-  return books.map((book) => ({
-    params: { id: book.id },
-    props: { book },
+export async function getStaticPaths() {
+  const [allBooks, allAuthors] = await Promise.all([
+    getCollection('books'),
+    getCollection('authors'),
+  ]);
+  const authorsData = allAuthors.map((a) => ({ id: a.id, ...a.data }));
+  return allBooks.map((entry) => ({
+    params: { id: entry.id },
+    props: { book: { id: entry.id, ...entry.data }, authorsData },
   }));
 }
 
-const { book } = Astro.props;
+const { book, authorsData } = Astro.props;
 
 // Buscar la autora cuyo bookIds incluya este libro
-const author = authors.find((a) => a.bookIds.includes(book.id));
+const author = authorsData.find((a: { bookIds: string[] }) => a.bookIds.includes(book.id));
 
 const categoryLabel: Record<string, string> = {
   'obras-propias': 'Obra propia',

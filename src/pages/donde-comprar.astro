@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { books } from '../data/books';
+import { getCollection } from 'astro:content';
+
+const allBooks = await getCollection('books');
+const books = allBooks.map((b) => ({ id: b.id, ...b.data }));
 ---
 
 <BaseLayout

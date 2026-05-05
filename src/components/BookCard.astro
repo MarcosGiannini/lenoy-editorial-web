@@ -1,5 +1,17 @@
 ---
-import type { Book } from '../data/books';
+interface Book {
+  id: string;
+  title: string;
+  author: string;
+  synopsis: string;
+  cover: string;
+  year: number;
+  category: 'obras-propias' | 'colaboracion-ongs';
+  genre: string[];
+  price: number;
+  stripeButtonId?: string;
+  featured?: boolean;
+}
 
 interface Props {
   book: Book;

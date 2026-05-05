@@ -1,5 +1,17 @@
 ---
-import type { Author } from '../data/authors';
+interface Author {
+  id: string;
+  name: string;
+  bio: string;
+  photo: string;
+  origin: string;
+  bookIds: string[];
+  socialLinks?: {
+    twitter?: string;
+    instagram?: string;
+    web?: string;
+  };
+}
 
 interface Props {
   author: Author;

@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
-import { blogPosts } from '../../data/posts';
+import { getCollection } from 'astro:content';
 
-const sortedPosts = [...blogPosts].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-);
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts
+  .map((p) => ({ id: p.id, slug: p.slug, ...p.data, content: p.body }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <BaseLayout
