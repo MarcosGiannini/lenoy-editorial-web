@@ -134,14 +134,14 @@ Estado actual de las páginas:
 | Página | URL | Estado |
 |---|---|---|
 | Home | `/` | ✅ Operativa |
-| Catálogo (listado) | `/publicaciones` | 🔄 En construcción |
-| Ficha de libro | `/publicaciones/[id]` | ⏳ Pendiente |
+| Publicaciones (listado) | `/publicaciones` | ✅ Operativa (datos mock) |
+| Ficha de libro | `/publicaciones/[id]` | ⏳ Pendiente — **Paso 1.1** |
 | Blog (listado) | `/blog` | ✅ Operativa |
 | Artículo | `/blog/[slug]` | ✅ Operativa |
-| Qué es Lenoy | `/que-es-lenoy` | ⏳ Pendiente |
-| Editorial Lenoy | `/editorial-lenoy` | ⏳ Pendiente |
-| Publica con nosotras | `/publica-con-nosotras` | ⏳ Pendiente |
-| Dónde comprar | `/donde-comprar` | ⏳ Pendiente |
+| Qué es Lenoy | `/que-es-lenoy` | 🔄 Estructura lista, textos pendientes |
+| Editorial Lenoy | `/editorial-lenoy` | 🔄 Estructura lista, textos pendientes |
+| Publica con nosotras | `/publica-con-nosotras` | 🔄 Formulario listo, Formspree pendiente |
+| Dónde comprar | `/donde-comprar` | 🔄 Estructura lista, Stripe pendiente |
 
 ---
 
