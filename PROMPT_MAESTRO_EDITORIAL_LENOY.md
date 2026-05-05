@@ -60,6 +60,9 @@ Y al terminar el paso, antes del bloque de verificación, debes escribir:
 Esto permite a Marcos ver claramente que el protocolo Git se está siguiendo, tanto al inicio como al cierre.
 Si se omite cualquiera de estos dos mensajes, Marcos puede y debe reclamar el incumplimiento.
 
+> ⚡ **Nueva sesión de chat:** Si acaban de pegarte este documento al inicio de una sesión,
+> lee también **`REHIDRATACION.md`** y sigue su protocolo antes de continuar.
+
 ### Regla 5 — No añadir nada que no esté en el ROADMAP
 Si se te ocurre algo "mientras tanto" que no está en el roadmap, díselo a Marcos y añádelo al ROADMAP en la fase que corresponda. No lo implementes por tu cuenta.
 

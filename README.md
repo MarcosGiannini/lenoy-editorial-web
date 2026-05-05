@@ -129,6 +129,12 @@ La paleta de color es la identidad visual del proyecto. Inspirada en los tonos c
 
 El avance detallado del proyecto está en [ROADMAP.md](./ROADMAP.md).
 
+## Para el agente IA
+
+> Si eres GitHub Copilot u otro agente IA iniciando una nueva sesión,
+> lee primero [REHIDRATACION.md](./REHIDRATACION.md).
+> Contiene el protocolo de contexto y el bloque de texto que debes recibir para operar correctamente.
+
 Estado actual de las páginas:
 
 | Página | URL | Estado |
