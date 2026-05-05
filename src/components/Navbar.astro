@@ -1,8 +1,10 @@
 ---
 const navLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/catalog', label: 'Catálogo' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/que-es-lenoy', label: 'Qué es Lenoy' },
+  { href: '/editorial-lenoy', label: 'Editorial Lenoy' },
+  { href: '/publicaciones', label: 'Publicaciones' },
+  { href: '/publica-con-nosotras', label: 'Publica con nosotras' },
+  { href: '/donde-comprar', label: 'Dónde comprar' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -20,7 +22,7 @@ const currentPath = Astro.url.pathname;
         </span>
       </a>
 
-      <ul class="hidden md:flex items-center gap-8" role="list">
+      <ul class="hidden md:flex items-center gap-5 lg:gap-8" role="list">
         {navLinks.map(({ href, label }) => (
           <li>
             <a
@@ -39,10 +41,10 @@ const currentPath = Astro.url.pathname;
       </ul>
 
       <a
-        href="/catalog"
-        class="hidden md:inline-flex items-center px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
+        href="/publicaciones"
+        class="hidden lg:inline-flex items-center px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
       >
-        Ver catálogo
+        Ver publicaciones
       </a>
 
       <button
@@ -82,10 +84,10 @@ const currentPath = Astro.url.pathname;
         ))}
         <li class="mt-2 px-3">
           <a
-            href="/catalog"
+            href="/publicaciones"
             class="block text-center px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors"
           >
-            Ver catálogo
+            Ver publicaciones
           </a>
         </li>
       </ul>

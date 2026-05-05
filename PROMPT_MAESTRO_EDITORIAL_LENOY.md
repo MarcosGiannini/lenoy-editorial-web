@@ -1,6 +1,78 @@
 # PROMPT MAESTRO — PROYECTO EDITORIAL LENOY
 > Pega este documento COMPLETO al inicio de cualquier sesión de IA (GitHub Copilot, Copilot en Codespaces, Claude, ChatGPT).
-> Última sincronización: **5 mayo 2026 — `main` en GitHub está al día con todos los cambios locales.**
+> Última sincronización: **5 mayo 2026 — sesión #2. ROADMAP.md creado. Wireframe de Andrea analizado. Requisitos ampliados.**
+
+---
+
+## ⚠️ INSTRUCCIONES OBLIGATORIAS PARA EL ASISTENTE DE IA
+
+**LEE ESTO ANTES DE HACER CUALQUIER COSA.**
+
+### PROTOCOLO DE INICIO DE SESIÓN — en este orden, siempre
+
+```
+PASO A → Leer el PROMPT_MAESTRO completo (este archivo)
+PASO B → Leer el ROADMAP.md completo
+PASO C → Confirmar con Marcos el estado actual y el paso en curso
+PASO D → Solo entonces, empezar a trabajar
+```
+
+**Por qué este orden:**
+- El PROMPT_MAESTRO es los **planos del edificio**: quién es el cliente, qué se construye, qué materiales usar, qué está prohibido. Sin leerlo, no puedes interpretar correctamente el ROADMAP.
+- El ROADMAP es el **parte de obra**: qué se hizo, en qué punto estamos, qué toca hoy. Solo tiene sentido después de entender el proyecto completo.
+- Si lees el ROADMAP sin el PROMPT_MAESTRO, sabes *qué* paso toca pero no sabes *cómo* hacerlo correctamente.
+
+### Regla 1 — El ROADMAP es la ley del avance
+Existe el archivo **`ROADMAP.md`** en la raíz del repositorio. Es la fuente de verdad de todo el trabajo pendiente y completado.
+- **Antes de cada sesión:** lee `ROADMAP.md` y confirma el estado actual con Marcos.
+- **Al terminar cada paso:** actualiza `ROADMAP.md` marcando el paso como ✅ y apuntando qué se hizo exactamente.
+- **Si algo cambia** (requisito nuevo, decisión, bloqueo): actualiza `ROADMAP.md` antes de continuar.
+
+### Regla 2 — UN PASO A LA VEZ, sin excepciones
+- **Nunca avances al siguiente paso sin la aprobación explícita de Marcos.**
+- Al terminar un paso, para. Explica qué hiciste, qué falta. Espera a que Marcos diga "sí, sigue".
+- Si detectas algo que hay que arreglar en otro paso, anótalo en el ROADMAP pero NO lo toques hasta que toque.
+
+### Regla 3 — Explica como a un junior
+Marcos conoce el negocio pero no es desarrollador senior. Antes de cada paso debes explicar:
+1. **Qué vas a hacer** (en una frase)
+2. **Por qué** (el motivo real, sin tecnicismos)
+3. **Qué archivos vas a tocar** (lista concreta)
+4. **Cómo sabremos que funciona** (criterio de éxito)
+5. **Si hay riesgo** de romper algo existente
+
+### Regla 4 — Git: una rama por paso
+- Al iniciar cada paso: `git checkout -b paso-X.X-descripcion-corta`
+- Al terminar y funcionar: merge a `main` + push + borrar la rama
+- Nunca trabajar directamente en `main` (salvo emergencias de contenido)
+- El nombre de las ramas está definido en `ROADMAP.md`
+
+### Regla 5 — No añadir nada que no esté en el ROADMAP
+Si se te ocurre algo "mientras tanto" que no está en el roadmap, díselo a Marcos y añádelo al ROADMAP en la fase que corresponda. No lo implementes por tu cuenta.
+
+### Regla 6 — Instrucciones de verificación obligatorias al terminar cada paso
+Al terminar cualquier cambio de código, SIEMPRE debes proporcionar a Marcos una sección de verificación con este formato exacto:
+
+```
+---
+## ✅ QUÉ DEBES COMPROBAR AHORA
+
+**Dónde:** [URL exacta o archivo exacto]
+**Cómo abrirlo:** [pasos concretos: "abre el navegador", "abre DevTools con F12", etc.]
+
+### Qué DEBE verse o pasar:
+- [ ] Cosa concreta 1 que debe funcionar
+- [ ] Cosa concreta 2 que debe funcionar
+
+### Qué NO debe pasar (señales de error):
+- ❌ Descripción de lo que sería un error
+
+### Si algo falla:
+→ Dime exactamente qué ves y te digo cómo arreglarlo.
+---
+```
+
+Nunca termines un paso sin esta sección. Sin ella, Marcos no puede verificar si el trabajo está bien hecho.
 
 ---
 
@@ -561,7 +633,366 @@ Cuando trabajas en este proyecto, sigue estas reglas obligatoriamente:
 
 ---
 
-## 10. CONTEXTO EMOCIONAL Y TONO DEL PROYECTO
+## 9B. BUENAS PRÁCTICAS OBLIGATORIAS — ESTÁNDARES DE EXPERTO
+
+> Estas reglas se aplican en CADA línea de código que se escribe. No son opcionales. No tienen excepciones por "falta de tiempo" o "es solo un proyecto pequeño". Una web de una editorial activista con datos de compradores y formularios de contacto tiene la misma responsabilidad que cualquier web profesional.
+
+---
+
+### TYPESCRIPT — TIPADO ESTRICTO
+
+**Prohibido absolutamente:**
+```typescript
+// ❌ NUNCA — el `any` desactiva TypeScript completamente. Es como no usarlo.
+const libro: any = { titulo: "..." };
+function getLibro(id: any): any { ... }
+
+// ❌ NUNCA — el type assertion sin verificar es una bomba de tiempo
+const libro = datos as Book;  // si `datos` no es un Book, falla en runtime sin aviso
+
+// ❌ NUNCA — ignorar errores de TypeScript con comentarios
+// @ts-ignore
+// @ts-expect-error  (solo permitido si se documenta el motivo EXACTO)
+```
+
+**Obligatorio:**
+```typescript
+// ✅ Interfaces explícitas para TODO lo que tenga forma
+interface Book {
+  id: string;
+  title: string;
+  price: number;
+  stripePaymentLink?: string;  // el ? indica "puede no existir"
+}
+
+// ✅ Tipos de unión en lugar de strings genéricos
+type BookCategory = 'obras-propias' | 'colaboracion-ongs';  // solo estos dos valores posibles
+
+// ✅ Funciones con tipos de entrada y salida declarados
+function getFeaturedBook(books: Book[]): Book | undefined { ... }
+
+// ✅ Validación con Zod en Content Collections (verifica que los datos del CMS tienen la forma correcta)
+const BookSchema = z.object({
+  title: z.string().min(1),
+  price: z.number().positive(),
+});
+```
+
+**En `tsconfig.json` debe estar activado:**
+```json
+{
+  "strict": true,           // activa todas las comprobaciones estrictas
+  "noImplicitAny": true,    // prohíbe el `any` implícito
+  "strictNullChecks": true  // obliga a tratar el caso de null/undefined
+}
+```
+
+---
+
+### SEGURIDAD — CAPAS DE DEFENSA
+
+> Explicado fácil: la seguridad no es una sola cosa que se activa. Son capas. Si una falla, la siguiente detiene el ataque. Como las capas de una cebolla.
+
+#### Capa 1 — No confiar en datos externos
+```typescript
+// ❌ MAL — usar directamente lo que venga de fuera sin validar
+const titulo = params.titulo;
+document.innerHTML = titulo;  // si titulo contiene "<script>robo de datos</script>" → XSS
+
+// ✅ BIEN — Astro escapa automáticamente las variables en plantillas
+// En .astro, {variable} siempre es seguro. Astro lo escapa.
+// SOLO es peligroso si usas `set:html={variable}` — evitar salvo que el contenido sea tuyo.
+```
+
+**Regla:** `set:html` solo se usa con contenido que viene de archivos propios del repo, nunca con datos de usuario o externos.
+
+#### Capa 2 — Cabeceras HTTP de seguridad (archivo `public/_headers`)
+Estas instrucciones le dicen al navegador cómo proteger a los visitantes:
+
+```
+/*
+  # CSP — Solo se carga código de sitios autorizados. Impide inyección de scripts maliciosos.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://buy.stripe.com; frame-src https://buy.stripe.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'
+
+  # Impide que la web se muestre dentro de un iframe de otro sitio (phishing / clickjacking)
+  X-Frame-Options: DENY
+
+  # Impide que el navegador "adivine" el tipo de archivo (podría ejecutar un JPG como script)
+  X-Content-Type-Options: nosniff
+
+  # Controla qué URL se envía cuando el usuario hace clic en un link externo
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Deshabilita acceso a cámara, micrófono, geolocalización (no los usamos, no deberían activarse)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Fuerza HTTPS siempre (no permite carga de recursos por HTTP)
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+```
+
+#### Capa 3 — Formularios: nunca confiar en el cliente
+```html
+<!-- ✅ SIEMPRE validar en el HTML con atributos nativos (primera barrera) -->
+<input type="email" required maxlength="254" />
+<textarea maxlength="2000"></textarea>
+
+<!-- ✅ Honeypot: campo invisible para humanos, los bots lo rellenan y el servidor descarta el envío -->
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+```
+
+**Regla:** Formspree y Netlify Forms tienen protección anti-spam propia, pero el honeypot es una capa extra que siempre se añade. Coste: 3 líneas de HTML.
+
+#### Capa 4 — Dependencias: menos es más seguro
+```bash
+# ✅ Antes de instalar cualquier paquete, verificar:
+npm audit                    # busca vulnerabilidades conocidas en lo que ya está instalado
+npm info [paquete] --json    # ver quién lo mantiene, cuándo fue el último update
+
+# Regla: si un paquete no se ha actualizado en más de 1 año y tiene issues abiertos de seguridad → buscar alternativa
+```
+
+**Regla:** Cada dependencia nueva es un vector de ataque potencial. Solo se añade si es imprescindible (ver Regla de código nº 1).
+
+#### Capa 5 — Secretos y claves: NUNCA en el código
+```typescript
+// ❌ NUNCA — claves de API en el código fuente (van al repositorio público de GitHub)
+const stripeKey = "sk_live_XXXXXXXXXXXXXXXX";
+
+// ✅ En variables de entorno (.env — este archivo NUNCA se sube a Git)
+// En Netlify: se configuran en el panel "Environment variables"
+const stripeKey = import.meta.env.STRIPE_SECRET_KEY;
+```
+
+**Regla:** El archivo `.env` debe estar en `.gitignore`. Verificar que está antes de cada commit con datos sensibles.
+
+**Nota para este proyecto:** Los Payment Links de Stripe son URLs públicas (`buy.stripe.com/XXXXX`), no claves secretas. Se pueden poner en el código sin problema. Lo que NUNCA va en el código es la `sk_live_` (Secret Key de Stripe).
+
+#### Capa 6 — Stripe: solo Payment Links, nunca manejar datos de tarjeta
+```
+Regla de oro: esta web NUNCA toca datos de tarjetas de crédito.
+El usuario hace clic → va a buy.stripe.com → PCI DSS de Stripe gestiona todo → vuelve a la web.
+Si alguien propone "procesar el pago en nuestra web" → RECHAZARLO. Fuera del scope y fuera de la ley sin certificación PCI.
+```
+
+---
+
+### PRIVACIDAD — GDPR Y LOPD (OBLIGATORIO POR LEY ESPAÑOLA)
+
+> Esta sección aplica porque la web tiene formularios (datos de contacto), vende productos (datos del comprador en Stripe) y carga fuentes externas (Google Fonts = cookies de terceros).
+
+**Lo que es obligatorio antes del lanzamiento:**
+
+| Documento | Obligatorio | Dónde |
+|---|---|---|
+| **Aviso Legal** | ✅ Sí | `/aviso-legal` + link en footer |
+| **Política de Privacidad** | ✅ Sí | `/privacidad` + link en footer + en cada formulario |
+| **Política de Cookies** | ✅ Sí | `/cookies` + link en footer |
+| **Banner de cookies** | ✅ Sí (Google Fonts) | Al entrar por primera vez |
+| **Checkbox de consentimiento en formularios** | ✅ Sí | En cada formulario, no pre-marcado |
+
+**Regla:** El checkbox de "He leído y acepto la política de privacidad" en formularios **nunca viene pre-marcado**. El consentimiento debe ser activo, no pasivo.
+
+**Regla:** El banner de cookies no puede ser solo informativo — debe ofrecer la opción de rechazar.
+
+---
+
+### CALIDAD DE CÓDIGO — REGLAS QUE USA CUALQUIER EQUIPO PROFESIONAL
+
+#### HTML semántico
+```html
+<!-- ❌ MAL — divs para todo no tiene significado para los buscadores ni lectores de pantalla -->
+<div class="header"><div class="nav">...</div></div>
+<div class="main"><div class="article">...</div></div>
+
+<!-- ✅ BIEN — HTML5 semántico: Google y los lectores de pantalla entienden la estructura -->
+<header><nav>...</nav></header>
+<main><article>...</article></main>
+<footer>...</footer>
+```
+
+**Regla:** En Astro, usar siempre los elementos semánticos correctos. `<section>` para secciones, `<article>` para contenido independiente, `<aside>` para contenido relacionado, `<nav>` para navegación, `<main>` solo una vez por página.
+
+#### Un solo `<h1>` por página
+```html
+<!-- ❌ MAL — múltiples h1 confunde a Google -->
+<h1>Editorial Lenoy</h1>
+...
+<h1>Nuestros libros</h1>
+
+<!-- ✅ BIEN — jerarquía correcta -->
+<h1>Lo rarito que eres — Editorial Lenoy</h1>
+<h2>Sobre este libro</h2>
+<h2>Sobre la autora</h2>
+<h3>Más obras de esta autora</h3>
+```
+
+#### Imágenes siempre con `alt` descriptivo
+```html
+<!-- ❌ MAL — sin alt (falla accesibilidad) o alt vacío en imagen importante -->
+<img src="portada.jpg" />
+<img src="portada.jpg" alt="" />
+<img src="portada.jpg" alt="imagen" />  <!-- demasiado genérico -->
+
+<!-- ✅ BIEN — describe qué hay en la imagen, útil para quien no puede verla -->
+<img src="portada.jpg" alt="Portada de Lo rarito que eres: ilustración de una niña con colores vibrantes" />
+
+<!-- ✅ EXCEPCIÓN — imágenes puramente decorativas sí van con alt vacío -->
+<img src="patron-decorativo.svg" alt="" role="presentation" />
+```
+
+#### CSS: mobile first
+```css
+/* ✅ BIEN — diseñar primero para móvil, luego ampliar para escritorio */
+.grid { grid-template-columns: 1fr; }                    /* móvil: 1 columna */
+@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }      /* tablet: 2 */
+@media (min-width: 1024px) { grid-template-columns: repeat(3, 1fr); } /* escritorio: 3 */
+
+/* En Tailwind esto es: */
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+```
+
+#### Links externos: siempre seguros
+```html
+<!-- ❌ MAL — target="_blank" sin rel permite que la página externa controle la nuestra (tabnabbing) -->
+<a href="https://eldiario.es/articulo" target="_blank">Ver artículo</a>
+
+<!-- ✅ BIEN — rel="noopener noreferrer" cierra esa vulnerabilidad -->
+<a href="https://eldiario.es/articulo" target="_blank" rel="noopener noreferrer">Ver artículo</a>
+```
+
+**Regla:** Todo `target="_blank"` lleva obligatoriamente `rel="noopener noreferrer"`.
+
+#### No bloquear el scroll ni el zoom en móvil
+```html
+<!-- ❌ MAL — impide que el usuario haga zoom (problema de accesibilidad grave, ilegal en WCAG) -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- ✅ BIEN -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+---
+
+### PERFORMANCE — VELOCIDAD ES ACCESIBILIDAD
+
+> Una web lenta es inaccesible para personas con conexión limitada. Los lectores en Guinea Ecuatorial pueden tener datos móviles como único acceso a internet.
+
+**Reglas de performance:**
+
+1. **Imágenes con `<Image>` de Astro** — convierte automáticamente a WebP, añade `loading="lazy"`, define `width` y `height` para evitar el salto de layout (CLS).
+
+2. **Fuentes con `display=swap`** — ya está configurado. Significa que el texto se muestra primero con la fuente del sistema, y cuando carga la fuente real se sustituye sin bloquear la página.
+
+3. **No importar librerías enteras cuando solo se usa una función:**
+```typescript
+// ❌ MAL — importa toda la librería (cientos de KB)
+import _ from 'lodash';
+const sorted = _.sortBy(books, 'year');
+
+// ✅ BIEN — importar solo lo que se usa, o usar JavaScript nativo
+const sorted = [...books].sort((a, b) => a.year - b.year);
+```
+
+4. **JavaScript mínimo en cliente** — Astro por defecto envía 0 KB de JS al navegador. Solo añadir JS del lado del cliente (`client:load`, `client:idle`) cuando sea imprescindible.
+
+5. **Presupuesto de rendimiento (objetivo):**
+   - Lighthouse Performance: > 90
+   - Lighthouse Accessibility: > 95
+   - Lighthouse Best Practices: > 90
+   - Lighthouse SEO: > 95
+   - LCP (Largest Contentful Paint): < 2.5 segundos
+   - CLS (Cumulative Layout Shift): < 0.1
+
+---
+
+### GIT — HISTORIAL LIMPIO Y SEGURO
+
+```bash
+# ✅ Commits pequeños y descriptivos (lo que hiciste, no "cambios")
+git commit -m "feat: añadir página de ficha de libro con breadcrumb y SEO"
+git commit -m "fix: corregir contraste de texto en modo oscuro en cards de libros"
+git commit -m "style: ajustar padding del hero en móvil a py-16"
+
+# ❌ MAL — commits que no dicen nada
+git commit -m "cambios"
+git commit -m "arreglado"
+git commit -m "wip"
+
+# ✅ Antes de cada push, revisar que no hay archivos sensibles
+git diff --staged  # ver exactamente qué se está subiendo
+
+# ❌ NUNCA subir:
+# .env (claves de API)
+# node_modules/ (generado automáticamente)
+# .DS_Store (archivos del sistema de Mac)
+```
+
+**El `.gitignore` del proyecto ya cubre `.env` y `node_modules/`. Verificar que está correcto antes de añadir cualquier archivo nuevo.**
+
+---
+
+## 10. WIREFRAME DE ANDREA — ARQUITECTURA DE INFORMACIÓN REAL
+
+> Capturado en sesión de mayo 2026. Este es el documento de visión visual que Andrea adjuntó y que faltaba en el repo.
+
+### Navegación principal que pide Andrea (5 secciones):
+
+| Sección nav | Contenido | Equivalente actual |
+|---|---|---|
+| **Qué es Lenoy** | Quiénes somos, Objetivos, Trayectoria, Estatutos, Equipo | ❌ No existe |
+| **Editorial Lenoy** | Línea editorial, quiénes somos como editorial | ❌ No existe (parcial en Home) |
+| **Publicaciones** | Obras propias + Colaboración con ONGs. Al pinchar en cada obra → ficha completa con info de autoría, links, contexto ONG | Catálogo ✅ parcial — falta ficha individual |
+| **Publica con nosotras** | Explicación de la línea editorial + cómo proponer un libro | ❌ No existe |
+| **Dónde comprar nuestros libros** | "La ploma +" (blog editorial) + carrito de compra + Contáctanos y síguenos en redes | ❌ Disperso, no como sección |
+
+### Libros reales que aparecen en el wireframe de Andrea:
+- **Obras propias:** "Lo rarito que eres", "Hijas de la mujer", "(Maleidra ¿?)" (título pendiente de confirmar)
+- **Colaboración con ONGs:** "Libro FRS", "Libro Voces diversas"
+
+### Nota crítica del wireframe:
+> "Al pinchar en cada obra sale info de la autoría (la sacamos de los dossieres), links etc. Si es ONG sale info del libro, el contexto del proyecto etc."
+
+Esto confirma que la **página de detalle de libro** es prioritaria y debe ser diferente para obras propias vs colaboraciones con ONGs.
+
+### Análisis: ¿el wireframe de Andrea es moderno?
+El wireframe define la **arquitectura de información** (qué páginas y qué contiene cada una), no el diseño visual. La estructura que pide es sólida y lógica. El diseño visual actual (Astro + Tailwind, paleta africana cálida) sí es moderno. La recomendación es: **implementar la arquitectura de Andrea con el diseño visual ya construido**, no reescribir desde cero.
+
+---
+
+## 11. REQUISITOS AMPLIADOS — SESIÓN MAYO 2026
+
+Los siguientes requisitos se identificaron en conversación con Marcos el 5 de mayo 2026 y complementan el scope original:
+
+### Requisitos de features modernas (a evaluar si entran en presupuesto)
+
+| Feature | Estado | Prioridad | Notas |
+|---|---|---|---|
+| **Modo oscuro / modo claro** | ❌ No mencionado en scope original | Alta — lo pide Marcos | Técnicamente posible con Tailwind `darkMode: 'class'` + toggle JS. Trabajo estimado: 1 sesión |
+| **Bilingüe ES / EN** | ❌ Marcado como NO incluido en scope original (P4.3) | Media — lo pide Marcos | Astro tiene i18n integrado. Requiere duplicar todos los textos. Trabajo estimado: 2-3 sesiones. **Confirmar con Andrea si es requisito real o deseo** |
+| **Guiños visuales LGTB+ y feministas** | ❌ Solo tono general en scope | Alta — esencial para el nicho | Elementos: paleta arcoíris sutil en badges/hover, iconografía feminista (símbolo ♀), lenguaje inclusivo en microcopy, sección visible de compromiso en "Qué es Lenoy" |
+| **Accesibilidad 100% (WCAG AA completo)** | ⚠️ Parcial — básica implementada | Alta — requisito | Añadir: skip-to-content, test de contraste Lighthouse, focus styles visibles, imágenes con alt descriptivos |
+| **Responsive 100%** | ⚠️ Parcial — hay hamburger menu | Alta — requisito | Revisar todas las páginas en móvil, especialmente ficha de libro y blog |
+| **CMS / panel para ellas (sin código)** | ❌ En scope pero no construido | Crítica para el lanzamiento | Ver sección P2.2 — decisión entre Decap CMS o Sanity |
+| **"Web 100% moderna"** | ⚠️ Stack moderno, falta polish | Alta | Ver checklist de modernidad abajo |
+
+### Checklist de modernidad 2026 (qué llevan las webs top ahora)
+
+- [ ] Modo oscuro / claro con preferencia del sistema (`prefers-color-scheme`)
+- [ ] View Transitions API de Astro (transiciones suaves entre páginas sin SPA)
+- [ ] Animaciones de entrada al scroll (Intersection Observer, sin librerías externas)
+- [ ] Tipografía variable (Inter y Playfair Display ya lo soportan)
+- [ ] Imágenes en formato WebP/AVIF con `<Image>` de Astro
+- [ ] Core Web Vitals > 90 en Lighthouse (LCP, CLS, FID)
+- [ ] Open Graph completo por página (para compartir en RRSS)
+- [ ] Schema.org JSON-LD en páginas de libros
+- [ ] Newsletter embed (Brevo/Mailchimp tier gratuito)
+- [ ] Sitemap XML automático
+- [ ] robots.txt
+- [ ] Favicon completo (svg + png 16/32/180 + apple-touch-icon)
+
+---
+
+## 12. CONTEXTO EMOCIONAL Y TONO DEL PROYECTO
 
 Este proyecto no es solo una web. Es la cara pública de un movimiento cultural y activista real.
 
@@ -574,20 +1005,104 @@ Este proyecto no es solo una web. Es la cara pública de un movimiento cultural 
 
 ---
 
-## 11. RESUMEN EJECUTIVO — UNA SOLA PANTALLA
+---
+
+## 13. RESUMEN EJECUTIVO — UNA SOLA PANTALLA
 
 | | |
 |---|---|
 | **Repo** | `https://github.com/MarcosGiannini/lenoy-editorial-web` |
 | **Estado** | `main` al día · build estático funcional · sin errores |
 | **Stack** | Astro 5 + Tailwind 3 + TypeScript |
-| **Páginas** | Home ✅ · Catálogo ✅ · Blog (lista) ✅ · Artículo ✅ · Libro detalle ❌ · Nosotras ❌ · Contacto ❌ |
-| **Compra** | Botón Comprar existe pero sin Stripe. Pendiente cuenta Stripe de la asociación. |
+| **Páginas existentes** | Home ✅ · Catálogo (listado) ✅ · Blog (lista) ✅ · Artículo ✅ |
+| **Páginas faltantes** | Ficha individual de libro ❌ · Qué es Lenoy ❌ · Editorial Lenoy ❌ · Publica con nosotras ❌ · Dónde comprar ❌ · Contacto ❌ |
+| **Compra** | Botón existe sin Stripe. Pendiente cuenta Stripe de la asociación. |
 | **Imágenes** | Todos placeholders. Andrea tiene los artes finales. |
 | **Datos** | Mock. Pendiente datos reales de Andrea. |
 | **CMS** | No hay. Pendiente elegir entre Decap CMS o Sanity. |
 | **Deploy** | No deployado aún. Recomendado: Netlify. |
 | **Dominio** | No contratado. Recomendado: editoriallenoy.com |
+| **Modo oscuro** | No implementado. Requisito nuevo. |
+| **Bilingüe ES/EN** | No implementado. Fuera del scope original. Confirmar con Andrea. |
+| **Guiños LGTB+/feministas** | Pendiente definir con Andrea qué elementos visuales. |
 | **Presupuesto** | 700 € + IVA · Opción "Web-Catálogo" |
-| **Plazo** | Informal: antes de verano 2026 (julio, cuando vuelve Andrea a Madrid) |
-| **Siguiente paso** | Recibir portadas reales de Andrea + datos reales de libros + activar cuenta Stripe |
+| **Plazo** | Antes de julio 2026 (cuando vuelve Andrea a Madrid) |
+| **Siguiente paso inmediato** | Paso 1.1 — Ficha individual de libro `/catalog/[id].astro` |
+
+---
+
+## 14. HOJA DE RUTA COMPLETA Y PRIORIZADA
+
+### FASE 0 — Arquitectura de navegación (1 sesión) ← HACER PRIMERO
+**Objetivo:** adaptar el Navbar y la estructura de URLs a la visión de Andrea.
+
+| Tarea | Detalle |
+|---|---|
+| **0.1** Reorganizar Navbar | De 3 links a 5 secciones: "Qué es Lenoy", "Editorial Lenoy", "Publicaciones", "Publica con nosotras", "Dónde comprar" |
+| **0.2** Crear rutas vacías | Crear las páginas con estructura básica para que los links no rompan |
+| **0.3** Actualizar Footer | Sincronizar con nueva estructura de navegación |
+
+### FASE 1 — Páginas core (3-4 sesiones) ← BLOQUEANTE PARA LANZAMIENTO
+
+| Paso | Página | Contenido clave | Deps. externas |
+|---|---|---|---|
+| **1.1** | `/catalog/[id].astro` — Ficha libro | Portada grande, sinopsis completa, info autoría/ONG, botón compra, breadcrumb, SEO | Ninguna (mock) |
+| **1.2** | `/que-es-lenoy` | Quiénes somos, Objetivos, Trayectoria, Estatutos, Equipo (Andrea + Melibea) | Placeholder hasta tener textos reales |
+| **1.3** | `/editorial-lenoy` | Línea editorial, misión, valores, contexto Guinea Ecuatorial | Placeholder |
+| **1.4** | `/publica-con-nosotras` | Qué tipo de obras publican, cómo proponer un original, formulario/contacto | Formspree o Netlify Forms |
+| **1.5** | `/donde-comprar` | Info de compra, Stripe link por libro, envío físico desde Madrid | Pendiente cuenta Stripe |
+
+### FASE 2 — CMS para Andrea y Melibea (2 sesiones) ← CRÍTICO PARA OPERACIÓN
+
+| Paso | Tarea | Detalle |
+|---|---|---|
+| **2.1** | Migrar datos a Astro Content Collections | De `.ts` a archivos `.md`/`.json` en `/src/content/` |
+| **2.2** | Implementar Decap CMS | Panel en `/admin`, config por colecciones (libros, posts, autoras), auth con GitHub |
+| **2.3** | Documentar para Andrea | Guía en español de "cómo subir un libro nuevo" con capturas |
+
+> **Decisión tomada: Decap CMS** por sobre Sanity. Razones: gratuito, sin API externa, los cambios son commits en GitHub (sin dependencia de terceros), compatible con Netlify. Sanity es mejor a largo plazo pero añade complejidad y una dependencia externa.
+
+### FASE 3 — Modernidad y polish (2 sesiones)
+
+| Paso | Tarea |
+|---|---|
+| **3.1** | **Modo oscuro/claro** — Tailwind `darkMode: 'class'` + toggle accesible + respetar `prefers-color-scheme` |
+| **3.2** | **Guiños LGTB+ y feministas** — badges arcoíris sutiles, símbolo ♀ en secciones relevantes, microcopy inclusivo |
+| **3.3** | **View Transitions API** de Astro — transiciones entre páginas |
+| **3.4** | **Animaciones scroll** — Intersection Observer nativo (sin librerías) |
+| **3.5** | **Favicon completo** — SVG + PNG 16/32/180 + apple-touch-icon |
+
+### FASE 4 — SEO y performance (1 sesión)
+
+| Paso | Tarea |
+|---|---|
+| **4.1** | Sitemap XML con `@astrojs/sitemap` |
+| **4.2** | robots.txt |
+| **4.3** | Schema.org JSON-LD en fichas de libros |
+| **4.4** | Open Graph completo por página (og:image = portada del libro) |
+| **4.5** | Lighthouse > 90 en todas las categorías |
+| **4.6** | Imágenes con `<Image>` de Astro (WebP/AVIF) |
+
+### FASE 5 — Deploy y datos reales (1 sesión + Andrea)
+
+| Paso | Tarea | Quién actúa |
+|---|---|---|
+| **5.1** | Deploy en Netlify (staging gratuito) | Marcos |
+| **5.2** | Andrea sube datos reales: libros, portadas, autoras | Andrea |
+| **5.3** | Activar cuenta Stripe de la asociación | Andrea + Melibea |
+| **5.4** | Conectar Stripe Payment Links al botón "Comprar" | Marcos |
+| **5.5** | Contratar dominio `editoriallenoy.com` | Andrea/Melibea/Marcos |
+
+### FASE 6 — Post-lanzamiento (opcional / fase 2)
+
+| Paso | Tarea | Prioridad |
+|---|---|---|
+| **6.1** | Bilingüe ES/EN (i18n de Astro) — **confirmar si es requisito real** | Media |
+| **6.2** | Newsletter (Brevo tier gratuito) | Media |
+| **6.3** | Sección de prensa (El País, ElDiario.es, Fundación Pedro Zerolo) | Media |
+| **6.4** | Mejoras del blog: artículos relacionados, tiempo de lectura | Baja |
+| **6.5** | Accesibilidad WCAG AA completo (auditoría Lighthouse) | Alta si se llegó a 80 en fase anterior |
+
+### REGLA DE GIT PARA ESTE PROYECTO
+- **Al iniciar cada paso** → crear rama nueva: `git checkout -b paso-X.Y-descripcion`
+- **Al cerrar cada paso y funcionar** → merge a main + push: `git checkout main && git merge paso-X.Y && git push`

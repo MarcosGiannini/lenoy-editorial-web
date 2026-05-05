@@ -23,11 +23,13 @@ const currentYear = new Date().getFullYear();
         <h3 class="font-serif font-semibold text-cream-100 mb-4">Explorar</h3>
         <ul class="space-y-2" role="list">
           {[
-            { href: '/', label: 'Inicio' },
-            { href: '/catalog', label: 'Catálogo' },
-            { href: '/catalog#obras-propias', label: 'Obras propias' },
-            { href: '/catalog#colaboracion-ongs', label: 'Colaboración con ONGs' },
-            { href: '/blog', label: 'Blog' },
+            { href: '/que-es-lenoy', label: 'Qué es Lenoy' },
+            { href: '/editorial-lenoy', label: 'Editorial Lenoy' },
+            { href: '/publicaciones', label: 'Publicaciones' },
+            { href: '/publicaciones#obras-propias', label: '↳ Obras propias' },
+            { href: '/publicaciones#colaboracion-ongs', label: '↳ Colaboración con ONGs' },
+            { href: '/publica-con-nosotras', label: 'Publica con nosotras' },
+            { href: '/donde-comprar', label: 'Dónde comprar' },
           ].map(({ href, label }) => (
             <li>
               <a href={href} class="text-sm text-cream-300 hover:text-cream-100 transition-colors">
