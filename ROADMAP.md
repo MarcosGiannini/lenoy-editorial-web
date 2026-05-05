@@ -1,7 +1,23 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #2. Roadmap inicial creado. Protocolo de sesión definido.**
+> Última actualización: **5 mayo 2026 — Sesión #3. Estrategia de contenidos actualizada: Andrea rellena al final.**
+
+---
+
+## ⚠️ DECISIÓN ESTRATÉGICA — ESTRATEGIA DE CONTENIDOS (5 mayo 2026)
+
+> **Situación:** Andrea no va a facilitar textos, portadas ni información real hasta que la web esté completamente construida.
+
+**El modelo de trabajo acordado es:**
+1. Marcos construye toda la estructura técnica de la web primero (casa vacía pero funcional)
+2. Una vez lista, Andrea y Melibea hacen la **"mudanza"**: rellenan todos los textos `[PENDIENTE]`, suben portadas reales, añaden sus bios, etc.
+3. La mudanza se hace a través del **CMS (Decap CMS)** — Marcos les enseña a usarlo. No necesitan saber código.
+
+**Consecuencias para el ROADMAP:**
+- Los pasos 1.2, 1.3, 1.4, 1.5 (páginas de contenido) ya tienen estructura base creada en el Paso 0.2. **No hace falta volver a tocarlos hasta la mudanza.**
+- La prioridad técnica ahora es: terminar todo lo que se puede construir sin contenido (CMS, dark mode, SEO, seguridad, formularios), y dejar la mudanza para el final.
+- El onboarding del CMS (Fase 2) se convierte en la **fase de transición** entre construcción y mudanza.
 
 ---
 
@@ -43,11 +59,12 @@
 | Categoría | Estado |
 |---|---|
 | **Rama activa** | `main` |
-| **Build** | ✅ Funciona, sitio estático, sin errores |
+| **Build** | ✅ Funciona, 15 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
 | **Último paso completado** | **1.1** — Ficha individual de libro (5 mayo 2026) |
-| **Siguiente paso** | **1.2** — Contenido real de `/que-es-lenoy` |
-| **Bloqueantes externos** | Portadas reales (Andrea) · Cuenta Stripe (Andrea+Melibea) · Dominio (pendiente) |
+| **Siguiente paso** | **1.2** — Conectar formulario de contacto (Netlify Forms) |
+| **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
+| **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
 ---
 
@@ -105,59 +122,40 @@
   - `BookCard.astro`: portada y título enlazados a la ficha, botón "Comprar" → "Ver ficha"
 - **Build:** ✅ 15 páginas, 0 errores
 
-### Paso 1.2 — Página "Qué es Lenoy" (`/que-es-lenoy`)
-- **Rama:** `paso-1.2-que-es-lenoy`
+### Paso 1.2 — Formulario de contacto funcional (Netlify Forms)
+- **Rama:** `paso-1.2-formulario-netlify`
 - **Estado:** ⬜ No iniciado
-- **Contenido:**
-  - Hero con título y subtítulo de la asociación
-  - Sección "Quiénes somos": historia de la asociación, cuándo se fundó, por qué
-  - Sección "Objetivos": lista clara de objetivos de la editorial
-  - Sección "Trayectoria": timeline de hitos (placeholder hasta que Andrea dé datos)
-  - Sección "Estatutos": enlace a PDF de estatutos (pendiente de Andrea) o placeholder
-  - Sección "Equipo": Andrea Ramos + Trifonia Melibea Obono con foto, rol, bio corta
-  - Sección "Por qué Guinea Ecuatorial": contexto cultural para lectores nuevos
-- **Notas:** Todos los textos serán placeholder hasta que Andrea los facilite. Usar texto marcado: `[PENDIENTE: texto de Andrea]`
-- **Test manual:** Responsive, todos los links a perfiles externos abren en pestaña nueva (`target="_blank" rel="noopener"`).
+- **Por qué es el siguiente:** No depende de contenido de Andrea. El formulario de "Publica con nosotras" ya tiene la estructura HTML — solo hay que conectarlo a Netlify Forms para que los mensajes lleguen al email de la editorial.
+- **Qué incluye:**
+  - Añadir atributos `netlify` y `netlify-honeypot` al form de `publica-con-nosotras.astro`
+  - Página de confirmación tipo "Gracias por tu propuesta" (`/gracias.astro`)
+  - Probar que el mensaje llega al email configurado en Netlify
+- **Sin backend. Sin código de servidor. Solo HTML.**
+- **Test:** Enviar el formulario en la URL de deploy → verificar que llega el email.
 
-### Paso 1.3 — Página "Editorial Lenoy" (`/editorial-lenoy`)
-- **Rama:** `paso-1.3-editorial-lenoy`
+### Paso 1.3 — Página 404 personalizada
+- **Rama:** `paso-1.3-pagina-404`
 - **Estado:** ⬜ No iniciado
-- **Contenido:**
-  - Línea editorial: qué tipo de obras publican y por qué
-  - Misión, Visión, Valores (ampliar lo que ya hay en el Home)
-  - Sección de apariciones en prensa (El País, ElDiario.es — links reales a artículos de Gonzalo Abaha y Melibea)
-  - Sección de colaboraciones y alianzas (Fundación Pedro Zerolo, ONGs)
-- **Notas:** Esta página refuerza la credibilidad con instituciones culturales y medios.
+- **Por qué:** Si alguien escribe mal una URL, ve ahora mismo un error genérico del servidor. Una 404 propia mantiene el diseño y propone alternativas.
+- **Archivo:** `src/pages/404.astro`
+- **Contenido:** Título con humor, hero en forest-700, botones a Inicio y Publicaciones.
+- **Test:** Visitar `http://localhost:4321/url-que-no-existe` → debe mostrar la página 404 de Lenoy.
 
-### Paso 1.4 — Página "Publica con nosotras" (`/publica-con-nosotras`)
-- **Rama:** `paso-1.4-publica-con-nosotras`
-- **Estado:** ⬜ No iniciado
-- **Contenido:**
-  - Explicación de la línea editorial y qué tipo de obras encajan
-  - Proceso de propuesta (pasos numerados)
-  - Lo que ofrecen (edición, maquetación, distribución, presencia en feria)
-  - Formulario de contacto para enviar propuesta (campo: nombre, email, título del proyecto, sinopsis breve, extracto)
-  - Nota sobre plazos de respuesta
-- **Formulario:** Usar Formspree (gratuito, 50 envíos/mes, sin backend) o Netlify Forms si se deploya en Netlify.
-- **Seguridad del formulario:** Añadir honeypot field (campo oculto) para prevenir spam de bots.
+### ~~Paso 1.4 — Rellenar contenido de páginas base~~
+> ⏸️ **BLOQUEADO — Esperando mudanza de Andrea**
+> Los textos `[PENDIENTE]` de `/que-es-lenoy`, `/editorial-lenoy`, `/publica-con-nosotras` y `/donde-comprar` los rellenará Andrea una vez esté el CMS instalado (Fase 2). No hay que tocar estas páginas hasta entonces.
 
-### Paso 1.5 — Página "Dónde comprar" (`/donde-comprar`)
-- **Rama:** `paso-1.5-donde-comprar`
-- **Estado:** ⬜ No iniciado
-- **Contenido:**
-  - Listado completo de libros disponibles con precio y botón de compra individual (Payment Link de Stripe)
-  - Sección "La ploma" — blog editorial (enlace destacado al blog)
-  - Info de envío: físico desde Madrid, tarifas aproximadas, plazos
-  - Sección de contacto para pedidos especiales o institucionales
-  - RRSS: Instagram, Twitter (cuando existan las URLs reales)
-- **Nota Stripe:** El botón de compra estará preparado en el HTML pero desactivado visualmente hasta que existan los Payment Links reales.
+### ~~Paso 1.5 — Portadas reales de libros~~
+> ⏸️ **BLOQUEADO — Andrea tiene los archivos**
+> Las portadas reales irán a `public/images/books/[id].jpg`. Andrea las subirá a través del CMS. Hasta entonces, los placeholders de gradiente son correctos.
 
 ---
 
-## FASE 2 — CMS PARA ANDREA Y MELIBEA
-> **Objetivo:** Que ellas puedan añadir libros, noticias y autoras sin tocar código.
+## FASE 2 — CMS PARA ANDREA Y MELIBEA (la "mudanza")
+> **Objetivo:** Que ellas puedan añadir libros, noticias y autoras sin tocar código. Esta es la fase de transición entre "construir la casa" y "vivir en ella".
 > **Por qué:** Sin esto, cada novedad del catálogo requiere a Marcos. No es sostenible.
 > **Decisión tomada:** Decap CMS (antes Netlify CMS). Gratuito, sin dependencias externas, los cambios son commits en GitHub.
+> **Cuándo se activa:** Cuando la estructura técnica esté completa (Fases 1, 3, 4 terminadas). Entonces Andrea y Melibea hacen la mudanza: rellenan textos, suben portadas, configuran precios Stripe.
 
 ### Paso 2.1 — Migrar datos a Astro Content Collections
 - **Rama:** `paso-2.1-content-collections`
@@ -181,11 +179,17 @@
 - **Campos del formulario de libro:** título, autora, sinopsis, año, categoría, géneros, precio, stripe link, portada (upload), destacado sí/no
 - **Test:** Entrar a `/admin`, logarse, editar un libro, verificar que se genera un commit en GitHub.
 
-### Paso 2.3 — Guía de uso para Andrea y Melibea
+### Paso 2.3 — Guía de uso y sesión de onboarding con Andrea y Melibea
 - **Rama:** incluido en `paso-2.2`
 - **Estado:** ⬜ No iniciado
-- **Qué es:** Un documento `GUIA-CMS.md` en el repo (o una sección dentro de la web en `/admin/ayuda`) con capturas de pantalla y pasos numerados: "Cómo añadir un libro nuevo", "Cómo publicar una noticia", "Cómo subir una foto de autora".
-- **Formato:** Sencillo, sin términos técnicos. Para alguien que nunca ha usado un CMS.
+- **Qué es:** Un documento `GUIA-CMS.md` en el repo con capturas de pantalla y pasos numerados: "Cómo añadir un libro nuevo", "Cómo publicar una noticia", "Cómo subir una foto de autora". Sin términos técnicos.
+- **Sesión de onboarding:** Una videollamada o encuentro con Andrea y Melibea donde Marcos les enseña a:
+  1. Entrar al panel `/admin` con su cuenta de GitHub
+  2. Añadir un libro nuevo (título, sinopsis, precio, portada)
+  3. Escribir y publicar un artículo de blog
+  4. Editar el contenido existente (textos `[PENDIENTE]`)
+- **A partir de aquí:** Andrea y Melibea pueden hacer toda la "mudanza" de contenido de forma autónoma.
+- **Formato guía:** Sencillo, sin términos técnicos. Para alguien que nunca ha usado un CMS.
 
 ---
 
