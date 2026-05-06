@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. Documento PENDIENTES_ANDREA.md creado.**
+> Última actualización: **6 mayo 2026 — Sesión #5. Regla de cierre proactivo añadida.**
 
 ---
 
@@ -55,7 +55,22 @@
 - Al terminar un paso y funcionar: hacer merge a `main`, push, y marcar como ✅ aquí.
 - Si algo cambia (requisito nuevo, decisión, bloqueo): actualizar este archivo ANTES de continuar.
 - Si algo afecta a información pendiente de Andrea/Melibea: actualizar también `PENDIENTES_ANDREA.md`.
+- Al terminar cualquier tarea, el asistente debe cerrar de forma proactiva: estado actual, cambios pendientes, acción git recomendada (`commit`, crear rama, `merge`, `push` o borrar rama si toca), siguiente paso del ROADMAP y propuesta concreta de qué hacer ahora.
 - **Nunca se avanza al siguiente paso sin que Marcos lo apruebe explícitamente.**
+
+---
+
+## PROTOCOLO DE CIERRE PROACTIVO
+
+> Esta sección es obligatoria al terminar tareas, revisiones, cambios de código o documentación.
+
+El asistente debe terminar cada intervención útil con:
+- **Estado:** rama activa, si hay cambios sin commit, si el build/test se ejecutó y si el ROADMAP queda actualizado.
+- **Siguiente acción operativa:** recomendar si toca hacer commit, crear rama, mergear, pushear, borrar rama, arrancar servidor, pedir revisión visual o esperar aprobación.
+- **Siguiente paso del roadmap:** indicar el paso exacto que viene después y si puede empezarse o requiere confirmación de Marcos.
+- **Propuesta:** una recomendación concreta y breve, por ejemplo: "Propongo hacer commit de esta actualización documental y después, si confirmas, abrir la rama `paso-3.4-favicon-pwa`."
+
+Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo queda sucio, decirlo explícitamente.
 
 ---
 
@@ -66,8 +81,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **3.2** — Guiños visuales LGTB+ y feministas (6 mayo 2026) |
-| **Siguiente paso** | **3.3** — View Transitions y animaciones de scroll |
+| **Último paso completado** | **3.3** — View Transitions y animaciones de scroll (6 mayo 2026) |
+| **Siguiente paso** | **3.4** — Favicon completo y PWA básica |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 

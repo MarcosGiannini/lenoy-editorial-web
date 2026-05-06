@@ -1,6 +1,6 @@
 # PROMPT MAESTRO — PROYECTO EDITORIAL LENOY
 > Pega este documento COMPLETO al inicio de cualquier sesión de IA (GitHub Copilot, Copilot en Codespaces, Claude, ChatGPT).
-> Última sincronización: **5 mayo 2026 — sesión #2. ROADMAP.md creado. Wireframe de Andrea analizado. Requisitos ampliados.**
+> Última sincronización: **6 mayo 2026 — sesión #5. Regla de cierre proactivo añadida.**
 
 ---
 
@@ -114,6 +114,19 @@ Al terminar cualquier cambio de código, SIEMPRE debes proporcionar a Marcos una
 - Para responsive: `F12` → icono de móvil arriba izquierda → elige el dispositivo → captura
 
 Nunca termines un paso sin esta sección. Sin ella, Marcos no puede verificar si el trabajo está bien hecho.
+
+### Regla 6B — Cierre proactivo y guía de siguientes pasos
+Al terminar cualquier tarea, cambio, revisión o paso del roadmap, NO basta con decir "hecho". El asistente debe guiar proactivamente a Marcos con el siguiente movimiento recomendado.
+
+El cierre debe incluir siempre:
+- Qué estado queda ahora: rama activa, cambios pendientes, build/test si aplica y si el ROADMAP está actualizado.
+- Qué acción operativa toca a continuación: hacer commit, crear rama, hacer merge, push, borrar rama, arrancar servidor, revisar en navegador o esperar aprobación.
+- Qué paso del ROADMAP viene después y si está permitido empezarlo ya o necesita confirmación explícita de Marcos.
+- Una propuesta concreta, redactada como recomendación: "Propongo hacer ahora X por Y motivo".
+
+Si hay varias opciones razonables, enumera 2 o 3 como máximo y recomienda una. Si el trabajo quedó sin commit, dilo claramente. Si todo quedó mergeado y limpio, dilo también y propone el siguiente paso del ROADMAP.
+
+Esta regla también aplica a tareas pequeñas de documentación, como actualizar este prompt o el ROADMAP.
 
 ---
 
