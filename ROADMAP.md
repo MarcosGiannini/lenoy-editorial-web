@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. Regla didáctica ampliada con comandos y jerga técnica.**
+> Última actualización: **6 mayo 2026 — Sesión #5. Paso 3.4 favicon/PWA básica completado.**
 
 ---
 
@@ -106,8 +106,8 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **3.3** — View Transitions y animaciones de scroll (6 mayo 2026) |
-| **Siguiente paso** | **3.4** — Favicon completo y PWA básica |
+| **Último paso completado** | **3.4** — Favicon completo y PWA básica (6 mayo 2026) |
+| **Siguiente paso** | **4.1** — Sitemap XML + robots.txt |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -283,9 +283,14 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 
 ### Paso 3.4 — Favicon completo y PWA básica
 - **Rama:** `paso-3.4-favicon-pwa`
-- **Estado:** ⬜ No iniciado
-- **Favicon:** SVG con el círculo terracotta y "L" blanca (código del Navbar, adaptado). PNG 16x16, 32x32, 180x180.
-- **PWA básica:** `public/manifest.json` con nombre, colores, iconos. Permite que Chrome proponga "Instalar app" en móvil. Gratis, sin backend, solo un archivo JSON.
+- **Estado:** ✅ Completado (6 mayo 2026)
+- **Qué se hizo:**
+  - `public/favicon.svg`: se reutiliza como fuente visual del icono, coherente con el logo circular terracotta del Navbar/Footer.
+  - Generados PNGs de favicon: `public/favicon-16x16.png`, `public/favicon-32x32.png` y `public/apple-touch-icon.png` (180x180).
+  - Generados iconos PWA: `public/icons/icon-192x192.png` y `public/icons/icon-512x512.png`.
+  - `public/manifest.json`: añadido con nombre, short name, colores, idioma, modo standalone e iconos.
+  - `BaseLayout.astro`: añadidos `theme-color`, `apple-mobile-web-app-title`, enlaces a favicon PNG/SVG, Apple touch icon y manifest.
+- **Build:** ✅ 17 páginas, 0 errores
 
 ---
 
