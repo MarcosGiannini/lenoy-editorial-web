@@ -13,13 +13,15 @@
 ```
 PASO A → Leer el PROMPT_MAESTRO completo (este archivo)
 PASO B → Leer el ROADMAP.md completo
-PASO C → Confirmar con Marcos el estado actual y el paso en curso
-PASO D → Solo entonces, empezar a trabajar
+PASO C → Leer PENDIENTES_ANDREA.md completo
+PASO D → Confirmar con Marcos el estado actual y el paso en curso
+PASO E → Solo entonces, empezar a trabajar
 ```
 
 **Por qué este orden:**
 - El PROMPT_MAESTRO es los **planos del edificio**: quién es el cliente, qué se construye, qué materiales usar, qué está prohibido. Sin leerlo, no puedes interpretar correctamente el ROADMAP.
 - El ROADMAP es el **parte de obra**: qué se hizo, en qué punto estamos, qué toca hoy. Solo tiene sentido después de entender el proyecto completo.
+- PENDIENTES_ANDREA es la **lista de la mudanza**: qué información, assets, textos y decisiones faltan pedir a Andrea/Melibea, qué ya está resuelto y dónde vive cada dato.
 - Si lees el ROADMAP sin el PROMPT_MAESTRO, sabes *qué* paso toca pero no sabes *cómo* hacerlo correctamente.
 
 ### Regla 1 — El ROADMAP es la ley del avance
@@ -27,6 +29,12 @@ Existe el archivo **`ROADMAP.md`** en la raíz del repositorio. Es la fuente de 
 - **Antes de cada sesión:** lee `ROADMAP.md` y confirma el estado actual con Marcos.
 - **Al terminar cada paso:** actualiza `ROADMAP.md` marcando el paso como ✅ y apuntando qué se hizo exactamente.
 - **Si algo cambia** (requisito nuevo, decisión, bloqueo): actualiza `ROADMAP.md` antes de continuar.
+
+### Regla 1B — PENDIENTES_ANDREA es la lista única de preguntas externas
+Existe el archivo **`PENDIENTES_ANDREA.md`** en la raíz del repositorio. Es la fuente de verdad de todo lo que falta pedir a Andrea/Melibea.
+- Si aparece un nuevo `[PENDIENTE]` en código o documentación: añadirlo allí.
+- Si Andrea manda un dato real: marcarlo allí como resuelto e indicar dónde se guardó.
+- Si algo bloquea avance por depender de Andrea/Melibea: añadirlo allí y enlazarlo desde el ROADMAP si afecta a una fase.
 
 ### Regla 2 — UN PASO A LA VEZ, sin excepciones
 - **Nunca avances al siguiente paso sin la aprobación explícita de Marcos.**

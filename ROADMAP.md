@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. RRSS reales de Editorial Lenoy añadidas.**
+> Última actualización: **6 mayo 2026 — Sesión #5. Documento PENDIENTES_ANDREA.md creado.**
 
 ---
 
@@ -18,6 +18,7 @@
 - Los pasos 1.2, 1.3, 1.4, 1.5 (páginas de contenido) ya tienen estructura base creada en el Paso 0.2. **No hace falta volver a tocarlos hasta la mudanza.**
 - La prioridad técnica ahora es: terminar todo lo que se puede construir sin contenido (CMS, dark mode, SEO, seguridad, formularios), y dejar la mudanza para el final.
 - El onboarding del CMS (Fase 2) se convierte en la **fase de transición** entre construcción y mudanza.
+- Todo dato que falte pedir a Andrea/Melibea vive en `PENDIENTES_ANDREA.md`. Ese documento debe actualizarse cada vez que aparezca un nuevo `[PENDIENTE]`, bloqueo externo o dato recibido.
 
 ---
 
@@ -34,10 +35,13 @@
    → Entiendes el estado actual, qué se ha hecho, qué toca ahora.
    → Sin el PROMPT_MAESTRO previo, este archivo no tiene suficiente contexto.
 
-3. Confirmar con Marcos
-   → "He leído ambos documentos. El estado actual es [X]. El siguiente paso es [Y]. ¿Confirmas que empezamos?"
+3. Leer PENDIENTES_ANDREA.md COMPLETO
+   → Entiendes qué falta pedir a Andrea/Melibea, qué ya está resuelto y dónde vive cada dato en el repo.
 
-4. Solo entonces, actuar.
+4. Confirmar con Marcos
+   → "He leído los documentos canónicos. El estado actual es [X]. El siguiente paso es [Y]. ¿Confirmas que empezamos?"
+
+5. Solo entonces, actuar.
 ```
 
 **Analogía para entenderlo:** Un arquitecto que llega a la obra cada mañana primero lee los planos del edificio (PROMPT_MAESTRO: qué se construye, materiales, normas), y luego lee el parte de obra de ayer (ROADMAP: qué se hizo, qué toca hoy). Nunca al revés.
@@ -50,6 +54,7 @@
 - Al iniciar un paso: crear una rama git con el nombre indicado en cada paso.
 - Al terminar un paso y funcionar: hacer merge a `main`, push, y marcar como ✅ aquí.
 - Si algo cambia (requisito nuevo, decisión, bloqueo): actualizar este archivo ANTES de continuar.
+- Si algo afecta a información pendiente de Andrea/Melibea: actualizar también `PENDIENTES_ANDREA.md`.
 - **Nunca se avanza al siguiente paso sin que Marcos lo apruebe explícitamente.**
 
 ---

@@ -10,7 +10,7 @@
 Cada sesión de chat con un agente IA es independiente — no recuerda la sesión anterior.
 Sin rehidratación, el agente puede proponer arquitecturas erróneas, repetir trabajo ya hecho o peor: deshacer cambios que funcionan.
 
-Este protocolo obliga al agente a leer los dos documentos canónicos del proyecto antes de tocar nada.
+Este protocolo obliga al agente a leer los documentos canónicos del proyecto antes de tocar nada.
 
 ---
 
@@ -33,6 +33,10 @@ Lee COMPLETAMENTE el archivo:
 → ROADMAP.md
 
 PASO 3
+Lee COMPLETAMENTE el archivo:
+→ PENDIENTES_ANDREA.md
+
+PASO 4
 Confirma explícitamente el estado actual SIN ejecutar nada:
 
 Formato de respuesta OBLIGATORIO (copiar exacto):
@@ -40,6 +44,7 @@ Formato de respuesta OBLIGATORIO (copiar exacto):
 ---
 ✅ He leído PROMPT_MAESTRO_EDITORIAL_LENOY.md
 ✅ He leído ROADMAP.md
+✅ He leído PENDIENTES_ANDREA.md
 
 Estado actual del proyecto:
 - Último paso completado: [indicar exactamente — fase y número]
@@ -81,7 +86,8 @@ Detente tras la confirmación.
 |-----------|---------|-----------|
 | 1 | `PROMPT_MAESTRO_EDITORIAL_LENOY.md` | Cliente, stack, paleta, seguridad, reglas de trabajo, protocolo git |
 | 2 | `ROADMAP.md` | Pasos completados, en progreso, pendientes, bloqueantes externos |
-| 3 | `README.md` | Stack técnico, arranque local, estructura de carpetas, variables de entorno |
+| 3 | `PENDIENTES_ANDREA.md` | Lista única de datos, textos, assets y decisiones que faltan pedir a Andrea/Melibea |
+| 4 | `README.md` | Stack técnico, arranque local, estructura de carpetas, variables de entorno |
 
 ---
 
@@ -144,6 +150,8 @@ Estos ítems están **pendientes de Andrea** y no pueden avanzarse hasta que los
 - 🔴 Account de Stripe (para activar los botones de compra)
 - 🔴 Dominio final (`editoriallenoy.com` o similar)
 - 🟡 Cuenta de Netlify (necesaria para Netlify Identity + CMS en producción)
+
+El detalle completo y actualizado está en `PENDIENTES_ANDREA.md`. Si Andrea manda información nueva o aparece un bloqueo nuevo, actualizar ese documento en el mismo cambio.
 
 La estrategia acordada es: **construir la casa vacía → enseñar CMS a Andrea → Andrea hace la mudanza de contenidos**.
 
