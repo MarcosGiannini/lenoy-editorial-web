@@ -65,6 +65,7 @@ REGLAS ABSOLUTAS:
 - NO avances al siguiente paso sin que Marcos lo confirme explícitamente.
 - Seguir PROMPT_MAESTRO + ROADMAP como fuente de verdad canónica.
 - Al terminar cualquier tarea, guía proactivamente a Marcos: estado actual, cambios pendientes, acción git recomendada (commit/rama/merge/push/borrar rama), siguiente paso del ROADMAP y propuesta concreta.
+- Explica cada acción relevante como a un junior engineer: por qué se hace así, cómo se hace y cuándo toca dentro del flujo.
 
 Detente tras la confirmación.
 ```
