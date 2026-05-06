@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. Paso 3.2 completado: identidad LGTB+ y feminista sutil.**
+> Última actualización: **6 mayo 2026 — Sesión #5. RRSS reales de Editorial Lenoy añadidas.**
 
 ---
 
@@ -417,7 +417,7 @@
   - [ ] Fotos de Andrea y Melibea (o confirmar que usamos avatares con inicial)
   - [ ] Textos para "Qué es Lenoy": quiénes somos, objetivos, trayectoria
   - [ ] Textos para "Editorial Lenoy": línea editorial
-  - [ ] Links reales a RRSS de la asociación
+  - [x] Links reales a RRSS de la asociación: Instagram `https://www.instagram.com/lenoy_ediciones/` · Facebook `https://www.facebook.com/share/1CrZCXCvp4/`
   - [ ] Email real `hola@editoriallenoy.com` funcionando
   - [ ] Estatutos (PDF) si quieren publicarlos
 
@@ -566,7 +566,7 @@ Antes de hacer merge de cualquier rama a `main`, verificar:
 1. ¿El título del tercer libro es definitivamente "Maleidra"? (aparece con "¿?" en el wireframe)
 2. ¿Cuántos libros hay en el catálogo real total?
 3. ¿Tienen ISBNs los libros?
-4. ¿Tienen RRSS activas (Instagram, Twitter) con URLs ya definidas?
+4. ✅ RRSS activas recibidas de Andrea: Instagram `https://www.instagram.com/lenoy_ediciones/` y Facebook `https://www.facebook.com/share/1CrZCXCvp4/`.
 5. ¿Pueden crear una cuenta de GitHub para acceder al CMS?
 6. ¿El email `hola@editoriallenoy.com` ya existe o es futuro?
 7. ¿Quieren publicar los estatutos de la asociación en la web?

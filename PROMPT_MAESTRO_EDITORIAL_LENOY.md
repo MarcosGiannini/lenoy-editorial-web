@@ -342,7 +342,7 @@ lenoy-editorial-web/
 - 3 columnas: Logo + tagline | Links internos | Contacto + RRSS
 - Email de contacto: `hola@editoriallenoy.com` (placeholder)
 - Ubicación: "Malabo, Guinea Ecuatorial" (placeholder — sede real: Madrid)
-- RRSS: Instagram + Twitter (URLs placeholder)
+- RRSS reales de la asociación: Instagram `https://www.instagram.com/lenoy_ediciones/` + Facebook `https://www.facebook.com/share/1CrZCXCvp4/`
 - Copyright dinámico con año actual
 
 ### pages/index.astro (HOME)
