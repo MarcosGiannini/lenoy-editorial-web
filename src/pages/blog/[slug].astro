@@ -21,7 +21,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
 
 <BaseLayout title={post.title} description={post.excerpt}>
   <header class="bg-gradient-to-b from-cream-200 to-cream-100 dark:from-gray-900 dark:to-[#1a1510] py-16 px-4" aria-label="Encabezado del artículo">
-    <div class="max-w-3xl mx-auto">
+    <div data-reveal class="max-w-3xl mx-auto">
       <nav aria-label="Ruta de navegación" class="mb-6">
         <ol class="flex items-center gap-2 text-sm text-gray-500 dark:text-cream-400">
           <li><a href="/" class="hover:text-terracotta-500 transition-colors">Inicio</a></li>
@@ -59,7 +59,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
   </header>
 
   <article class="py-12 px-4 max-w-3xl mx-auto" aria-label={post.title}>
-    <div class="prose prose-lg max-w-none">
+    <div data-reveal class="prose prose-lg max-w-none">
       {post.content.split('\n').map((line) => {
         if (line.startsWith('# ')) {
           return <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-cream-100 mt-8 mb-4">{line.slice(2)}</h2>;
@@ -73,7 +73,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
       })}
     </div>
 
-    <div class="mt-10 pt-6 border-t border-cream-300 dark:border-gray-700">
+    <div data-reveal class="mt-10 pt-6 border-t border-cream-300 dark:border-gray-700">
       <h2 class="text-sm font-medium text-gray-500 dark:text-cream-400 mb-3">Etiquetas</h2>
       <div class="flex flex-wrap gap-2">
         {post.tags.map((tag) => (
@@ -84,7 +84,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
       </div>
     </div>
 
-    <div class="mt-10">
+    <div data-reveal class="mt-10">
       <a
         href="/blog"
         class="inline-flex items-center gap-2 text-sm font-medium text-terracotta-500 hover:text-terracotta-600 transition-colors group"

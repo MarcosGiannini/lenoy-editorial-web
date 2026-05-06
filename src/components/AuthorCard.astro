@@ -15,12 +15,17 @@ interface Author {
 
 interface Props {
   author: Author;
+  revealDelay?: string;
 }
 
-const { author } = Astro.props;
+const { author, revealDelay } = Astro.props;
 ---
 
-<article class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-cream-300 dark:border-gray-700 flex flex-col">
+<article
+  data-reveal
+  style={revealDelay ? `--reveal-delay: ${revealDelay}` : undefined}
+  class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-cream-300 dark:border-gray-700 flex flex-col"
+>
   <div class="flex items-center gap-4 mb-4">
     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-forest-200 to-forest-400 flex items-center justify-center flex-shrink-0" aria-hidden="true">
       <span class="font-serif font-bold text-2xl text-white">

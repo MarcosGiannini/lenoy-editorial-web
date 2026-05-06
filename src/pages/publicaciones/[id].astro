@@ -124,7 +124,7 @@ const hasStripe = Boolean(book.stripeButtonId);
       <div class="space-y-8">
 
         <!-- Título y metadatos -->
-        <div>
+        <div data-reveal>
           <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 dark:text-cream-100 leading-tight mb-3">
             {book.title}
           </h1>
@@ -141,7 +141,7 @@ const hasStripe = Boolean(book.stripeButtonId);
         </div>
 
         <!-- Precio y compra (visible en móvil, bajo el título) -->
-        <div class="lg:hidden space-y-3">
+        <div data-reveal class="lg:hidden space-y-3">
           <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
           {hasStripe ? (
             <a
@@ -173,14 +173,14 @@ const hasStripe = Boolean(book.stripeButtonId);
         </div>
 
         <!-- Sinopsis completa -->
-        <section aria-labelledby="sinopsis-heading">
+        <section data-reveal aria-labelledby="sinopsis-heading">
           <h2 id="sinopsis-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-3">Sinopsis</h2>
           <p class="text-gray-700 dark:text-cream-300 leading-relaxed text-lg">{book.synopsis}</p>
         </section>
 
         <!-- Sección ONG (solo para libros de colaboración) -->
         {book.category === 'colaboracion-ongs' && (
-          <section class="bg-forest-700 rounded-2xl p-6 text-cream-100" aria-labelledby="ong-heading">
+          <section data-reveal class="bg-forest-700 rounded-2xl p-6 text-cream-100" aria-labelledby="ong-heading">
             <h2 id="ong-heading" class="font-serif text-xl font-bold mb-2">Proyecto solidario</h2>
             <p class="text-cream-300 leading-relaxed text-sm">
               Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro de Guinea Ecuatorial. Una parte de los beneficios se destina al proyecto origen.
@@ -191,7 +191,7 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Sobre la autora -->
         {author && (
-          <section class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="autora-heading">
+          <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="autora-heading">
             <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-5">Sobre la autora</h2>
             <div class="flex items-start gap-5">
               <!-- Avatar placeholder -->
@@ -250,7 +250,7 @@ const hasStripe = Boolean(book.stripeButtonId);
         )}
 
         <!-- Navegación: volver al listado -->
-        <div class="border-t border-cream-300 dark:border-gray-700 pt-8">
+        <div data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8">
           <a
             href="/publicaciones"
             class="inline-flex items-center gap-2 text-terracotta-500 font-medium hover:text-terracotta-700 transition-colors"
