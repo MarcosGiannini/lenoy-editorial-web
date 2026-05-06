@@ -8,6 +8,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="bg-forest-700 py-16 px-4" aria-labelledby="publica-heading">
     <div class="max-w-6xl mx-auto text-center">
+      <div class="h-1 w-32 rounded-full flex overflow-hidden mx-auto mb-6" aria-hidden="true">
+        <span class="flex-1 bg-red-400"></span>
+        <span class="flex-1 bg-yellow-300"></span>
+        <span class="flex-1 bg-green-400"></span>
+        <span class="flex-1 bg-blue-400"></span>
+        <span class="flex-1 bg-violet-500"></span>
+      </div>
       <p class="text-forest-300 font-medium text-sm uppercase tracking-widest mb-4">Convocatoria abierta</p>
       <h1 id="publica-heading" class="font-serif text-5xl font-bold text-cream-100 mb-6">
         Publica con nosotras
@@ -21,8 +28,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <main class="max-w-4xl mx-auto px-4 py-20">
     <div class="space-y-16">
       <div class="space-y-4">
-        <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-cream-100">Qué tipo de obras publicamos</h2>
-        <p class="text-gray-600 dark:text-cream-300 leading-relaxed text-lg">[PENDIENTE: texto de Andrea sobre géneros, temáticas y requisitos editoriales]</p>
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-terracotta-100 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-200 flex items-center justify-center font-serif text-2xl" aria-hidden="true">♀</span>
+          <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-cream-100">Qué tipo de obras publicamos</h2>
+        </div>
+        <p class="text-gray-600 dark:text-cream-300 leading-relaxed text-lg">[PENDIENTE: texto de Andrea sobre géneros, temáticas, personas autoras y requisitos editoriales]</p>
       </div>
 
       <div class="space-y-6">

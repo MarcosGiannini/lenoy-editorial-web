@@ -23,9 +23,28 @@ const categoryLabel = {
   'obras-propias': 'Obra propia',
   'colaboracion-ongs': 'Colaboración ONG',
 };
+
+function getGenreBadgeClass(genre: string) {
+  if (genre === 'LGTB+') {
+    return 'bg-gradient-to-r from-red-100 via-yellow-100 to-violet-100 dark:from-red-900/40 dark:via-yellow-900/30 dark:to-violet-900/40 text-violet-900 dark:text-violet-100 border border-violet-200 dark:border-violet-700';
+  }
+
+  if (genre === 'Feminismo') {
+    return 'bg-terracotta-100 dark:bg-terracotta-900/40 text-terracotta-800 dark:text-terracotta-100 border border-terracotta-200 dark:border-terracotta-700';
+  }
+
+  return 'bg-cream-200 dark:bg-gray-700 text-gray-600 dark:text-cream-300 border border-transparent';
+}
 ---
 
 <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-cream-300 dark:border-gray-700">
+  <div class="h-1 flex" aria-hidden="true">
+    <span class="flex-1 bg-red-400"></span>
+    <span class="flex-1 bg-yellow-300"></span>
+    <span class="flex-1 bg-green-400"></span>
+    <span class="flex-1 bg-blue-400"></span>
+    <span class="flex-1 bg-violet-500"></span>
+  </div>
   <a href={`/publicaciones/${book.id}`} class="block aspect-[2/3] bg-gradient-to-br from-terracotta-100 to-sunset-100 relative overflow-hidden" aria-label={`Ver ficha de ${book.title}`} tabindex="-1">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center px-6 py-8">
@@ -53,7 +72,7 @@ const categoryLabel = {
 
     <div class="flex flex-wrap gap-1.5 mb-3">
       {book.genre.map((g) => (
-        <span class="inline-block px-2 py-0.5 bg-cream-200 dark:bg-gray-700 text-gray-600 dark:text-cream-300 text-xs rounded-full">
+        <span class={`inline-block px-2 py-0.5 text-xs rounded-full ${getGenreBadgeClass(g)}`}>
           {g}
         </span>
       ))}

@@ -22,11 +22,18 @@ const authors = allAuthors.map((a) => ({ id: a.id, ...a.data }));
 >
   <section class="bg-forest-700 py-16 px-4" aria-labelledby="catalog-heading">
     <div class="max-w-6xl mx-auto text-center">
+      <div class="h-1 w-32 rounded-full flex overflow-hidden mx-auto mb-6" aria-hidden="true">
+        <span class="flex-1 bg-red-400"></span>
+        <span class="flex-1 bg-yellow-300"></span>
+        <span class="flex-1 bg-green-400"></span>
+        <span class="flex-1 bg-blue-400"></span>
+        <span class="flex-1 bg-violet-500"></span>
+      </div>
       <h1 id="catalog-heading" class="font-serif text-5xl font-bold text-cream-100 mb-4">
         Catálogo editorial
       </h1>
       <p class="text-cream-300 max-w-xl mx-auto leading-relaxed">
-        Toda nuestra producción literaria: obras propias y proyectos en colaboración con organizaciones comprometidas con los derechos de las mujeres y la comunidad LGTB+ en Guinea Ecuatorial.
+        Toda nuestra producción literaria: obras propias y proyectos en colaboración con organizaciones comprometidas con los derechos de las mujeres, la comunidad LGTB+ y las personas lectoras de Guinea Ecuatorial.
       </p>
     </div>
   </section>

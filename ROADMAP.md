@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **5 mayo 2026 — Sesión #4. Fase 2 completa: CMS instalado y guia redactada.**
+> Última actualización: **6 mayo 2026 — Sesión #5. Paso 3.2 completado: identidad LGTB+ y feminista sutil.**
 
 ---
 
@@ -61,8 +61,8 @@
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
 | **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **3.1** — Modo oscuro / claro + auditoría dark mode completa (5 mayo 2026) |
-| **Siguiente paso** | **3.2** — Guiños visuales LGTB+ y feministas |
+| **Último paso completado** | **3.2** — Guiños visuales LGTB+ y feministas (6 mayo 2026) |
+| **Siguiente paso** | **3.3** — View Transitions y animaciones de scroll |
 | **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
 | **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
 
@@ -214,14 +214,15 @@
 
 ### Paso 3.2 — Guiños visuales LGTB+ y feministas
 - **Rama:** `paso-3.2-identidad-lgtb-feminista`
-- **Estado:** ⬜ No iniciado
-- **Qué incluye (sutil, no panfletario):**
-  - Banda de colores arcoíris muy fina (2-3px) como separador en secciones clave
-  - Badge "LGTB+" y "Feminismo" en colores propios para los géneros de los libros
-  - Símbolo ♀ integrado en títulos de secciones relevantes (Publica con nosotras, etc.)
-  - Microcopy inclusivo: "lectoras y lectores" o neutro "personas lectoras"
-  - Sección visible en "Qué es Lenoy" que explica el compromiso explícito
-- **Nota de diseño:** Estos elementos deben reforzar la identidad sin distraer. Andrea tiene la última palabra sobre lo que entra.
+- **Estado:** ✅ Completado (6 mayo 2026)
+- **Qué se hizo:**
+  - `BookCard.astro`: banda arcoíris fina en la parte superior de cada tarjeta y badges especiales para géneros `LGTB+` y `Feminismo`, derivados de los datos existentes.
+  - `publicaciones/[id].astro`: banda identitaria en la ficha de libro y mismos badges especiales en los géneros, con variantes de modo oscuro.
+  - `publicaciones/index.astro`: banda arcoíris sutil en el hero y microcopy inclusivo con "personas lectoras".
+  - `que-es-lenoy.astro`: banda en el hero y nueva sección "Compromiso" con símbolo ♀ decorativo y texto `[PENDIENTE]` para Andrea.
+  - `publica-con-nosotras.astro`: banda en el hero, símbolo ♀ decorativo en la sección de obras y placeholder ajustado con "personas autoras".
+- **Nota de diseño:** Intensidad elegida: sutil. No se añadieron dependencias, no se tocaron schemas/CMS, no se modificaron datos de libros ni rutas.
+- **Build:** ✅ 17 páginas, 0 errores
 
 ### Paso 3.3 — View Transitions y animaciones de scroll
 - **Rama:** `paso-3.3-animaciones`

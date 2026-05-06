@@ -24,6 +24,18 @@ const categoryLabel: Record<string, string> = {
   'colaboracion-ongs': 'Colaboración con ONG',
 };
 
+function getGenreBadgeClass(genre: string) {
+  if (genre === 'LGTB+') {
+    return 'bg-gradient-to-r from-red-100 via-yellow-100 to-violet-100 dark:from-red-900/40 dark:via-yellow-900/30 dark:to-violet-900/40 text-violet-900 dark:text-violet-100 border border-violet-200 dark:border-violet-700';
+  }
+
+  if (genre === 'Feminismo') {
+    return 'bg-terracotta-100 dark:bg-terracotta-900/40 text-terracotta-800 dark:text-terracotta-100 border border-terracotta-200 dark:border-terracotta-700';
+  }
+
+  return 'bg-cream-200 dark:bg-gray-700 text-gray-700 dark:text-cream-200 border border-transparent';
+}
+
 // El botón de compra solo es activo cuando Stripe esté configurado
 const hasStripe = Boolean(book.stripeButtonId);
 ---
@@ -44,6 +56,14 @@ const hasStripe = Boolean(book.stripeButtonId);
   </nav>
 
   <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-10 h-1 flex overflow-hidden rounded-full" aria-hidden="true">
+      <span class="flex-1 bg-red-400"></span>
+      <span class="flex-1 bg-yellow-300"></span>
+      <span class="flex-1 bg-green-400"></span>
+      <span class="flex-1 bg-blue-400"></span>
+      <span class="flex-1 bg-violet-500"></span>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12 lg:gap-16 items-start">
 
       <!-- COLUMNA IZQUIERDA: portada -->
@@ -113,7 +133,7 @@ const hasStripe = Boolean(book.stripeButtonId);
           </p>
           <div class="flex flex-wrap gap-2">
             {book.genre.map((g) => (
-              <span class="inline-block px-3 py-1 bg-cream-200 dark:bg-gray-700 text-gray-700 dark:text-cream-200 text-sm rounded-full">
+              <span class={`inline-block px-3 py-1 text-sm rounded-full ${getGenreBadgeClass(g)}`}>
                 {g}
               </span>
             ))}

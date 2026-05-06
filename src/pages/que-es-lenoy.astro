@@ -8,6 +8,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="bg-forest-700 py-16 px-4" aria-labelledby="que-es-lenoy-heading">
     <div class="max-w-6xl mx-auto text-center">
+      <div class="h-1 w-32 rounded-full flex overflow-hidden mx-auto mb-6" aria-hidden="true">
+        <span class="flex-1 bg-red-400"></span>
+        <span class="flex-1 bg-yellow-300"></span>
+        <span class="flex-1 bg-green-400"></span>
+        <span class="flex-1 bg-blue-400"></span>
+        <span class="flex-1 bg-violet-500"></span>
+      </div>
       <p class="text-terracotta-300 font-medium text-sm uppercase tracking-widest mb-4">La asociación</p>
       <h1 id="que-es-lenoy-heading" class="font-serif text-5xl font-bold text-cream-100 mb-6">
         Qué es Lenoy
@@ -40,6 +47,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="text-gray-600 dark:text-cream-300 leading-relaxed">[PENDIENTE: enlace al PDF de estatutos de la asociación]</p>
       </div>
     </div>
+
+    <section class="mb-16 overflow-hidden rounded-2xl border border-cream-300 dark:border-gray-700 bg-cream-100 dark:bg-gray-800" aria-labelledby="compromiso-heading">
+      <div class="h-1 flex" aria-hidden="true">
+        <span class="flex-1 bg-red-400"></span>
+        <span class="flex-1 bg-yellow-300"></span>
+        <span class="flex-1 bg-green-400"></span>
+        <span class="flex-1 bg-blue-400"></span>
+        <span class="flex-1 bg-violet-500"></span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-5 p-6 md:p-8">
+        <div class="w-14 h-14 rounded-full bg-terracotta-100 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-200 flex items-center justify-center font-serif text-3xl" aria-hidden="true">
+          ♀
+        </div>
+        <div class="space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-widest text-terracotta-600 dark:text-terracotta-300">Compromiso</p>
+          <h2 id="compromiso-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100">
+            Literatura feminista, LGTB+ y afroguineana
+          </h2>
+          <p class="text-gray-600 dark:text-cream-300 leading-relaxed">
+            [PENDIENTE: texto de Andrea sobre el compromiso explícito de Lenoy con las voces feministas, LGTB+ y afroguineanas, y con las personas lectoras que buscan una literatura libre y situada]
+          </p>
+        </div>
+      </div>
+    </section>
 
     <div class="space-y-6">
       <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100">El equipo</h2>
