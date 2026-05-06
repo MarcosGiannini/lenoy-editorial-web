@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. Regla de explicación didáctica continua añadida.**
+> Última actualización: **6 mayo 2026 — Sesión #5. Regla didáctica ampliada con comandos y jerga técnica.**
 
 ---
 
@@ -56,7 +56,7 @@
 - Si algo cambia (requisito nuevo, decisión, bloqueo): actualizar este archivo ANTES de continuar.
 - Si algo afecta a información pendiente de Andrea/Melibea: actualizar también `PENDIENTES_ANDREA.md`.
 - Al terminar cualquier tarea, el asistente debe cerrar de forma proactiva: estado actual, cambios pendientes, acción git recomendada (`commit`, crear rama, `merge`, `push` o borrar rama si toca), siguiente paso del ROADMAP y propuesta concreta de qué hacer ahora.
-- Cada acción relevante debe explicarse como a un junior engineer: por qué se hace así, cómo se hace y cuándo toca dentro del flujo del proyecto.
+- Cada acción relevante debe explicarse como a un junior engineer: por qué se hace así, cómo se hace y cuándo toca dentro del flujo del proyecto, incluyendo comandos y jerga técnica cotidiana.
 - **Nunca se avanza al siguiente paso sin que Marcos lo apruebe explícitamente.**
 
 ---
@@ -69,8 +69,17 @@ El asistente debe explicar cada acción relevante como una maestra técnica acom
 - **Por qué:** qué problema resuelve, qué riesgo evita o qué criterio técnico justifica la decisión.
 - **Cómo:** qué archivo, comando, patrón o herramienta se usa.
 - **Cuándo:** en qué momento del flujo toca hacerlo y qué habilita después.
+- **Qué significa:** explicar la jerga o comando si puede ser nuevo para Marcos.
 
-Aplica a código, documentación, Git, builds, tests, merges, pushes, ramas, verificaciones, decisiones visuales, SEO, seguridad, CMS y propuestas de siguientes pasos.
+Aplica a código, documentación, Git, terminal, builds, tests, merges, pushes, ramas, verificaciones, decisiones visuales, SEO, seguridad, CMS y propuestas de siguientes pasos.
+
+Ejemplos obligatorios de conceptos que deben explicarse cuando aparezcan:
+- `git add`: preparar cambios para el próximo commit.
+- `git commit` / "comitear": guardar una foto del trabajo en el historial local.
+- `git push` / "pushear": subir commits locales a GitHub.
+- `git merge` / "mergear": integrar una rama en otra.
+- `build`: generar la versión final de la web y detectar errores antes de publicar.
+- `deploy`: publicar la web en el servidor/plataforma.
 
 La explicación debe ser clara y breve: suficiente para que Marcos aprenda el razonamiento sin convertir cada respuesta en una clase larga.
 
