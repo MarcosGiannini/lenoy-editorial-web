@@ -231,10 +231,15 @@
 
 ### Paso 3.3 — View Transitions y animaciones de scroll
 - **Rama:** `paso-3.3-animaciones`
-- **Estado:** ⬜ No iniciado
-- **View Transitions:** API nativa de Astro. Un solo `<ViewTransitions />` en BaseLayout da transiciones suaves entre páginas sin recargar. Sin librerías externas.
-- **Animaciones de scroll:** Intersection Observer API nativo (el navegador lo incluye). Las tarjetas de libros, autoras y secciones entran con un fade+desplazamiento al hacer scroll. Sin instalar nada.
-- **Importante:** Respetar `prefers-reduced-motion` — si el usuario tiene configurado "reducir animaciones" en su sistema, no se muestran.
+- **Estado:** ✅ Completado (6 mayo 2026)
+- **Qué se hizo:**
+  - `BaseLayout.astro`: activado `ClientRouter` de Astro para transiciones suaves entre páginas, sin dependencias externas.
+  - `BaseLayout.astro`: estilos globales `data-reveal` con fade + desplazamiento vertical sutil, y fallback seguro para que el contenido quede visible si no hay JavaScript.
+  - `BaseLayout.astro`: script con Intersection Observer, reactivado en `astro:page-load` para funcionar también tras navegación cliente y protegido contra listeners duplicados.
+  - `BookCard.astro`, `AuthorCard.astro`, `BlogPostCard.astro`: tarjetas marcadas como animables con `revealDelay` opcional para escalonado discreto.
+  - Páginas principales e institucionales: bloques de hero, secciones, grids, ficha de libro y blog marcados con `data-reveal`. No se animaron navegación ni columna sticky.
+- **Accesibilidad:** Respeta `prefers-reduced-motion`; si el usuario reduce animaciones, no hay fades, desplazamientos ni transiciones.
+- **Build:** ✅ 17 páginas, 0 errores, 3.02s
 
 ### Paso 3.4 — Favicon completo y PWA básica
 - **Rama:** `paso-3.4-favicon-pwa`

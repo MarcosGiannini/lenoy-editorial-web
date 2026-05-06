@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -39,6 +40,7 @@ const siteTitle = title === 'Inicio' ? 'Editorial Lenoy' : `${title} — Editori
     <!-- Dark mode: aplica la clase ANTES de pintar para evitar destello blanco -->
     <script is:inline>
       (function () {
+        document.documentElement.classList.add('js');
         const stored = localStorage.getItem('lenoy-theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (stored === 'dark' || (!stored && prefersDark)) {
@@ -46,6 +48,47 @@ const siteTitle = title === 'Inicio' ? 'Editorial Lenoy' : `${title} — Editori
         }
       })();
     </script>
+    <style is:global>
+      @media (prefers-reduced-motion: no-preference) {
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+          animation-duration: 180ms;
+          animation-timing-function: ease-out;
+        }
+
+        .js [data-reveal] {
+          opacity: 0;
+          transform: translateY(16px);
+          transition:
+            opacity 520ms ease,
+            transform 520ms ease;
+          transition-delay: var(--reveal-delay, 0ms);
+          will-change: opacity, transform;
+        }
+
+        .js [data-reveal].is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+    <ClientRouter />
   </head>
   <body class="bg-cream-100 dark:bg-[#1a1510] text-gray-900 dark:text-cream-100 font-sans antialiased transition-colors duration-200">
     <!-- Redirección post-login de Netlify Identity hacia el panel /admin -->
@@ -65,5 +108,60 @@ const siteTitle = title === 'Inicio' ? 'Editorial Lenoy' : `${title} — Editori
       <slot />
     </main>
     <Footer />
+    <script>
+      const lenoyWindow = window as Window & { __lenoyRevealReady?: boolean };
+
+      function setupScrollReveal() {
+        const items = Array.from(document.querySelectorAll('[data-reveal]'));
+
+        if (!items.length) {
+          return;
+        }
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const supportsObserver = 'IntersectionObserver' in window;
+
+        if (reducedMotion || !supportsObserver) {
+          items.forEach((item) => item.classList.add('is-visible'));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: '0px 0px -48px',
+          }
+        );
+
+        items.forEach((item) => {
+          if (item.classList.contains('is-visible')) {
+            return;
+          }
+
+          observer.observe(item);
+        });
+      }
+
+      if (!lenoyWindow.__lenoyRevealReady) {
+        lenoyWindow.__lenoyRevealReady = true;
+        document.addEventListener('astro:page-load', setupScrollReveal);
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupScrollReveal, { once: true });
+        }
+      }
+
+      setupScrollReveal();
+    </script>
   </body>
 </html>
