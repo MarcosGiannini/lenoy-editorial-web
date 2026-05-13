@@ -169,6 +169,17 @@ Dónde está incluido:
 
 ---
 
+## Mensaje preparado para Andrea (pendiente de envío)
+
+> Preparado: 2026-05-13 — **Pendiente de enviar**. No es una respuesta, es la lista lista para copiar.
+
+- Mensaje corto para WhatsApp: listo en AI CORE
+- Lista estructurada por bloques (preguntas 1-25 + top 5 de prioridad): lista en AI CORE
+- Referencia: `[AI CORE] dominios/desarrollo/proyectos/lenoy/recursos/conversaciones/mensaje-andrea-pendientes-2026-05-13.md`
+- Flujo acordado: enviar primero el WhatsApp corto → esperar confirmación → mandar lista completa solo si Andrea dice que puede revisar
+
+---
+
 ## Información ya recibida y no debe volver a pedirse
 
 ### Email de contacto real
