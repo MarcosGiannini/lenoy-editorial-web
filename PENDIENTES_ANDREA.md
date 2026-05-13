@@ -141,7 +141,23 @@ Dónde está incluido:
 - `REHIDRATACION.md` bloqueantes externos
 - `src/components/Footer.astro`
 
-### 9. Decisiones futuras
+### 9. Identidad visual — validación contra manual de marca (auditado 2026-05-13)
+> Auditoría realizada: web inspeccionada en local vs. Manual de Identidad Lenoy JUL2023.
+> El manual versionado está en AI CORE: `dominios/desarrollo/proyectos/lenoy/recursos/identidad/manual-identidad-lenoy-resumen-operativo.md`
+
+- **Símbolo/logotipo vectorial real**: la web usa un placeholder ("L" en círculo terracota). El símbolo real de Lenoy (dos rectángulos = L = libros apilados) no existe como asset en el repo. Pedir a Andrea/Melibea o al diseñador del manual (`info@romualdofaura.com`): archivo SVG del símbolo y del sello completo (símbolo + "Lenoy ediciones").
+- **Tipografía**: el manual especifica **Source Serif Pro** (Bold/Regular/Light). La web usa **Playfair Display**. Confirmar con Andrea si es un cambio consciente que quieren mantener, o si hay que alinear con el manual. No cambiar hasta decisión.
+- **Portadas de cubiertas**: el manual especifica un sistema tipográfico para las portadas (Source Serif Semibold 26pt para título, Regular 13pt para autor). Sin portadas reales no se puede verificar. Pedir portadas a Andrea (ver sección 1).
+- **Orden del equipo — Melibea primero**: en `/que-es-lenoy`, "Andrea Ramos" aparece antes de "Trifonia Melibea Obono". La regla acordada es Melibea siempre primera. Confirmar con Andrea que la estructura es: Melibea (primera) → Andrea (segunda), antes de modificar el código.
+
+Dónde está incluido:
+- `src/layouts/BaseLayout.astro` (carga de Playfair Display, Google Fonts)
+- `tailwind.config.mjs` (fontFamily serif)
+- `src/components/Navbar.astro` + `src/components/Footer.astro` (placeholder "L")
+- `public/favicon.svg` (placeholder "L")
+- `src/pages/que-es-lenoy.astro` (orden equipo)
+
+### 10. Decisiones futuras
 - Confirmar si bilingüe ES/EN es requisito real o deseo post-lanzamiento.
 - Confirmar si quieren newsletter.
 - Confirmar si quieren sección de prensa visible post-lanzamiento.

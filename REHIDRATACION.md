@@ -161,6 +161,24 @@ La estrategia acordada es: **construir la casa vacía → enseñar CMS a Andrea 
 
 ---
 
+## ⚠️ Identidad visual — no tocar sin consultar el manual
+
+> Añadido 2026-05-13 tras auditoría visual de la web vs. manual de marca.
+
+**Antes de modificar tipografía, logo, símbolo, favicon, colores de marca o sistema de cubiertas:**
+1. Leer el resumen operativo del manual en AI CORE:
+   `dominios/desarrollo/proyectos/lenoy/recursos/identidad/manual-identidad-lenoy-resumen-operativo.md`
+2. Consultar sección 9 de `PENDIENTES_ANDREA.md` para saber qué decisiones siguen sin tomar.
+
+**Discrepancias activas (2026-05-13):**
+- La web usa Playfair Display; el manual especifica Source Serif Pro. Pendiente decisión de Andrea.
+- No existe el símbolo vectorial real de Lenoy en el repo. Solo hay un placeholder "L" en círculo.
+- Melibea aparece segunda en `/que-es-lenoy` — debe ser primera (regla permanente de Andrea).
+
+**No cambiar nada de esto sin confirmación de Marcos y Andrea.**
+
+---
+
 ## En caso de duda sobre el trabajo hecho
 
 Ejecutar en el terminal del Codespace:
