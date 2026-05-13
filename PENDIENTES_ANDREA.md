@@ -29,7 +29,14 @@ Este documento debe leerse junto con `PROMPT_MAESTRO_EDITORIAL_LENOY.md` y `ROAD
 
 ## Lista para pedir a Andrea
 
+### 0. Regla de orden editorial — Melibea primero (PERMANENTE)
+**Regla recibida de Andrea (conversación 2026-05-07):** "pon siempre primero el nombre de Melibea, q es conocida y tiene tirón".
+- Trifonia Melibea Obono debe aparecer la **primera** en cualquier listado de autoras, equipo o fundadoras.
+- Esta regla aplica a toda implementación futura de secciones que la incluyan.
+- Melibea aún no está en `src/content/authors/` — añadirla cuando Andrea confirme su bio y foto.
+
 ### 1. Catálogo y libros reales
+> ⚠️ **El contenido actual en `src/content/books/` y `src/content/blog/` es provisional (generado por IA).** Los 5 libros, 3 autoras y 3 posts deben ser confirmados por Andrea antes de avanzar. Ejemplo crítico: "Lo rarito que eres" está mal atribuido en el JSON (nombre de autora ficticio); el libro real es de Trifonia Melibea Obono.
 - Confirmar cuántos libros forman el catálogo real total.
 - Confirmar títulos definitivos, especialmente si el tercer libro es **Maleidra** o tiene otro título.
 - Para cada libro: título, autoría, año, categoría, géneros/temas, sinopsis corta, sinopsis larga, ISBN si existe, precio final.
@@ -47,7 +54,7 @@ Dónde está incluido:
 
 ### 2. Autoras, equipo y fotos
 - Bio de Andrea Ramos para la web.
-- Bio de Trifonia Melibea Obono para la web.
+- Bio de Trifonia Melibea Obono para la web. **Debe aparecer la primera en todas las listas de autoras/equipo** (regla permanente, recibida 2026-05-07).
 - Fotos de Andrea y Melibea, o confirmar que se mantienen avatares con inicial.
 - Confirmar si hay más autoras reales y enviar bio, origen, libros asociados y redes/web personal si procede.
 - Fotos de autoras reales si quieren sustituir avatares.
@@ -147,6 +154,11 @@ Dónde está incluido:
 ---
 
 ## Información ya recibida y no debe volver a pedirse
+
+### Email de contacto real
+- Andrea envió `lenoyediciones@gmail.com` (2026-05-07) como email real de la editorial.
+- La web usa actualmente `hola@editoriallenoy.com` como placeholder corporativo. Pendiente de confirmar cuál usar definitivamente: Gmail provisional vs. email corporativo con dominio propio.
+- `Dónde está incluido`: `src/components/Footer.astro`, `src/pages/donde-comprar.astro`, sección 5 de este documento.
 
 ### Redes sociales reales
 - Instagram: `https://www.instagram.com/lenoy_ediciones/`

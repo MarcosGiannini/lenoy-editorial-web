@@ -141,6 +141,8 @@ Detente tras la confirmación.
 | `src/content/blog/` | Markdown | 3 artículos |
 | `src/content/config.ts` | Schema Zod | Validación de colecciones |
 
+> ⚠️ **Contenido provisional (auditado 2026-05-13):** Los datos de libros, autoras y blog son generados por IA, no validados por Andrea. `public/images/` no existe — todas las portadas y fotos de autoras darán imagen rota. Trifonia Melibea Obono no está en `content/authors/` — debe añadirse y aparecer primera. Ver `PENDIENTES_ANDREA.md` sección 0.
+
 ---
 
 ## Bloqueantes externos (estado a 5 mayo 2026)
