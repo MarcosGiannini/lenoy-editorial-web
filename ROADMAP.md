@@ -232,6 +232,35 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 
 ---
 
+### ✅ FASE 2 CERRADA — 13 mayo 2026
+
+**Todos los pasos técnicos de Fase 2 completados.** La "casa" está construida y el CMS configurado. La mudanza de contenido queda bloqueada hasta que Andrea valide los datos y el deploy en Netlify esté activo.
+
+**Estado al cierre:**
+- Estructura técnica de la web: ✅ completa y funcional (17 páginas, build sin errores)
+- CMS Decap instalado: ✅ `/admin/` accesible, config.yml con 3 colecciones
+- Guía de uso para Andrea/Melibea: ✅ `GUIA-CMS.md` disponible
+- Contenido actual: ⚠️ todo provisional/IA — catálogo, autoras y blog requieren validación de Andrea
+- Identidad visual: ⚠️ logo provisional, tipografía pendiente de decisión, portadas ausentes
+   - Simulación visual enviada a Andrea: ✅ PDF `Editorial-Lenoy-Simulacion-Web-v2.pdf` (33 páginas, v2 corregida, generado 13 mayo 2026)
+- Mensaje de validación para Andrea preparado: ✅ WhatsApp + lista 28 preguntas + brief profesional (en AI CORE)
+
+**Bloqueantes activos hasta mudanza:**
+| Bloqueante | Quién lo desbloquea |
+|------------|-------------------|
+| Logo/símbolo vectorial real | Romualdo Faura (diseñador) vía Andrea |
+| Tipografía definitiva (Playfair Display vs Source Serif Pro) | Andrea decide |
+| Portadas reales de libros (`public/images/`) | Andrea |
+| Catálogo validado (títulos, autoras, ISBNs) | Andrea |
+| Textos institucionales (`[PENDIENTE]`) | Andrea via CMS |
+| Email definitivo (`lenoyediciones@gmail.com` vs `hola@editoriallenoy.com`) | Andrea |
+| Cuenta Stripe | Andrea |
+| Dominio real | Andrea |
+
+**Siguiente fase técnica (bloqueada):** No avanzar a Paso 4.1 (SEO/sitemap), deploy ni cambios de contenido hasta recibir respuesta de Andrea. El contenido provisional podría indexarse y aparecer en buscadores antes de estar validado.
+
+---
+
 ## FASE 3 — MODERNIDAD Y POLISH VISUAL
 > **Objetivo:** Que la web se vea y se sienta como una web de 2026: modo oscuro, animaciones, guiños LGTB+.
 > **Por qué aquí y no antes:** Primero el contenido (fases 0-2), luego el polish. Con el CMS activo, Andrea puede ver la web real y dar feedback visual concreto.

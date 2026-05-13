@@ -95,6 +95,8 @@ Detente tras la confirmación.
 
 ## Estado técnico de referencia (actualizar manualmente si cambia)
 
+> **Estado tras cierre Fase 2 (2026-05-13):** Esperando feedback de Andrea antes de avanzar a SEO, sitemap, deploy o cambios de contenido. El contenido actual es provisional; indexarlo antes de validación podría perjudicar al proyecto.
+
 | Elemento | Valor |
 |---|---|
 | Framework | Astro 5.0 — salida estática, sin SSR |
