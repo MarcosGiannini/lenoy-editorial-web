@@ -169,14 +169,18 @@ Dónde está incluido:
 
 ---
 
-## Mensaje preparado para Andrea (pendiente de envío)
+## Mensajes preparados para Andrea (pendiente de envío)
 
-> Preparado: 2026-05-13 — **Pendiente de enviar**. No es una respuesta, es la lista lista para copiar.
+> Preparados: 2026-05-13 — **Pendiente de enviar**. Ninguna respuesta recibida todavía.
 
-- Mensaje corto para WhatsApp: listo en AI CORE
-- Lista estructurada por bloques (preguntas 1-25 + top 5 de prioridad): lista en AI CORE
-- Referencia: `[AI CORE] dominios/desarrollo/proyectos/lenoy/recursos/conversaciones/mensaje-andrea-pendientes-2026-05-13.md`
-- Flujo acordado: enviar primero el WhatsApp corto → esperar confirmación → mandar lista completa solo si Andrea dice que puede revisar
+Dos piezas listas, ambas en AI CORE:
+
+| Pieza | Referencia en AI CORE | Uso |
+|-------|-----------------------|-----|
+| WhatsApp corto + lista por bloques (25 preguntas) | `recursos/conversaciones/mensaje-andrea-pendientes-2026-05-13.md` | Enviar primero el WhatsApp. Lista solo si Andrea acepta revisar. |
+| Brief profesional de validación (Markdown, compartible) | `recursos/conversaciones/brief-validacion-lenoy-andrea-2026-05-13.md` | Compartir como documento si procede. |
+
+Flujo acordado: WhatsApp corto → esperar confirmación → lista detallada o brief según contexto.
 
 ---
 
