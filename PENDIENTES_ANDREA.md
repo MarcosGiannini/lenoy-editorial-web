@@ -158,7 +158,7 @@ Dónde está incluido:
 - `src/pages/que-es-lenoy.astro` (orden equipo)
 
 ### 10. Decisiones futuras
-- Confirmar si bilingüe ES/EN es requisito real o deseo post-lanzamiento.
+- Confirmar idiomas de la web: ¿solo español? ¿español + inglés? ¿hay alguno más? ¿El inglés es requisito para el lanzamiento o para una fase futura? (Referencia técnica: `ROADMAP.md` Paso 9.3 — no se implementa hasta confirmación de Andrea.)
 - Confirmar si quieren newsletter.
 - Confirmar si quieren sección de prensa visible post-lanzamiento.
 - Confirmar si quieren publicar estatutos públicamente.
