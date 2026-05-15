@@ -1,6 +1,35 @@
 # Pendientes para Andrea — Editorial Lenoy
 > Fuente única de verdad de la información que falta pedir a Andrea/Melibea.
-> Última actualización: **6 mayo 2026 — documento creado y RRSS reales marcadas como resueltas.**
+> Última actualización: **15 mayo 2026 — primer paquete de dosieres recibido (1 completo + 2 cubiertas + sello editable).**
+
+---
+
+## 📦 Materiales recibidos de Andrea — 2026-05-15
+
+Andrea envía por email su primer paquete de materiales. Todo está archivado y resumido en
+**AI CORE → `dominios/desarrollo/proyectos/lenoy/recursos/`**, no en este repo.
+
+| Material | Tipo | Ruta en AI CORE | Estado |
+|---|---|---|---|
+| **Hijas de la mujer** — dossier completo (4 págs) | Dossier editorial | `recursos/contenidos/dosieres/hijas-de-la-mujer/` | ✅ Completo: sinopsis, ficha técnica, bio autora, 3 citas de prensa, 7 enlaces externos |
+| **Maleidra y el anillo mágico** — cubierta de imprenta | Solo cubierta | `recursos/contenidos/dosieres/maleidra-y-el-anillo-magico/` | ⚠️ Falta dossier completo (bio autora, ficha técnica detallada, reseñas si hubiera) |
+| **Primer Certamen Literario Escolar 25N FRS-UE** — cubierta antología | Solo cubierta | `recursos/contenidos/dosieres/primer-certamen-literario-escolar-25n/` | ⚠️ Falta dossier completo (lista de partners, párrafos oficiales FRS/LORDE, política de autoría alumnado) |
+| **Sello editorial Lenoy** | Identidad visual | `recursos/identidad/sello/` | ✅ Recibidos `.ai` (editable Illustrator) + `.svg` (web). Autor: Romualdo Faura |
+
+### Decisión técnica acordada con Andrea (2026-05-15)
+
+Detalle de obra → **Opción B con bloque de prensa condicional**:
+- La página de detalle muestra: cita destacada + ficha técnica + sinopsis + sobre la autora (ya existente) + **bloque "Lo que dice la prensa" solo si la obra tiene reseñas**.
+- Si la obra no tiene reseñas, el bloque desaparece del DOM (sin hueco en blanco).
+- Implementación técnica: campo opcional `pressQuotes` en el schema Zod de `src/content/config.ts` + bloque condicional en `src/pages/publicaciones/[id].astro` (mismo patrón que el ya existente de `category === 'colaboracion-ongs'`).
+- La primera obra con `pressQuotes` reales será **Hijas de la mujer** (3 citas en su dossier).
+
+### Cambios detectados en catálogo respecto al provisional
+
+- **"Maleidra y el anillo mágico"** (Luna Micha Nseme Oyana) → confirmada como obra del catálogo. Hay que crear `src/content/books/maleidra-y-el-anillo-magico.json`.
+- **"Primer Certamen Literario Escolar 25N FRS-UE"** → nueva entrada en la categoría `colaboracion-ongs`. Hay que crear `src/content/books/primer-certamen-literario-25n.json`.
+- **"Hijas de la mujer"** → ya existe placeholder en `src/content/books/hijas-de-la-mujer.json`, hay que sustituirlo por los datos reales del dossier.
+- **Resto del catálogo provisional** (`amor-sin-fronteras.json`, `el-silencio-roto.json`, `lo-rarito-que-eres.json`, `voces-del-mango.json`): seguimos sin confirmación. Andrea no ha enviado dosieres para ellos. Probablemente algunos sean inventados por la IA y deban eliminarse.
 
 ---
 
@@ -37,12 +66,18 @@ Este documento debe leerse junto con `PROMPT_MAESTRO_EDITORIAL_LENOY.md` y `ROAD
 
 ### 1. Catálogo y libros reales
 > ⚠️ **El contenido actual en `src/content/books/` y `src/content/blog/` es provisional (generado por IA).** Los 5 libros, 3 autoras y 3 posts deben ser confirmados por Andrea antes de avanzar. Ejemplo crítico: "Lo rarito que eres" está mal atribuido en el JSON (nombre de autora ficticio); el libro real es de Trifonia Melibea Obono.
-- Confirmar cuántos libros forman el catálogo real total.
-- Confirmar títulos definitivos, especialmente si el tercer libro es **Maleidra** o tiene otro título.
-- Para cada libro: título, autoría, año, categoría, géneros/temas, sinopsis corta, sinopsis larga, ISBN si existe, precio final.
+
+**Actualización 2026-05-15:** primer paquete recibido (ver tabla "Materiales recibidos" arriba). Tres obras confirmadas en catálogo: *Hijas de la mujer*, *Maleidra y el anillo mágico*, *Primer Certamen Literario Escolar 25N FRS-UE*. Pendiente: dosieres del resto + lista definitiva del catálogo (cuántas obras en total, cuáles se quedan, cuáles caen).
+
+**Qué falta pedir explícitamente a Andrea (próxima petición):**
+- **Lista definitiva del catálogo completo:** número total de obras, títulos exactos, orden de aparición en la web.
+- **Dossier completo de cada obra que aún no lo tenga.** Modelo de referencia: el dossier de *Hijas de la mujer* (4 páginas: obra + ficha técnica + bio autora + citas de prensa + enlaces). Aplicar el mismo formato al resto.
+- **Para *Maleidra*:** dossier completo + bio de Luna Micha Nseme Oyana + foto autora + año exacto de publicación + categoría editorial (¿obra propia? ¿colección infantil aparte?).
+- **Para *Primer Certamen 25N*:** dossier completo + logos en alta resolución de UE/FRS/LORDE/Lenoy + párrafo oficial de FRS y de LORDE + política sobre nombres del alumnado autor (consentimiento de tutores, atribución colectiva vs. individual) + año exacto + ISBN si lo tiene.
+- **Para todas las obras:** JPG cubierta frontal en alta resolución (mínimo 600×900px), separada de la cubierta completa de imprenta.
+- Confirmar títulos definitivos del resto del catálogo provisional.
 - Confirmar qué libros son **obras propias** y cuáles son **colaboraciones con ONGs**.
 - Para colaboraciones con ONGs: nombre de la ONG, contexto del proyecto, texto validado y si parte de beneficios va a la organización.
-- Portadas reales en JPG/PNG, mínimo 600x900px, idealmente artes finales exportados para web.
 - Payment Link de Stripe por cada libro cuando la cuenta esté lista.
 
 Dónde está incluido:
@@ -145,7 +180,7 @@ Dónde está incluido:
 > Auditoría realizada: web inspeccionada en local vs. Manual de Identidad Lenoy JUL2023.
 > El manual versionado está en AI CORE: `dominios/desarrollo/proyectos/lenoy/recursos/identidad/manual-identidad-lenoy-resumen-operativo.md`
 
-- **Símbolo/logotipo vectorial real**: la web usa un placeholder ("L" en círculo terracota). El símbolo real de Lenoy (dos rectángulos = L = libros apilados) no existe como asset en el repo. Pedir a Andrea/Melibea o al diseñador del manual (`info@romualdofaura.com`): archivo SVG del símbolo y del sello completo (símbolo + "Lenoy ediciones").
+- **Símbolo/logotipo vectorial real**: ✅ **RECIBIDO 2026-05-15.** Andrea envía `sello_LenoyEdiciones_editable.ai` + `.svg` por email. Archivados en AI CORE: `recursos/identidad/sello/`. Autor: Romualdo Faura. Pendiente: integrar el SVG en `public/brand/` y sustituir el placeholder "L" en Navbar, Footer y favicon. Documentación de uso en `recursos/identidad/sello/README.md`.
 - **Tipografía**: el manual especifica **Source Serif Pro** (Bold/Regular/Light). La web usa **Playfair Display**. Confirmar con Andrea si es un cambio consciente que quieren mantener, o si hay que alinear con el manual. No cambiar hasta decisión.
 - **Portadas de cubiertas**: el manual especifica un sistema tipográfico para las portadas (Source Serif Semibold 26pt para título, Regular 13pt para autor). Sin portadas reales no se puede verificar. Pedir portadas a Andrea (ver sección 1).
 - **Orden del equipo — Melibea primero**: en `/que-es-lenoy`, "Andrea Ramos" aparece antes de "Trifonia Melibea Obono". La regla acordada es Melibea siempre primera. Confirmar con Andrea que la estructura es: Melibea (primera) → Andrea (segunda), antes de modificar el código.
