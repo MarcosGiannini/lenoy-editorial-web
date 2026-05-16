@@ -14,6 +14,20 @@ Este protocolo obliga al agente a leer los documentos canónicos del proyecto an
 
 ---
 
+## Antes de copiar el bloque
+
+> Si es la **primera vez que ejecutas este proyecto en este PC** (o borraste `node_modules`):
+>
+> ```bash
+> cd lenoy-editorial-web
+> npm install        # instala Astro y el resto de dependencias
+> npm run dev        # http://localhost:4321
+> ```
+>
+> Si `npm run dev` da `"astro" no se reconoce`: es que falta este paso. No es un error de código.
+
+---
+
 ## Bloque a copiar y pegar
 
 ```
