@@ -8,7 +8,7 @@ interface Book {
   year: number;
   category: 'obras-propias' | 'colaboracion-ongs';
   genre: string[];
-  price: number;
+  price?: number;
   stripeButtonId?: string;
   featured?: boolean;
 }
@@ -88,16 +88,20 @@ function getGenreBadgeClass(genre: string) {
     </p>
 
     <div class="flex items-center justify-between pt-3 border-t border-cream-200 dark:border-gray-700">
-      <span class="font-serif font-bold text-lg text-terracotta-500">
-        {book.price.toFixed(2)} &euro;
-      </span>
+      {book.price && book.price > 0 ? (
+        <span class="font-serif font-bold text-lg text-terracotta-500">
+          {book.price.toFixed(2)} &euro;
+        </span>
+      ) : (
+        <span class="text-sm text-gray-400 dark:text-cream-500 italic">Proyecto cultural</span>
+      )}
       <a
         href={`/publicaciones/${book.id}`}
         class="inline-flex items-center gap-1.5 px-4 py-2 bg-terracotta-500 text-white text-sm font-medium rounded-full hover:bg-terracotta-600 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
-        aria-label={`Ver ficha y comprar ${book.title}`}
+        aria-label={`Ver ficha de ${book.title}`}
       >
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
         Ver ficha
       </a>

@@ -10,7 +10,7 @@ const books = defineCollection({
     year: z.number(),
     category: z.enum(['obras-propias', 'colaboracion-ongs']),
     genre: z.array(z.string()),
-    price: z.number(),
+    price: z.number().optional(),
     stripeButtonId: z.string().optional(),
     featured: z.boolean().optional(),
   }),
