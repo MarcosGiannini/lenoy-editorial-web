@@ -105,11 +105,11 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 |---|---|
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
-| **Paso en curso** | Ninguno — pendiente de aprobación de Marcos |
-| **Último paso completado** | **3.4** — Favicon completo y PWA básica (6 mayo 2026) |
-| **Siguiente paso** | **4.1** — Sitemap XML + robots.txt |
-| **Bloqueantes externos** | Portadas reales · Textos reales · Cuenta Stripe · Dominio — **todo bloqueado hasta mudanza de Andrea** |
-| **Estrategia de contenidos** | 🏗️ Construir casa vacía → 🎓 Enseñar CMS a Andrea → 📦 Andrea hace la mudanza |
+| **Paso en curso** | **8.2** — Datos reales de Andrea (en curso) |
+| **Último paso completado** | **8.2** — Datos reales, fotos, textos institucionales, logos reales |
+| **Siguiente paso** | Reunión demo con Andrea (sábado) · Luego: pendientes de contenido |
+| **Deploy Netlify** | ✅ https://steady-scone-31c2af.netlify.app/ (auto-deploy en push a `main`) |
+| **Bloqueantes externos** | Portadas reales · Bios pendientes · PDF estatutos · Dominio definitivo · Emails para CMS |
 
 ---
 
