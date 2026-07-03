@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="400 130 90 110" width="40" height="40" aria-hidden="true">
+  <g fill="#1d1d1b">
+    <!-- Par superior izquierdo (horizontal) -->
+    <rect x="421.87" y="137.84" width="28.35" height="9.45"/>
+    <rect x="421.87" y="156.74" width="28.35" height="9.45"/>
+    <!-- Par superior derecho (horizontal) -->
+    <rect x="431.32" y="185.07" width="28.35" height="9.45"/>
+    <rect x="412.42" y="185.07" width="28.35" height="9.45"/>
+    <!-- Par inferior izquierdo (vertical) -->
+    <rect x="421.87" y="213.41" width="9.45" height="28.35"/>
+    <rect x="421.87" y="232.31" width="9.45" height="28.35"/>
+    <!-- Par inferior derecho (vertical) -->
+    <rect x="469.1" y="222.86" width="9.45" height="28.35"/>
+    <rect x="450.2" y="222.86" width="9.45" height="28.35"/>
+  </g>
+</svg>
