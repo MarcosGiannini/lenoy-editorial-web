@@ -88,7 +88,11 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Precio y compra (visible solo en escritorio junto a la portada) -->
         <div class="hidden lg:block mt-6 space-y-3">
-          <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          {book.price && book.price > 0 ? (
+            <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          ) : (
+            <p class="font-serif text-lg font-medium text-forest-700 dark:text-forest-300 italic">Proyecto cultural</p>
+          )}
           {hasStripe ? (
             <a
               href={`https://buy.stripe.com/${book.stripeButtonId}`}
@@ -142,7 +146,11 @@ const hasStripe = Boolean(book.stripeButtonId);
 
         <!-- Precio y compra (visible en móvil, bajo el título) -->
         <div data-reveal class="lg:hidden space-y-3">
-          <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          {book.price && book.price > 0 ? (
+            <p class="font-serif text-3xl font-bold text-terracotta-500">{book.price.toFixed(2)} €</p>
+          ) : (
+            <p class="font-serif text-lg font-medium text-forest-700 dark:text-forest-300 italic">Proyecto cultural</p>
+          )}
           {hasStripe ? (
             <a
               href={`https://buy.stripe.com/${book.stripeButtonId}`}
@@ -245,6 +253,21 @@ const hasStripe = Boolean(book.stripeButtonId);
                   </div>
                 )}
               </div>
+            </div>
+          </section>
+        )}
+
+        <!-- Lo que dice la prensa (solo si el libro tiene pressQuotes) -->
+        {book.pressQuotes && book.pressQuotes.length > 0 && (
+          <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="prensa-heading">
+            <h2 id="prensa-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-6">Lo que dice la prensa</h2>
+            <div class="space-y-5">
+              {book.pressQuotes.map((item) => (
+                <blockquote class="border-l-4 border-terracotta-300 pl-5">
+                  <p class="text-gray-700 dark:text-cream-300 leading-relaxed italic">"{item.quote}"</p>
+                  <footer class="mt-2 text-sm font-medium text-terracotta-600 dark:text-terracotta-400">— {item.author}</footer>
+                </blockquote>
+              ))}
             </div>
           </section>
         )}

@@ -13,6 +13,13 @@ const books = defineCollection({
     price: z.number().optional(),
     stripeButtonId: z.string().optional(),
     featured: z.boolean().optional(),
+    isbn: z.string().optional(),
+    pressQuotes: z.array(
+      z.object({
+        quote: z.string(),
+        author: z.string(),
+      })
+    ).optional(),
   }),
 });
 

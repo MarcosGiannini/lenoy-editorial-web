@@ -1,8 +1,10 @@
 {
-  "name": "Juliana Mbengono",
-  "bio": "[PENDIENTE — bio de la autora para la web]",
+  "name": "Juliana Mbengono Elá Avomo",
+  "bio": "Escritora, periodista y activista cultural nacida en Ebibeyín, Guinea Ecuatorial (1996). Autora de cuatro obras propias y dos colectivas, su trabajo pone el foco en la situación de la mujer africana y en la denuncia de prácticas como la poligamia. Fundadora del colectivo literario Más Letras y colaboradora de la Biblioteca Nacional de Guinea Ecuatorial, AECID y los Centros Culturales de España en Bata y Malabo. Ganadora del IV Premio de Relato Breve Amadou Ndoye (Universidad de La Laguna, 2019) y del Primer Premio del V Certamen Miguel de Cervantes (Academia Ecuatoguineana de Lengua Española, 2021).",
   "photo": "/images/authors/juliana-mbengono.jpg",
-  "origin": "Guinea Ecuatorial",
-  "bookIds": ["hijas-de-la-mujer"],
+  "origin": "Ebibeyín, Guinea Ecuatorial",
+  "bookIds": [
+    "hijas-de-la-mujer"
+  ],
   "socialLinks": {}
 }

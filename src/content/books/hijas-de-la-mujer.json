@@ -1,11 +1,29 @@
 {
   "title": "Hijas de la mujer",
-  "author": "Juliana Mbengono",
-  "synopsis": "[PENDIENTE — sinopsis real del dossier de Juliana Mbengono]",
+  "author": "Juliana Mbengono Elá Avomo",
+  "synopsis": "Nos acerca a la historia de una adolescente de 16 años que comparte, sin saberlo, esposo con su hermana de padre. El título es una traducción directa del fang, lengua materna de la autora: las personas que nacen fuera del matrimonio son solo de la mujer. Con este relato Mbengono habla de la poligamia y denuncia que los cuidados siempre recaen en la mujer, aunque es el hombre quien ejerce la tutela jurídica.",
   "cover": "/images/books/hijas-de-la-mujer.jpg",
-  "year": 2023,
+  "year": 2025,
   "category": "obras-propias",
-  "genre": ["Feminismo", "Literatura africana"],
-  "price": 0,
-  "featured": true
+  "genre": [
+    "Novela gráfica",
+    "Feminismo",
+    "Literatura africana"
+  ],
+  "isbn": "979-13-990886-0-1",
+  "featured": true,
+  "pressQuotes": [
+    {
+      "quote": "Juliana pertenece a una generación de escritoras jóvenes que han llegado con nuevas vivencias, nuevas aspiraciones, nuevos horizontes y nuevas voces con una nueva realidad, vivida y reivindicada.",
+      "author": "Joaquín Mbomió, escritor"
+    },
+    {
+      "quote": "Sí siento que llamar referente a la guineoecuatoriana Juliana Mbengono tiene sentido. Ha decidido no callar en un contexto en el que hablar de según qué temas puede tener consecuencias.",
+      "author": "Lucía Mbomió, periodista"
+    },
+    {
+      "quote": "Juliana ha puesto el foco en la mujer y en la persistencia de prácticas como la poligamia, contenidos que traspasan lo narrativo para aguijonear a la sociedad y a la clase dirigente.",
+      "author": "Trifonia Melibea Obono, escritora y activista"
+    }
+  ]
 }
