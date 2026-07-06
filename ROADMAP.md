@@ -105,11 +105,12 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 |---|---|
 | **Rama activa** | `main` |
 | **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
-| **Paso en curso** | **8.2** — Datos reales de Andrea (en curso) |
-| **Último paso completado** | **8.2** — Datos reales, fotos, textos institucionales, logos reales |
-| **Siguiente paso** | Reunión demo con Andrea (sábado) · Luego: pendientes de contenido |
+| **Paso en curso** | Esperando materiales de Andrea post-reunión |
+| **Último paso completado** | **8.2** — Datos reales completos. Reunión presencial con Andrea: 5 julio 2026 ✅ |
+| **Siguiente paso** | Zoom con Andrea (fecha sin definir) + recibir materiales → paso 8.3 (Stripe + compra) |
 | **Deploy Netlify** | ✅ https://steady-scone-31c2af.netlify.app/ (auto-deploy en push a `main`) |
-| **Bloqueantes externos** | Portadas reales · Bios pendientes · PDF estatutos · Dominio definitivo · Emails para CMS |
+| **Bloqueantes externos** | Portadas · Dosieres libros pendientes · Bios autoras · Dominio · Emails CMS · Stripe · Datos legales |
+| **Comunicación** | Email resumen post-reunión enviado a Andrea: 6 julio 2026 ✅ |
 
 ---
 
