@@ -1,10 +1,10 @@
 ---
-title: "El auge de la literatura LGTB+ en Guinea Ecuatorial"
+title: "El auge de la literatura LGTBIQA+ en Guinea Ecuatorial"
 excerpt: "Un análisis del floreciente movimiento literario que está transformando la narrativa sobre identidad y diversidad en el único país hispanohablante de África."
 date: "2024-03-15"
 author: "Equipo Editorial Lenoy"
 category: "Literatura"
-tags: ["LGTB+", "Guinea Ecuatorial", "Literatura africana"]
+tags: ["LGTBIQA+", "Guinea Ecuatorial", "Literatura africana"]
 coverImage: "/images/blog/literatura-lgbt.jpg"
 ---
 

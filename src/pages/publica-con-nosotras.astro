@@ -101,9 +101,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               id="manuscrito"
               name="manuscrito"
               accept=".pdf,.doc,.docx"
+              aria-describedby="manuscrito-ayuda"
               class="w-full text-sm text-gray-600 dark:text-cream-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-terracotta-100 file:text-terracotta-600 hover:file:bg-terracotta-200 dark:file:bg-terracotta-900/40 dark:file:text-terracotta-300 cursor-pointer"
             />
-            <p class="text-xs text-gray-400 dark:text-cream-500 mt-1">Formatos aceptados: PDF, DOC, DOCX</p>
+            <p id="manuscrito-ayuda" class="text-xs text-gray-400 dark:text-cream-500 mt-1">Formatos aceptados: PDF, DOC, DOCX</p>
+            <!-- Netlify Forms no procesa file inputs nativamente -->
+            <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">
+              ⚠️ Si el formulario no adjunta el archivo correctamente, envíalo directamente a <a href="mailto:hola@lenoyediciones.com" class="underline">hola@lenoyediciones.com</a>.
+            </p>
           </div>
 
           <div class="flex items-start gap-3">

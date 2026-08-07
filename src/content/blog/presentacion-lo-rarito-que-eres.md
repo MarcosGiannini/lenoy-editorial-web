@@ -22,4 +22,4 @@ Más de cien personas se congregaron para escuchar a Amina hablar sobre su libro
 
 ## Un hito editorial
 
-"Lo rarito que eres" supone un hito: es la primera novela publicada en España que aborda la experiencia LGTB+ en Guinea Ecuatorial desde una perspectiva insider, escrita por una mujer ecuatoguineana.
+"Lo rarito que eres" supone un hito: es la primera novela publicada en España que aborda la experiencia LGTBIQA+ en Guinea Ecuatorial desde una perspectiva insider, escrita por una mujer ecuatoguineana.
