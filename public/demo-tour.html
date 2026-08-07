@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Editorial Lenoy — Guía de reunión</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #1a1510;
+      color: #f5f0eb;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ─── TOPBAR ─── */
+    #topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2a1f14;
+      border-bottom: 2px solid #c0622a;
+      padding: 10px 20px;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    #topbar .brand {
+      font-weight: 700;
+      font-size: 14px;
+      color: #c0622a;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    #step-counter {
+      font-size: 12px;
+      color: #a08060;
+      white-space: nowrap;
+    }
+    #progress-bar-wrap {
+      flex: 1;
+      background: #3a2a1a;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    #progress-bar {
+      height: 100%;
+      background: #c0622a;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .nav-btn {
+      background: none;
+      border: 1.5px solid #c0622a;
+      color: #c0622a;
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .nav-btn:hover { background: #c0622a; color: #fff; }
+    .nav-btn:disabled { opacity: 0.3; cursor: default; }
+    .nav-btn.primary { background: #c0622a; color: #fff; }
+    .nav-btn.primary:hover { background: #a0521f; }
+
+    /* ─── MAIN LAYOUT ─── */
+    #main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ─── IFRAME ─── */
+    #iframe-wrap {
+      flex: 1;
+      position: relative;
+      background: #000;
+    }
+    #site-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    #iframe-overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(26,21,16,0.85);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: #a08060;
+    }
+    #iframe-overlay.show { display: flex; }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid #3a2a1a;
+      border-top-color: #c0622a;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── GUIDE PANEL ─── */
+    #guide {
+      width: 380px;
+      flex-shrink: 0;
+      background: #221810;
+      border-left: 1px solid #3a2a1a;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #guide-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid #3a2a1a;
+      flex-shrink: 0;
+    }
+    #step-tag {
+      display: inline-block;
+      background: #c0622a;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    #step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f5f0eb;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    #step-url {
+      font-size: 11px;
+      color: #a08060;
+      font-family: monospace;
+      background: #2a1f14;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    #guide-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 20px;
+      scrollbar-width: thin;
+      scrollbar-color: #3a2a1a #221810;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c0622a;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .section-label:first-child { margin-top: 0; }
+
+    .say-box {
+      background: #2a1f14;
+      border-left: 3px solid #4a7c59;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #d4c9b8;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .point-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .point-list li {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      color: #c8b89a;
+      line-height: 1.5;
+    }
+    .point-list li .dot {
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #c0622a;
+      margin-top: 7px;
+    }
+    .point-list li.check .dot { background: #4a7c59; }
+    .point-list li.warn .dot { background: #d4954a; }
+
+    .ask-box {
+      background: #1e2a1e;
+      border: 1px solid #2a4a2a;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #8ab08a;
+      line-height: 1.6;
+    }
+    .ask-box strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #4a9c59;
+      margin-bottom: 6px;
+    }
+    .ask-box ul { padding-left: 14px; }
+    .ask-box ul li { margin-bottom: 3px; }
+
+    #guide-footer {
+      padding: 14px 20px;
+      border-top: 1px solid #3a2a1a;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ─── STEP DOTS ─── */
+    #step-dots {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .step-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #3a2a1a;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .step-dot.active { background: #c0622a; }
+    .step-dot.done { background: #4a7c59; }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <span class="brand">📖 Demo Lenoy</span>
+  <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+  <span id="step-counter"></span>
+  <button class="nav-btn" id="btn-prev" onclick="prevStep()">← Anterior</button>
+  <button class="nav-btn primary" id="btn-next" onclick="nextStep()">Siguiente →</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+  <!-- IFRAME -->
+  <div id="iframe-wrap">
+    <iframe id="site-frame" src="about:blank"></iframe>
+    <div id="iframe-overlay" class="show">
+      <div class="spinner"></div>
+      <span>Cargando web…</span>
+    </div>
+  </div>
+
+  <!-- GUIDE PANEL -->
+  <div id="guide">
+    <div id="guide-header">
+      <div id="step-tag">Paso 1 de 8</div>
+      <div id="step-title">Cargando…</div>
+      <code id="step-url"></code>
+    </div>
+    <div id="guide-body" id="guide-body"></div>
+    <div id="guide-footer">
+      <div id="step-dots"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const BASE = 'http://localhost:4321';
+
+const STEPS = [
+  {
+    title: 'Página de inicio',
+    url: '/',
+    label: 'Bloque 2.1 — Home',
+    say: '"Esta es la primera página que ve alguien cuando entra. El titular es provisional — tú me dirás si lo cambias o si te gusta."',
+    check: [
+      'El símbolo/logotipo de Lenoy aparece en la cabecera',
+      'Los colores son terracota y verde oscuro — los de la editorial',
+      'El menú tiene las 5 secciones que acordamos',
+      'Modo oscuro/claro activo — pulsa el icono del sol arriba a la derecha',
+    ],
+    warn: [
+      'El titular del hero es provisional — Andrea debe aprobarlo o cambiarlo',
+    ],
+    ask: null,
+  },
+  {
+    title: '¿Qué es Lenoy?',
+    url: '/que-es-lenoy',
+    label: 'Bloque 2.2',
+    say: '"Esta es la página más importante para vosotras. Aquí aparecéis las dos. He usado exactamente los textos que me mandaste. Melibea siempre la primera, como acordamos."',
+    check: [
+      'Foto real de Melibea — aparece la PRIMERA',
+      'Foto real de Andrea — aparece la segunda',
+      'Textos de "Quiénes somos", Objetivos, Trayectoria, Compromiso — todos reales',
+      'Sección "Estatutos" visible pero con [Pendiente] — esperando PDF',
+    ],
+    warn: [
+      '¿Es "Trifonia Melibea Obono" o lleva "Ntutumu" al final? Confirmar nombre exacto',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        '¿Aprueba los textos tal como están?',
+        '¿Quiere publicar los estatutos? ¿Cuándo manda el PDF?',
+        '¿Nombre completo de Melibea?',
+      ]
+    }
+  },
+  {
+    title: 'Editorial Lenoy',
+    url: '/editorial-lenoy',
+    label: 'Bloque 2.3',
+    say: '"Aquí está la identidad editorial completa. La sección de prensa está vacía — si me mandas los enlaces a El País, ElDiario, Fundación Pedro Zerolo, los pongo."',
+    check: [
+      'Textos reales: Línea editorial, Misión, Visión, Valores',
+      'Sección "Apariciones en prensa" visible — actualmente vacía',
+    ],
+    warn: [
+      'Prensa pendiente: faltan URLs de artículos',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        '¿Aprueba los textos?',
+        '¿Tiene los enlaces de prensa? ¿Cuándo los manda?',
+        '¿Más apariciones en medios que añadir?',
+      ]
+    }
+  },
+  {
+    title: 'Publicaciones — Catálogo',
+    url: '/publicaciones',
+    label: 'Bloque 2.4',
+    say: '"Aquí está el catálogo completo. Los 5 libros que me confirmaste. Las portadas están en modo provisional — en cuanto me las mandes, la web cambia completamente de aspecto."',
+    check: [
+      '5 libros: Hijas de la mujer, Lo rarito que eres, Maleidra, Certamen 25N, Voces Diversas',
+      'División en "Obras propias" y "Colaboración con ONGs"',
+      'Libros de ONG sin precio — aparece "Proyecto cultural"',
+      'Sección "Nuestras autoras" al final — fotos reales, Melibea primera',
+    ],
+    warn: [
+      'Portadas: solo placeholders de color — esperando JPG de Andrea',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        '¿Es el catálogo definitivo o falta/sobra algún libro?',
+        '¿Los libros de ONG son correctos sin precio?',
+        '¿Cuándo puede mandar las portadas? ¿En qué formato las tiene?',
+      ]
+    }
+  },
+  {
+    title: 'Ficha de libro — Hijas de la mujer',
+    url: '/publicaciones/hijas-de-la-mujer',
+    label: 'Bloque 2.5',
+    say: '"Esta es la ficha más completa porque me mandaste el dossier entero. Fíjate en el bloque de \'Lo que dice la prensa\' — solo aparece si el libro tiene reseñas. El botón Comprar se activa con Stripe."',
+    check: [
+      'Ficha técnica: año, ISBN, editorial, precio',
+      'Sinopsis completa — datos reales del dossier',
+      'Bio de Juliana Mbengono — datos reales',
+      'Bloque "Lo que dice la prensa" — 3 citas reales',
+      'Botón "Comprar" visible pero deshabilitado (gris)',
+    ],
+    warn: [
+      'Portada: placeholder de color — esperando JPG',
+      'Botón compra se activa cuando se cree la cuenta de Stripe',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        '¿Aprueba el diseño de la ficha?',
+        '¿Quiere añadir o cambiar algo en "Hijas de la mujer"?',
+      ]
+    }
+  },
+  {
+    title: 'Publica con nosotras',
+    url: '/publica-con-nosotras',
+    label: 'Bloque 2.6',
+    say: '"El formulario ya funciona — cuando alguien lo rellena, os llega un email. Pero los textos son provisionales porque necesito que me digas: ¿qué géneros aceptáis? ¿a qué email llegan las propuestas?"',
+    check: [
+      'Formulario funcional — envía emails reales vía Netlify Forms',
+      'Honeypot anti-spam activo (invisible para los usuarios)',
+      'Página de "Gracias" tras el envío',
+    ],
+    warn: [
+      'Textos de la página: provisionales — necesitan aprobación',
+      'Email de destino: actualmente placeholder',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        '¿Qué géneros y temáticas acepta Lenoy?',
+        '¿Cuál es el email definitivo para recibir propuestas?',
+        '¿Condiciones o criterios de selección a publicar?',
+        '¿Plazos de respuesta?',
+      ]
+    }
+  },
+  {
+    title: 'Dónde comprar',
+    url: '/donde-comprar',
+    label: 'Bloque 2.7',
+    say: '"Los botones se activan cuando creéis la cuenta de Stripe. También necesito que me confirmes las tarifas de envío: ¿cuánto cobráis por península, islas…?"',
+    check: [
+      'Los 5 libros listados con su precio (o "Proyecto cultural")',
+      'Botones de compra visibles pero deshabilitados',
+      'Sección de información de envío — actualmente placeholder',
+    ],
+    warn: [
+      'Stripe pendiente: cuenta sin crear',
+      'Tarifas de envío: por confirmar',
+    ],
+    ask: {
+      label: '✏️ Preguntas para Andrea',
+      items: [
+        'Precio envío: Península / Islas / Internacional / Recogida Madrid',
+        '¿Plazos de entrega orientativos?',
+        '¿IBAN de la asociación para pagos por transferencia mientras tanto?',
+      ]
+    }
+  },
+  {
+    title: 'Panel de administración (CMS)',
+    url: '/admin/index.html',
+    label: 'Bloque 2.8 — Demo CMS',
+    say: '"Este es el panel que usaréis vosotras para actualizar la web. Cuando esté activado, entráis aquí, cambiáis el texto de un libro, guardáis, y en un minuto la web está actualizada. Sin llamarme a mí. Sin código. Desde el móvil si queréis."',
+    check: [
+      '3 secciones: 📚 Libros · ✍️ Autoras · 📝 Blog',
+      'Cada libro tiene sus campos editables: título, sinopsis, portada, precio…',
+      'Preview en tiempo real — se ve el resultado mientras escriben',
+      'Sin aprender programación — funciona como un formulario de Word',
+    ],
+    warn: [
+      'Ahora mismo en modo demo local — en producción pedirá login',
+      'Necesito vuestros emails para activarlo en la web real',
+    ],
+    ask: {
+      label: '✏️ CRÍTICO — Necesito estos datos hoy',
+      items: [
+        '¿Email de Andrea para invitar al CMS?',
+        '¿Email de Melibea para invitar al CMS?',
+      ]
+    }
+  },
+];
+
+let current = 0;
+
+function render(idx) {
+  const step = STEPS[idx];
+  const total = STEPS.length;
+
+  // Topbar
+  document.getElementById('step-counter').textContent = `${idx + 1} de ${total}`;
+  document.getElementById('progress-bar').style.width = `${((idx + 1) / total) * 100}%`;
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').textContent = idx === total - 1 ? '✓ Fin' : 'Siguiente →';
+
+  // Header
+  document.getElementById('step-tag').textContent = step.label;
+  document.getElementById('step-title').textContent = step.title;
+  document.getElementById('step-url').textContent = BASE + step.url;
+
+  // Body
+  let html = '';
+
+  if (step.say) {
+    html += `<div class="section-label">💬 Lo que puedes decir</div>`;
+    html += `<div class="say-box">${step.say}</div>`;
+  }
+
+  if (step.check && step.check.length) {
+    html += `<div class="section-label">✅ Qué señalar en la pantalla</div>`;
+    html += `<ul class="point-list">`;
+    step.check.forEach(c => html += `<li class="check"><span class="dot"></span><span>${c}</span></li>`);
+    html += `</ul>`;
+  }
+
+  if (step.warn && step.warn.length) {
+    html += `<div class="section-label">⚠️ Pendiente / a explicar</div>`;
+    html += `<ul class="point-list">`;
+    step.warn.forEach(w => html += `<li class="warn"><span class="dot"></span><span>${w}</span></li>`);
+    html += `</ul>`;
+  }
+
+  if (step.ask) {
+    html += `<div style="margin-top:16px"></div>`;
+    html += `<div class="ask-box"><strong>${step.ask.label}</strong><ul>`;
+    step.ask.items.forEach(i => html += `<li>${i}</li>`);
+    html += `</ul></div>`;
+  }
+
+  document.getElementById('guide-body').innerHTML = html;
+
+  // Dots
+  let dots = '';
+  for (let i = 0; i < total; i++) {
+    const cls = i === idx ? 'active' : (i < idx ? 'done' : '');
+    dots += `<div class="step-dot ${cls}" onclick="goTo(${i})" title="${STEPS[i].title}"></div>`;
+  }
+  document.getElementById('step-dots').innerHTML = dots;
+
+  // iframe
+  const overlay = document.getElementById('iframe-overlay');
+  overlay.classList.add('show');
+  const frame = document.getElementById('site-frame');
+  frame.src = BASE + step.url;
+  frame.onload = () => overlay.classList.remove('show');
+  setTimeout(() => overlay.classList.remove('show'), 3000);
+}
+
+function nextStep() {
+  if (current < STEPS.length - 1) { current++; render(current); }
+}
+function prevStep() {
+  if (current > 0) { current--; render(current); }
+}
+function goTo(idx) { current = idx; render(current); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextStep();
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prevStep();
+});
+
+render(0);
+</script>
+</body>
+</html>

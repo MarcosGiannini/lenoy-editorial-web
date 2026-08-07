@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Publica con nosotras"
-  description="¿Tienes una obra que quieres publicar? Conoce el proceso editorial de Lenoy y envíanos tu propuesta. Publicamos literatura feminista y LGTB+ con perspectiva afroguineana."
+  description="¿Tienes una obra que quieres publicar? Envíanos tu propuesta. Publicamos literatura feminista y LGTBIQA+ con perspectiva afroguineana y literaturas africanas en español."
 >
   <section class="bg-forest-700 py-16 px-4" aria-labelledby="publica-heading">
     <div data-reveal class="max-w-6xl mx-auto text-center">
@@ -20,55 +20,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Publica con nosotras
       </h1>
       <p class="text-cream-300 max-w-2xl mx-auto leading-relaxed text-lg">
-        Si tu obra tiene algo que decir desde una mirada feminista, LGTB+ o afroguineana, queremos leerla.
+        Si tu obra tiene algo que decir desde una mirada feminista, LGTBIQA+ o afroguineana, queremos leerla.
       </p>
     </div>
   </section>
 
   <main class="max-w-4xl mx-auto px-4 py-20">
     <div class="space-y-16">
-      <div data-reveal class="space-y-4">
-        <div class="flex items-center gap-3">
-          <span class="w-10 h-10 rounded-full bg-terracotta-100 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-200 flex items-center justify-center font-serif text-2xl" aria-hidden="true">♀</span>
-          <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-cream-100">Qué tipo de obras publicamos</h2>
-        </div>
-        <p class="text-gray-600 dark:text-cream-300 leading-relaxed text-lg">[PENDIENTE: texto de Andrea sobre géneros, temáticas, personas autoras y requisitos editoriales]</p>
-      </div>
-
-      <div data-reveal class="space-y-6">
-        <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-cream-100">Cómo es el proceso</h2>
-        <ol class="space-y-6">
-          <li data-reveal class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">1</div>
-            <div>
-              <h3 class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Envía tu manuscrito</h3>
-              <p class="text-gray-600 dark:text-cream-300 text-sm leading-relaxed">[PENDIENTE: instrucciones de formato, extensión, etc.]</p>
-            </div>
-          </li>
-          <li data-reveal style="--reveal-delay: 80ms" class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">2</div>
-            <div>
-              <h3 class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Revisión editorial</h3>
-              <p class="text-gray-600 dark:text-cream-300 text-sm leading-relaxed">[PENDIENTE: plazo de respuesta y criterios de selección]</p>
-            </div>
-          </li>
-          <li data-reveal style="--reveal-delay: 160ms" class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">3</div>
-            <div>
-              <h3 class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Propuesta de contrato</h3>
-              <p class="text-gray-600 dark:text-cream-300 text-sm leading-relaxed">[PENDIENTE: condiciones generales, derechos, royalties]</p>
-            </div>
-          </li>
-          <li data-reveal style="--reveal-delay: 240ms" class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-terracotta-500 text-white rounded-full flex items-center justify-center font-bold font-serif text-lg" aria-hidden="true">4</div>
-            <div>
-              <h3 class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Proceso de edición y publicación</h3>
-              <p class="text-gray-600 dark:text-cream-300 text-sm leading-relaxed">[PENDIENTE: descripción del proceso de edición colaborativo]</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-
       <div data-reveal class="bg-cream-100 dark:bg-gray-800 rounded-2xl p-8 space-y-6">
         <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100">Envíanos tu propuesta</h2>
         <form
@@ -136,6 +94,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             ></textarea>
           </div>
 
+          <div>
+            <label for="manuscrito" class="block text-sm font-medium text-gray-700 dark:text-cream-300 mb-1">Adjuntar manuscrito (opcional)</label>
+            <input
+              type="file"
+              id="manuscrito"
+              name="manuscrito"
+              accept=".pdf,.doc,.docx"
+              class="w-full text-sm text-gray-600 dark:text-cream-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-terracotta-100 file:text-terracotta-600 hover:file:bg-terracotta-200 dark:file:bg-terracotta-900/40 dark:file:text-terracotta-300 cursor-pointer"
+            />
+            <p class="text-xs text-gray-400 dark:text-cream-500 mt-1">Formatos aceptados: PDF, DOC, DOCX</p>
+          </div>
+
           <div class="flex items-start gap-3">
             <input
               type="checkbox"
@@ -155,6 +125,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           >
             Enviar propuesta
           </button>
+          <p class="text-sm text-gray-500 dark:text-cream-400 text-center">
+            Nos pondremos en contacto contigo si la obra nos resulta interesante :-)
+          </p>
         </form>
       </div>
     </div>
