@@ -1,20 +1,35 @@
 # Pendientes para Andrea — Editorial Lenoy
 > Fuente única de verdad de la información que falta pedir a Andrea/Melibea.
-> Última actualización: **15 mayo 2026 — primer paquete de dosieres recibido (1 completo + 2 cubiertas + sello editable).**
+> Última actualización: **6 julio 2026 — post-reunión presencial (5 julio) + email resumen enviado.**
+
+---
+
+## 📅 Estado de comunicación con Andrea
+
+| Fecha | Acción | Estado |
+|---|---|---|
+| 2026-05-15 | Primer paquete de materiales (Hijas dossier + cubiertas + sello) | ✅ Recibido e integrado |
+| 2026-07-05 | Reunión presencial — primera toma de contacto, demo de la web | ✅ Realizada |
+| 2026-07-06 | Email resumen post-reunión con instrucciones completas enviado | ✅ Enviado |
+| Pendiente | Zoom call — demo más detallada, decisiones concretas | ⏳ Sin fecha |
+| Pendiente | Entrega de materiales (portadas, dosieres, bios, etc.) | ⏳ Sin fecha |
+
+**Nota reunión 5 julio:** Primera toma de contacto en persona. Andrea vio la web por primera vez. Sin decisiones concretas tomadas. Los textos se irán ajustando. Dominio: Andrea no sabe cómo hacerlo, necesita que la guiemos. Próxima reunión por Zoom será más concreta con demos de módulos y CMS.
 
 ---
 
 ## 📦 Materiales recibidos de Andrea — 2026-05-15
 
-Andrea envía por email su primer paquete de materiales. Todo está archivado y resumido en
-**AI CORE → `dominios/desarrollo/proyectos/lenoy/recursos/`**, no en este repo.
+Andrea envía por email su primer paquete de materiales.
 
-| Material | Tipo | Ruta en AI CORE | Estado |
-|---|---|---|---|
-| **Hijas de la mujer** — dossier completo (4 págs) | Dossier editorial | `recursos/contenidos/dosieres/hijas-de-la-mujer/` | ✅ Completo: sinopsis, ficha técnica, bio autora, 3 citas de prensa, 7 enlaces externos |
-| **Maleidra y el anillo mágico** — cubierta de imprenta | Solo cubierta | `recursos/contenidos/dosieres/maleidra-y-el-anillo-magico/` | ⚠️ Falta dossier completo (bio autora, ficha técnica detallada, reseñas si hubiera) |
-| **Primer Certamen Literario Escolar 25N FRS-UE** — cubierta antología | Solo cubierta | `recursos/contenidos/dosieres/primer-certamen-literario-escolar-25n/` | ⚠️ Falta dossier completo (lista de partners, párrafos oficiales FRS/LORDE, política de autoría alumnado) |
-| **Sello editorial Lenoy** | Identidad visual | `recursos/identidad/sello/` | ✅ Recibidos `.ai` (editable Illustrator) + `.svg` (web). Autor: Romualdo Faura |
+| Material | Tipo | Estado en repo |
+|---|---|---|
+| **Hijas de la mujer** — dossier completo (4 págs) | Dossier editorial | ✅ **Integrado en repo** (sinopsis, bio Juliana, ISBN, 3 citas prensa, año 2025) |
+| **Maleidra y el anillo mágico** — cubierta de imprenta | Solo cubierta | ⚠️ Falta dossier completo |
+| **Primer Certamen Literario Escolar 25N FRS-UE** — cubierta antología | Solo cubierta | ⚠️ Falta dossier completo |
+| **Sello editorial Lenoy** | Identidad visual | ✅ Integrado: `public/brand/simbolo-lenoy.svg` en navbar, footer, favicon |
+| **Fotos equipo** | Fotos reales | ✅ Integradas: `melibea.jpg` + `andrea.jpeg` en `/que-es-lenoy` |
+| **Textos institucionales** | Textos reales | ✅ Integrados: misión, visión, trayectoria, compromiso, objetivos, línea editorial |
 
 ### Decisión técnica acordada con Andrea (2026-05-15)
 

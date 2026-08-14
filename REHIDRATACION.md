@@ -61,13 +61,16 @@ Formato de respuesta OBLIGATORIO (copiar exacto):
 ✅ He leído PENDIENTES_ANDREA.md
 
 Estado actual del proyecto:
-- Último paso completado: [indicar exactamente — fase y número]
-- Rama activa: main
-- Build: [✅ funcionando / ❌ con errores — indicar cuáles]
-- Bloqueantes externos: [portadas, textos, Stripe, dominio — listar los que sigan activos]
+- Último hito: Reunión presencial con Andrea (5 julio 2026) ✅ + Email resumen enviado (6 julio 2026) ✅
+- Deploy activo: https://steady-scone-31c2af.netlify.app/
+- Rama activa: main (limpia, sincronizada)
+- Build: ✅ 17 páginas, sin errores
+- Datos reales integrados: Hijas de la mujer (sinopsis, bio Juliana, 3 citas prensa, ISBN), fotos equipo, textos institucionales, símbolo SVG real
+- Bloqueantes externos activos: portadas libros · dosieres pendientes · bios autoras · dominio · emails CMS · Stripe · datos legales
+- Próximo contacto con Andrea: Zoom call (sin fecha) para demo más detallada y decisiones concretas
 
 Siguiente paso permitido según ROADMAP:
-→ [fase y paso exacto, ej: "Paso 3.2 — Guiños visuales LGTB+ y feministas"]
+→ Esperar materiales de Andrea. Cuando lleguen: paso 8.3 (Stripe + compra activa)
 
 ¿Confirmas que empecemos ese paso?
 ---
@@ -78,10 +81,6 @@ REGLAS ABSOLUTAS:
 - NO toques código todavía.
 - NO avances al siguiente paso sin que Marcos lo confirme explícitamente.
 - Seguir PROMPT_MAESTRO + ROADMAP como fuente de verdad canónica.
-- Al terminar cualquier tarea, guía proactivamente a Marcos: estado actual, cambios pendientes, acción git recomendada (commit/rama/merge/push/borrar rama), siguiente paso del ROADMAP y propuesta concreta.
-- Explica cada acción relevante como a un junior engineer: por qué se hace así, cómo se hace, cuándo toca dentro del flujo y qué significan los comandos o jerga usados (`git add`, `commit`, "comitear", `push`, "mergear", `build`, `deploy`, etc.).
-
-Detente tras la confirmación.
 ```
 
 ---
