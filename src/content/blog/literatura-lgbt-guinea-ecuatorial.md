@@ -8,13 +8,13 @@ tags: ["LGTBIQA+", "Guinea Ecuatorial", "Literatura africana"]
 coverImage: "/images/blog/literatura-lgbt.jpg"
 ---
 
-# El auge de la literatura LGTB+ en Guinea Ecuatorial
+# El auge de la literatura LGTBIQA+ en Guinea Ecuatorial
 
 En los últimos años, Guinea Ecuatorial ha visto emerger un movimiento literario sin precedentes: escritoras y escritores que abordan abiertamente temas de identidad de género, orientación sexual y diversidad desde una perspectiva profundamente africana y ecuatoguineana.
 
 ## Un contexto complejo
 
-La realidad social de Guinea Ecuatorial, como la de muchos países africanos, presenta desafíos significativos para la visibilidad LGTB+. Sin embargo, es precisamente en este contexto donde la literatura se convierte en un espacio de resistencia y esperanza.
+La realidad social de Guinea Ecuatorial, como la de muchos países africanos, presenta desafíos significativos para la visibilidad LGTBIQA+. Sin embargo, es precisamente en este contexto donde la literatura se convierte en un espacio de resistencia y esperanza.
 
 ## Voces que se alzan
 
