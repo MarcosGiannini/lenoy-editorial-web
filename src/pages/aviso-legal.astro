@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Aviso legal"
+  description="Aviso legal de Asociación Cultural Lenoy. Datos de la entidad, política de privacidad y protección de datos."
+>
+  <section class="bg-forest-700 py-16 px-4" aria-labelledby="aviso-heading">
+    <div data-reveal class="max-w-6xl mx-auto text-center">
+      <h1 id="aviso-heading" class="font-serif text-5xl font-bold text-cream-100 mb-4">
+        Aviso legal
+      </h1>
+    </div>
+  </section>
+
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <div class="space-y-10 text-gray-700 dark:text-cream-300 leading-relaxed">
+
+      <section aria-labelledby="datos-heading">
+        <h2 id="datos-heading" class="font-serif text-xl font-bold text-gray-900 dark:text-cream-100 mb-4">Datos de la entidad</h2>
+        <dl class="space-y-2 text-sm">
+          <div class="grid grid-cols-[180px_1fr] gap-2">
+            <dt class="font-semibold text-gray-900 dark:text-cream-100">Denominación social</dt>
+            <dd>Asociación Cultural Lenoy</dd>
+          </div>
+          <div class="grid grid-cols-[180px_1fr] gap-2">
+            <dt class="font-semibold text-gray-900 dark:text-cream-100">NIF</dt>
+            <dd>G56253602</dd>
+          </div>
+          <div class="grid grid-cols-[180px_1fr] gap-2">
+            <dt class="font-semibold text-gray-900 dark:text-cream-100">Nº de registro</dt>
+            <dd>Inscrita en el Registro Nacional de Asociaciones con el número 626591</dd>
+          </div>
+          <div class="grid grid-cols-[180px_1fr] gap-2">
+            <dt class="font-semibold text-gray-900 dark:text-cream-100">Domicilio social</dt>
+            <dd>Edificio La Mussara, portal 1, Escalera A, puerta 3, CP 43007, Tarragona</dd>
+          </div>
+          <div class="grid grid-cols-[180px_1fr] gap-2">
+            <dt class="font-semibold text-gray-900 dark:text-cream-100">Email de contacto</dt>
+            <dd>
+              <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 underline hover:text-terracotta-700">
+                hola@lenoyediciones.com
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="privacidad-heading" id="privacidad">
+        <h2 id="privacidad-heading" class="font-serif text-xl font-bold text-gray-900 dark:text-cream-100 mb-4">Política de privacidad y protección de datos</h2>
+        <p class="mb-4">
+          En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), Asociación Cultural
+          Lenoy informa de que los datos personales facilitados a través de sus formularios serán tratados con las
+          siguientes condiciones:
+        </p>
+        <dl class="space-y-4 text-sm">
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Responsable del tratamiento</dt>
+            <dd>Asociación Cultural Lenoy — NIF G56253602</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Finalidad</dt>
+            <dd>Gestionar la recepción, evaluación y selección de manuscritos recibidos para posibles publicaciones.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Legitimación</dt>
+            <dd>Consentimiento de la persona interesada al enviar el formulario.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Destinatarios</dt>
+            <dd>No se cederán datos a terceros salvo obligación legal.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Plazo de conservación</dt>
+            <dd>Los manuscritos no seleccionados serán destruidos de forma segura en un plazo de 6 meses tras su recepción.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-gray-900 dark:text-cream-100 mb-1">Derechos</dt>
+            <dd>
+              Puedes acceder, rectificar, limitar y suprimir tus datos en cualquier momento enviando un correo a{' '}
+              <a href="mailto:lenoyediciones@gmail.com" class="text-terracotta-500 underline hover:text-terracotta-700">
+                lenoyediciones@gmail.com
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="cookies-heading">
+        <h2 id="cookies-heading" class="font-serif text-xl font-bold text-gray-900 dark:text-cream-100 mb-4">Cookies</h2>
+        <p>
+          Este sitio web no utiliza cookies de seguimiento ni analítica de terceros. No se instala ninguna cookie
+          en el navegador del visitante más allá de las estrictamente necesarias para el funcionamiento técnico del sitio.
+        </p>
+      </section>
+
+      <section aria-labelledby="ssl-heading">
+        <h2 id="ssl-heading" class="font-serif text-xl font-bold text-gray-900 dark:text-cream-100 mb-4">Seguridad</h2>
+        <p>
+          El sitio dispone de certificado SSL activo (HTTPS). Los datos enviados a través de los formularios viajan
+          cifrados. Los archivos recibidos no se almacenan en carpetas públicas accesibles mediante URL.
+        </p>
+      </section>
+
+    </div>
+  </main>
+</BaseLayout>
