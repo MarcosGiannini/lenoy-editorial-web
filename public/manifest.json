@@ -1,12 +1,12 @@
 {
   "name": "Editorial Lenoy",
   "short_name": "Lenoy",
-  "description": "Editorial feminista y LGTB de Guinea Ecuatorial.",
+  "description": "Editorial feminista y LGTBIQA+ de literaturas africanas en español.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#faf8f3",
-  "theme_color": "#c4603a",
+  "theme_color": "#F04E30",
   "orientation": "portrait-primary",
   "lang": "es",
   "icons": [
