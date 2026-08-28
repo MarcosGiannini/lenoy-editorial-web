@@ -1,11 +1,22 @@
 {
   "title": "Lo rarito que eres",
   "author": "Gonzalo Abaha Nguema Mikue",
-  "synopsis": "[PENDIENTE — sinopsis real del libro]",
+  "synopsis": "Antonio es un adolescente gay que pierde el derecho a la personalidad jur\u00eddica cuando su sexualidad es descubierta. La familia teme su muerte inminente. Las personas como \u00e9l, recoge la tradici\u00f3n, est\u00e1n embrujadas. Una primera medida consiste en enjaularlo y aislarlo de los ni\u00f1os varones. El cuerpo de Antonio es violentado de manera sistem\u00e1tica por los varones, que deciden abusar de \u00e9l. El protagonista, que no se calla, se va de casa, desautorizando a la familia. La comunidad LGTBIQA+ en seguida le acoge, pero su sustento depende del mercado de la trata de personas.",
   "cover": "/images/books/lo-rarito-que-eres.jpg",
   "year": 2023,
   "category": "obras-propias",
   "genre": ["LGTBIQA+", "Literatura africana"],
+  "isbn": "978-84-09-51410-6",
   "price": 0,
-  "featured": true
+  "featured": true,
+  "pressQuotes": [
+    {
+      "quote": "Este libro es una oportunidad de hablar de autoestima y amor propio cuando el entorno te repite que no sirve lo que eres. Tambi\u00e9n de descubrir en profundidad la cosmogon\u00eda fang m\u00e1s all\u00e1 de c\u00f3mo se cuenta, de reconocer sus costumbres bellas y de observar sus miserias y sus horrores.",
+      "author": "Luc\u00eda Asu\u00e9 Mbomi\u00f3"
+    },
+    {
+      "quote": "C\u00f3mo se construye un sentido de personalidad moral cuando el entorno se empe\u00f1a en despojarnos de nuestra dignidad humana (amenazan\u00e9donos todo el tiempo, adem\u00e1s, con matarnos) es algo que la novela, en su mon\u00f3tona crudeza, nos exige preguntarnos.",
+      "author": "Adelaida Caballero"
+    }
+  ]
 }

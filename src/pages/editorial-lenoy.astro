@@ -58,8 +58,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div data-reveal class="bg-forest-700 rounded-2xl p-8 text-cream-100">
-        <h2 class="font-serif text-2xl font-bold mb-4">Apariciones en prensa</h2>
-        <p class="text-cream-300 leading-relaxed">[PENDIENTE: links a artículos de El País, ElDiario.es y otros medios sobre Melibea y los libros de la editorial]</p>
+        <h2 class="font-serif text-2xl font-bold mb-6">Apariciones en prensa</h2>
+        <ul class="space-y-3">
+          {[
+            { medio: 'El Pa\u00eds', url: 'https://elpais.com/planeta-futuro/2025-03-20/gonzalo-abaha-escritor-ecuatoguineano-escribir-en-mi-caso-ha-sido-darle-voz-a-mi-dolor-y-al-del-entorno.html', texto: '\u00abEscribir, en mi caso, ha sido darle voz a mi dolor\u00bb' },
+            { medio: 'El Salto', url: 'https://www.elsaltodiario.com/en-el-margen/gonzalo-abaha-menores-LGTBIQ-calle-guinea-ecuatorial-familias-expulsado', texto: 'Menores LGTBIQ+ en la calle en Guinea Ecuatorial' },
+            { medio: 'CTXT', url: 'https://ctxt.es/es/20220501/Politica/39601/gonzalo-abaha-nguema-guinea-ecuatorial-lgtbiq-mujeres.htm', texto: 'Gonzalo Abaha: Guinea Ecuatorial, LGTBIQ+ y mujeres' },
+            { medio: 'Afroféminas', url: 'https://afrofeminas.com/2020/12/27/les-disidentes-sexuales-no-entramos-en-la-categoria-de-personas-se-nos-considera-escoria-brujes-y-cosas-de-blancos-gonzalo-abaha-activista-por-los-derechos-lgtbiq-en-guinea-ecuato/', texto: '\u00abLes disidentes sexuales no entramos en la categor\u00eda de personas\u00bb' },
+            { medio: 'Casa \u00c1frica', url: 'https://www.casafrica.es/es/persona/gonzalo-abaha-nguema-mikue', texto: 'Perfil de Gonzalo Abaha en Casa \u00c1frica' },
+            { medio: 'RTVE (audio)', url: 'https://www.rtve.es/play/audios/africa-hoy/africa-hoy-ratas-tambien-se-enamoran-gonzalo-abaha-01-06-22/6566029/', texto: '\u00c1frica Hoy: Las ratas tambi\u00e9n se enamoran' },
+          ].map(({ medio, url, texto }) => (
+            <li>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-start gap-2 text-cream-300 hover:text-cream-100 transition-colors text-sm"
+              >
+                <span class="text-terracotta-400 font-semibold flex-shrink-0">{medio}</span>
+                <span>\u2014 {texto}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </main>
