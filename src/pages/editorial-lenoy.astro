@@ -59,24 +59,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div data-reveal class="bg-forest-700 rounded-2xl p-8 text-cream-100">
         <h2 class="font-serif text-2xl font-bold mb-6">Apariciones en prensa</h2>
-        <ul class="space-y-3">
+        <ul class="space-y-4">
           {[
-            { medio: 'El Pa\u00eds', url: 'https://elpais.com/planeta-futuro/2025-03-20/gonzalo-abaha-escritor-ecuatoguineano-escribir-en-mi-caso-ha-sido-darle-voz-a-mi-dolor-y-al-del-entorno.html', texto: '\u00abEscribir, en mi caso, ha sido darle voz a mi dolor\u00bb' },
-            { medio: 'El Salto', url: 'https://www.elsaltodiario.com/en-el-margen/gonzalo-abaha-menores-LGTBIQ-calle-guinea-ecuatorial-familias-expulsado', texto: 'Menores LGTBIQ+ en la calle en Guinea Ecuatorial' },
-            { medio: 'CTXT', url: 'https://ctxt.es/es/20220501/Politica/39601/gonzalo-abaha-nguema-guinea-ecuatorial-lgtbiq-mujeres.htm', texto: 'Gonzalo Abaha: Guinea Ecuatorial, LGTBIQ+ y mujeres' },
-            { medio: 'Afroféminas', url: 'https://afrofeminas.com/2020/12/27/les-disidentes-sexuales-no-entramos-en-la-categoria-de-personas-se-nos-considera-escoria-brujes-y-cosas-de-blancos-gonzalo-abaha-activista-por-los-derechos-lgtbiq-en-guinea-ecuato/', texto: '\u00abLes disidentes sexuales no entramos en la categor\u00eda de personas\u00bb' },
-            { medio: 'Casa \u00c1frica', url: 'https://www.casafrica.es/es/persona/gonzalo-abaha-nguema-mikue', texto: 'Perfil de Gonzalo Abaha en Casa \u00c1frica' },
-            { medio: 'RTVE (audio)', url: 'https://www.rtve.es/play/audios/africa-hoy/africa-hoy-ratas-tambien-se-enamoran-gonzalo-abaha-01-06-22/6566029/', texto: '\u00c1frica Hoy: Las ratas tambi\u00e9n se enamoran' },
-          ].map(({ medio, url, texto }) => (
+            { medio: 'El País',      domain: 'elpais.com',            url: 'https://elpais.com/planeta-futuro/2025-03-20/gonzalo-abaha-escritor-ecuatoguineano-escribir-en-mi-caso-ha-sido-darle-voz-a-mi-dolor-y-al-del-entorno.html', texto: '«Escribir, en mi caso, ha sido darle voz a mi dolor»' },
+            { medio: 'RTVE',         domain: 'rtve.es',               url: 'https://www.rtve.es/play/audios/africa-hoy/africa-hoy-ratas-tambien-se-enamoran-gonzalo-abaha-01-06-22/6566029/', texto: 'África Hoy: Las ratas también se enamoran' },
+            { medio: 'CTXT',         domain: 'ctxt.es',               url: 'https://ctxt.es/es/20220501/Politica/39601/gonzalo-abaha-nguema-guinea-ecuatorial-lgtbiq-mujeres.htm', texto: 'Guinea Ecuatorial, LGTBIQ+ y mujeres' },
+            { medio: 'El Salto',     domain: 'elsaltodiario.com',     url: 'https://www.elsaltodiario.com/en-el-margen/gonzalo-abaha-menores-LGTBIQ-calle-guinea-ecuatorial-familias-expulsado', texto: 'Menores LGTBIQ+ en la calle en Guinea Ecuatorial' },
+            { medio: 'Afroféminas', domain: 'afrofeminas.com',       url: 'https://afrofeminas.com/2020/12/27/les-disidentes-sexuales-no-entramos-en-la-categoria-de-personas-se-nos-considera-escoria-brujes-y-cosas-de-blancos-gonzalo-abaha-activista-por-los-derechos-lgtbiq-en-guinea-ecuato/', texto: '«Les disidentes sexuales no entramos en la categoría de personas»' },
+            { medio: 'Casa África', domain: 'casafrica.es',           url: 'https://www.casafrica.es/es/persona/gonzalo-abaha-nguema-mikue', texto: 'Perfil de Gonzalo Abaha en Casa África' },
+          ].map(({ medio, domain, url, texto }) => (
             <li>
               <a
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-start gap-2 text-cream-300 hover:text-cream-100 transition-colors text-sm"
+                class="flex items-center gap-3 group hover:bg-forest-600/40 rounded-lg px-2 py-2 -mx-2 transition-colors"
               >
-                <span class="text-terracotta-400 font-semibold flex-shrink-0">{medio}</span>
-                <span>— {texto}</span>
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${domain}&sz=32`}
+                  alt=""
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  class="rounded-sm flex-shrink-0 opacity-90"
+                  loading="lazy"
+                />
+                <div class="min-w-0">
+                  <span class="text-cream-100 font-semibold text-sm">{medio}</span>
+                  <span class="text-cream-400 text-sm"> — {texto}</span>
+                </div>
+                <svg class="w-3.5 h-3.5 flex-shrink-0 text-cream-500 group-hover:text-cream-300 ml-auto transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             </li>
           ))}
