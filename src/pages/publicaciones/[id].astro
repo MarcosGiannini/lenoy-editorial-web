@@ -78,6 +78,13 @@ const hasStripe = Boolean(book.stripeButtonId);
               <div class="mt-6 text-xs font-mono text-terracotta-300 uppercase tracking-widest">Editorial Lenoy</div>
             </div>
           </div>
+          <!-- Portada real encima del placeholder; si no carga, onerror la oculta -->
+          <img
+            src={book.cover}
+            alt={`Portada de ${book.title}`}
+            class="absolute inset-0 w-full h-full object-cover"
+            onerror="this.style.display='none'"
+          />
           <!-- Badge de categoría -->
           <div class="absolute top-3 left-3">
             <span class="inline-block px-2 py-0.5 bg-forest-700/80 text-cream-100 text-xs font-medium rounded-full">
@@ -191,8 +198,7 @@ const hasStripe = Boolean(book.stripeButtonId);
           <section data-reveal class="bg-forest-700 rounded-2xl p-6 text-cream-100" aria-labelledby="ong-heading">
             <h2 id="ong-heading" class="font-serif text-xl font-bold mb-2">Proyecto solidario</h2>
             <p class="text-cream-300 leading-relaxed text-sm">
-              Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro de Guinea Ecuatorial. Una parte de los beneficios se destina al proyecto origen.
-              [PENDIENTE: descripción específica de la ONG y el proyecto — Andrea]
+              Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro comprometida con los derechos humanos y la cultura en Guinea Ecuatorial. Una parte de los beneficios se destina directamente al proyecto origen.
             </p>
           </section>
         )}
@@ -202,13 +208,20 @@ const hasStripe = Boolean(book.stripeButtonId);
           <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="autora-heading">
             <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-5">Sobre la autora</h2>
             <div class="flex items-start gap-5">
-              <!-- Avatar placeholder -->
-              <div
-                class="flex-shrink-0 w-16 h-16 rounded-full bg-terracotta-100 flex items-center justify-center text-terracotta-500 font-serif font-bold text-2xl"
-                aria-hidden="true"
-              >
-                {author.name.charAt(0)}
-              </div>
+              {author.photo ? (
+                <img
+                  src={author.photo}
+                  alt={`Foto de ${author.name}`}
+                  class="flex-shrink-0 w-16 h-16 rounded-full object-cover"
+                />
+              ) : (
+                <div
+                  class="flex-shrink-0 w-16 h-16 rounded-full bg-terracotta-100 flex items-center justify-center text-terracotta-500 font-serif font-bold text-2xl"
+                  aria-hidden="true"
+                >
+                  {author.name.charAt(0)}
+                </div>
+              )}
               <div class="space-y-2">
                 <div>
                   <p class="font-semibold text-gray-900 dark:text-cream-100">{author.name}</p>
