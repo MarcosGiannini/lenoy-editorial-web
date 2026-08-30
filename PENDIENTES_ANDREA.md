@@ -4,15 +4,13 @@
 
 ## Estado vigente — 30 agosto 2026
 
-El contenido recibido durante agosto ya está integrado. En todo `src/` solo quedan **tres marcadores `[PENDIENTE]`**, todos en sinopsis de libros. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
+El contenido recibido durante agosto ya está integrado. En todo `src/` solo quedan **dos marcadores `[PENDIENTE]`**, ambos en sinopsis de libros. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
 
 | Libro | Archivo | Qué falta publicar | Material ya disponible |
 |---|---|---|---|
 | **Maleidra y el anillo mágico** | `src/content/books/maleidra-y-el-anillo-magico.json` | Sinopsis argumental: reino de Magística, maga rival y anillo mágico; decidir si se añade el párrafo promocional dirigido al público infantil | Contraportada de `Cubierta Maleidra_IMPRENTA_compressed.pdf` |
 | **Primer Certamen Literario Escolar 25N FRS-UE** | `src/content/books/primer-certamen-literario-25n.json` | Descripción oficial del proyecto y de la antología resultante | Contraportada de `Cubierta_Certamen.pdf`: potencia feminista, resistencia literaria, escritura creativa/educación social, confianza juvenil y prevención de violencia de género |
-| **Voces diversas de Guinea Ecuatorial** | `src/content/books/voces-diversas-guinea-ecuatorial.json` | Descripción de la antología inédita y de los colectivos participantes | Contraportada de `Cubierta_Antología-AAFF.pdf`, con texto editorial completo |
-
-**Decisión pendiente de Marcos:** confirmar si se transcriben literalmente las contraportadas o si se prepara una versión web más breve respetando su contenido. No sustituir los JSON hasta recibir esa confirmación.
+**Decisión pendiente de Marcos:** confirmar si las contraportadas de *Maleidra* y *Primer Certamen 25N* se transcriben literalmente o se adaptan a una versión web más breve. No sustituir esos JSON hasta recibir confirmación.
 
 ### Resuelto en agosto de 2026
 
@@ -23,6 +21,7 @@ El contenido recibido durante agosto ya está integrado. En todo `src/` solo que
 - ✅ LGTBIQA+ unificado en el sitio.
 - ✅ Aviso legal, condiciones de envío y consentimiento RGPD del formulario.
 - ✅ Enlaces de prensa con presentación visual y URLs revisadas.
+- ✅ Sinopsis web de *Voces diversas de Guinea Ecuatorial*, adaptada fielmente de su contraportada.
 
 ### Pendientes operativos que requieren confirmación actual
 
