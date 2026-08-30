@@ -36,7 +36,11 @@ const books = allBooks.map((b) => ({ id: b.id, ...b.data }));
               </div>
               <p class="text-gray-500 dark:text-cream-400 text-sm">{book.author}</p>
               <p class="text-gray-600 dark:text-cream-300 text-sm leading-relaxed line-clamp-3">{book.description}</p>
-              {book.id === 'maleidra-y-el-anillo-magico' ? (
+              {book.category === 'colaboracion-ongs' ? (
+                <p class="mt-auto text-center font-serif text-sm font-medium text-forest-700 dark:text-forest-300 italic">
+                  Proyecto cultural
+                </p>
+              ) : book.id === 'maleidra-y-el-anillo-magico' ? (
                 <div class="mt-auto w-full bg-forest-50 dark:bg-forest-900/20 border border-forest-200 dark:border-forest-700 rounded-xl p-3 text-center space-y-1">
                   <p class="text-forest-700 dark:text-forest-300 text-xs font-medium">Solo de venta en Guinea Ecuatorial</p>
                   <a

@@ -38,6 +38,7 @@ function getGenreBadgeClass(genre: string) {
 
 // El botón de compra solo es activo cuando Stripe esté configurado
 const hasStripe = Boolean(book.stripeButtonId);
+const isEditorialBook = book.category === 'obras-propias';
 ---
 
 <BaseLayout
@@ -100,7 +101,7 @@ const hasStripe = Boolean(book.stripeButtonId);
           ) : (
             <p class="font-serif text-lg font-medium text-forest-700 dark:text-forest-300 italic">Proyecto cultural</p>
           )}
-          {hasStripe ? (
+          {isEditorialBook && (hasStripe ? (
             <a
               href={`https://buy.stripe.com/${book.stripeButtonId}`}
               target="_blank"
@@ -122,12 +123,14 @@ const hasStripe = Boolean(book.stripeButtonId);
             >
               Comprar — Próximamente
             </button>
+          ))}
+          {isEditorialBook && (
+            <p class="text-xs text-gray-500 dark:text-cream-400 text-center leading-relaxed">
+              Envío físico desde Madrid<br />
+              Plazo estimado: 3–5 días hábiles<br />
+              <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 hover:underline">Pedido por email</a>
+            </p>
           )}
-          <p class="text-xs text-gray-500 dark:text-cream-400 text-center leading-relaxed">
-            Envío físico desde Madrid<br />
-            Plazo estimado: 3–5 días hábiles<br />
-            <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 hover:underline">Pedido por email</a>
-          </p>
         </div>
       </aside>
 
@@ -158,7 +161,7 @@ const hasStripe = Boolean(book.stripeButtonId);
           ) : (
             <p class="font-serif text-lg font-medium text-forest-700 dark:text-forest-300 italic">Proyecto cultural</p>
           )}
-          {hasStripe ? (
+          {isEditorialBook && (hasStripe ? (
             <a
               href={`https://buy.stripe.com/${book.stripeButtonId}`}
               target="_blank"
@@ -180,11 +183,13 @@ const hasStripe = Boolean(book.stripeButtonId);
             >
               Comprar — Próximamente
             </button>
+          ))}
+          {isEditorialBook && (
+            <p class="text-xs text-gray-500 dark:text-cream-400 leading-relaxed">
+              Envío físico desde Madrid · Plazo estimado: 3–5 días hábiles ·{' '}
+              <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 hover:underline">Pedido por email</a>
+            </p>
           )}
-          <p class="text-xs text-gray-500 dark:text-cream-400 leading-relaxed">
-            Envío físico desde Madrid · Plazo estimado: 3–5 días hábiles ·{' '}
-            <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 hover:underline">Pedido por email</a>
-          </p>
         </div>
 
         <!-- Sinopsis completa -->
@@ -203,10 +208,10 @@ const hasStripe = Boolean(book.stripeButtonId);
           </section>
         )}
 
-        <!-- Sobre la autora -->
+        <!-- Sobre quien escribe -->
         {author && (
           <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="autora-heading">
-            <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-5">Sobre la autora</h2>
+            <h2 id="autora-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-5">Sobre quien escribe</h2>
             <div class="flex items-start gap-5">
               {author.photo ? (
                 <img
