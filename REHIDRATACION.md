@@ -2,6 +2,7 @@
 
 > Usar al inicio de CADA nueva sesión de chat con GitHub Copilot.
 > Copia el bloque de abajo y pégalo como primer mensaje del chat.
+> Última actualización: **30 agosto 2026.**
 
 ---
 
@@ -61,18 +62,19 @@ Formato de respuesta OBLIGATORIO (copiar exacto):
 ✅ He leído PENDIENTES_ANDREA.md
 
 Estado actual del proyecto:
-- Último hito: Reunión presencial con Andrea (5 julio 2026) ✅ + Email resumen enviado (6 julio 2026) ✅
+- Último hito: portadas frontales correctas de los 5 libros integradas ✅
 - Deploy activo: https://steady-scone-31c2af.netlify.app/
 - Rama activa: main (limpia, sincronizada)
-- Build: ✅ 17 páginas, sin errores
-- Datos reales integrados: Hijas de la mujer (sinopsis, bio Juliana, 3 citas prensa, ISBN), fotos equipo, textos institucionales, símbolo SVG real
-- Bloqueantes externos activos: portadas libros · dosieres pendientes · bios autoras · dominio · emails CMS · Stripe · datos legales
-- Próximo contacto con Andrea: Zoom call (sin fecha) para demo más detallada y decisiones concretas
+- Build: ✅ 19 páginas estáticas, sin errores
+- Datos reales integrados: 5 libros, 4 autorías, 5 portadas, textos institucionales, estatutos, prensa, legal/RGPD, logo y paleta terracota + índigo
+- Únicos marcadores [PENDIENTE] en src/: sinopsis de Maleidra, Primer Certamen 25N y Voces diversas
+- Material localizado: las tres cubiertas de imprenta contienen textos de contraportada aprovechables; falta confirmación editorial de Marcos
+- Pendiente confirmar: Stripe, dominio/email corporativo y onboarding/accesos CMS
 
 Siguiente paso permitido según ROADMAP:
-→ Esperar materiales de Andrea. Cuando lleguen: paso 8.3 (Stripe + compra activa)
+→ Confirmar y transcribir las tres sinopsis; después ejecutar build y revisión visual
 
-¿Confirmas que empecemos ese paso?
+¿Confirmas qué texto de contraportada debe publicarse en cada ficha?
 ---
 
 REGLAS ABSOLUTAS:
@@ -108,7 +110,7 @@ REGLAS ABSOLUTAS:
 
 ## Estado técnico de referencia (actualizar manualmente si cambia)
 
-> **Estado tras cierre Fase 2 (2026-05-13):** Esperando feedback de Andrea antes de avanzar a SEO, sitemap, deploy o cambios de contenido. El contenido actual es provisional; indexarlo antes de validación podría perjudicar al proyecto.
+> **Estado verificado el 30 de agosto de 2026:** sitio desplegado en Netlify, catálogo real casi completo y solo tres sinopsis pendientes de confirmación editorial.
 
 | Elemento | Valor |
 |---|---|
@@ -117,8 +119,7 @@ REGLAS ABSOLUTAS:
 | Tipado | TypeScript 5.x |
 | Datos | Astro Content Collections (JSON para libros y autoras, Markdown para blog) |
 | CMS | Decap CMS v3 en `/admin/` — backend `git-gateway`, rama `main` |
-| Deploy objetivo | Netlify (Netlify Identity para el CMS, Netlify Forms para formularios) |
-| Codespace URL | `fuzzy-capybara-wrgj796pvv49fgvrx-4321.app.github.dev` |
+| Deploy | Netlify: `https://steady-scone-31c2af.netlify.app/` |
 | Dev server | `npm run dev` → puerto 4321 |
 
 ### Paleta de colores (NO cambiar sin consultar a Andrea)
@@ -152,11 +153,11 @@ REGLAS ABSOLUTAS:
 | Carpeta | Tipo | Archivos |
 |---|---|---|
 | `src/content/books/` | JSON | 5 libros |
-| `src/content/authors/` | JSON | 3 autoras |
+| `src/content/authors/` | JSON | 4 autorías |
 | `src/content/blog/` | Markdown | 3 artículos |
 | `src/content/config.ts` | Schema Zod | Validación de colecciones |
 
-> ⚠️ **Contenido provisional (auditado 2026-05-13):** Los datos de libros, autoras y blog son generados por IA, no validados por Andrea. `public/images/` no existe — todas las portadas y fotos de autoras darán imagen rota. Trifonia Melibea Obono no está en `content/authors/` — debe añadirse y aparecer primera. Ver `PENDIENTES_ANDREA.md` sección 0.
+> **Contenido actual:** los datos reales y las imágenes principales están integrados. Solo quedan las tres sinopsis indicadas en `PENDIENTES_ANDREA.md`.
 
 ---
 

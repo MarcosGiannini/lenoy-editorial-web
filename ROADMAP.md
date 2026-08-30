@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **6 mayo 2026 — Sesión #5. Paso 3.4 favicon/PWA básica completado.**
+> Última actualización: **30 agosto 2026 — portadas completas y pendientes editoriales identificados.**
 
 ---
 
@@ -104,13 +104,23 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 | Categoría | Estado |
 |---|---|
 | **Rama activa** | `main` |
-| **Build** | ✅ Funciona, 17 páginas estáticas, sin errores |
-| **Paso en curso** | Esperando materiales de Andrea post-reunión |
-| **Último paso completado** | **8.2** — Datos reales completos. Reunión presencial con Andrea: 5 julio 2026 ✅ |
-| **Siguiente paso** | Zoom con Andrea (fecha sin definir) + recibir materiales → paso 8.3 (Stripe + compra) |
+| **Build** | ✅ 19 páginas estáticas, sin errores (verificado 30 agosto 2026) |
+| **Paso en curso** | Cierre editorial de las 3 sinopsis pendientes |
+| **Último paso completado** | Portadas frontales correctas de los 5 libros ✅ |
+| **Siguiente paso** | Confirmar y transcribir los textos de contraportada de Maleidra, Certamen 25N y Voces diversas |
 | **Deploy Netlify** | ✅ https://steady-scone-31c2af.netlify.app/ (auto-deploy en push a `main`) |
-| **Bloqueantes externos** | Portadas · Dosieres libros pendientes · Bios autoras · Dominio · Emails CMS · Stripe · Datos legales |
-| **Comunicación** | Email resumen post-reunión enviado a Andrea: 6 julio 2026 ✅ |
+| **Bloqueantes de contenido** | Solo 3 sinopsis; el material base ya está localizado en las cubiertas de imprenta |
+| **Pendiente confirmar** | Stripe · dominio/email corporativo · onboarding/accesos CMS |
+| **Contenido real integrado** | 5 libros · 4 autorías · 5 portadas · textos institucionales · estatutos · prensa · legal/RGPD |
+
+## PRIORIDAD ACTUAL
+
+1. Confirmar con Marcos si las contraportadas son la fuente editorial definitiva para las tres sinopsis.
+2. Sustituir los tres marcadores `[PENDIENTE]` en `src/content/books/` en un único cambio de contenido.
+3. Ejecutar `npm run build`, revisar las tres fichas y publicar el cambio.
+4. Confirmar después el estado real de Stripe, dominio/email y accesos CMS antes de reabrir esas fases.
+
+> **Nota histórica:** las fases detalladas que siguen documentan cómo se construyó el proyecto desde mayo. Sus casillas antiguas no deben usarse para decidir el siguiente trabajo cuando contradigan el estado vigente anterior.
 
 ---
 

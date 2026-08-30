@@ -1,6 +1,21 @@
 # PROMPT MAESTRO — PROYECTO EDITORIAL LENOY
+
 > Pega este documento COMPLETO al inicio de cualquier sesión de IA (GitHub Copilot, Copilot en Codespaces, Claude, ChatGPT).
-> Última sincronización: **6 mayo 2026 — sesión #5. Regla didáctica ampliada con comandos y jerga técnica.**
+> Última sincronización: **30 agosto 2026 — portadas completas y documentación rehidratada.**
+
+## ESTADO VIGENTE — 30 AGOSTO 2026
+
+> Este bloque sustituye cualquier inventario o estado histórico contradictorio que aparezca más abajo. Las secciones posteriores conservan contexto y decisiones del proyecto, pero sus listados de archivos y tareas de mayo no son el estado operativo actual.
+
+- **Stack real:** Astro 5 + Tailwind CSS 3.4 + TypeScript 5; salida estática en Netlify.
+- **Build verificado:** 19 páginas estáticas, 0 errores.
+- **Deploy activo:** `https://steady-scone-31c2af.netlify.app/`, con autodeploy desde `main`.
+- **Catálogo:** 5 libros y 4 autorías mediante Astro Content Collections.
+- **Portadas:** las 5 portadas existen en `public/images/books/`. El 30 de agosto se extrajeron de los PDF originales las portadas frontales correctas de *Lo rarito que eres* y *Voces diversas de Guinea Ecuatorial*.
+- **Cambios de Andrea de agosto:** integrados logo, paleta terracota + índigo, textos y fotos de equipo/autoras, estatutos, LGTBIQA+, páginas legales, RGPD, prensa y datos reales de *Lo rarito que eres*.
+- **Únicos marcadores `[PENDIENTE]` en `src/`:** las sinopsis de *Maleidra y el anillo mágico*, *Primer Certamen Literario Escolar 25N FRS-UE* y *Voces diversas de Guinea Ecuatorial*.
+- **Textos localizados:** las cubiertas de imprenta disponibles en Descargas contienen material para las tres sinopsis; falta confirmar con Marcos qué texto editorial se publica antes de sustituir los marcadores.
+- **Pendientes operativos externos:** Stripe, dominio/email corporativo y onboarding del CMS deben considerarse `pendiente confirmar` hasta recibir una actualización explícita.
 
 ---
 

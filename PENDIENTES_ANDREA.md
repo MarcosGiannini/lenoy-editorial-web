@@ -1,6 +1,36 @@
 # Pendientes para Andrea — Editorial Lenoy
 > Fuente única de verdad de la información que falta pedir a Andrea/Melibea.
-> Última actualización: **6 julio 2026 — post-reunión presencial (5 julio) + email resumen enviado.**
+> Última actualización: **30 agosto 2026 — revisión del código y de las cubiertas originales.**
+
+## Estado vigente — 30 agosto 2026
+
+El contenido recibido durante agosto ya está integrado. En todo `src/` solo quedan **tres marcadores `[PENDIENTE]`**, todos en sinopsis de libros. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
+
+| Libro | Archivo | Qué falta publicar | Material ya disponible |
+|---|---|---|---|
+| **Maleidra y el anillo mágico** | `src/content/books/maleidra-y-el-anillo-magico.json` | Sinopsis argumental: reino de Magística, maga rival y anillo mágico; decidir si se añade el párrafo promocional dirigido al público infantil | Contraportada de `Cubierta Maleidra_IMPRENTA_compressed.pdf` |
+| **Primer Certamen Literario Escolar 25N FRS-UE** | `src/content/books/primer-certamen-literario-25n.json` | Descripción oficial del proyecto y de la antología resultante | Contraportada de `Cubierta_Certamen.pdf`: potencia feminista, resistencia literaria, escritura creativa/educación social, confianza juvenil y prevención de violencia de género |
+| **Voces diversas de Guinea Ecuatorial** | `src/content/books/voces-diversas-guinea-ecuatorial.json` | Descripción de la antología inédita y de los colectivos participantes | Contraportada de `Cubierta_Antología-AAFF.pdf`, con texto editorial completo |
+
+**Decisión pendiente de Marcos:** confirmar si se transcriben literalmente las contraportadas o si se prepara una versión web más breve respetando su contenido. No sustituir los JSON hasta recibir esa confirmación.
+
+### Resuelto en agosto de 2026
+
+- ✅ Portadas correctas de los 5 libros.
+- ✅ Datos, ISBN y citas de prensa de *Lo rarito que eres*.
+- ✅ Fotos y bios disponibles de Andrea, Melibea, Gonzalo y Juliana.
+- ✅ Textos institucionales, estatutos, logo y paleta actualizada.
+- ✅ LGTBIQA+ unificado en el sitio.
+- ✅ Aviso legal, condiciones de envío y consentimiento RGPD del formulario.
+- ✅ Enlaces de prensa con presentación visual y URLs revisadas.
+
+### Pendientes operativos que requieren confirmación actual
+
+- Estado de la cuenta Stripe, precios y Payment Links por libro.
+- Dominio definitivo y email corporativo.
+- Accesos y sesión de onboarding del CMS para Andrea y Melibea.
+
+> **Nota histórica:** las listas extensas que siguen recogen peticiones y decisiones anteriores. Si contradicen el estado vigente de este bloque, manda este bloque.
 
 ---
 
