@@ -4,13 +4,13 @@
 
 ## Estado vigente — 30 agosto 2026
 
-El contenido recibido durante agosto ya está integrado. En todo `src/` solo quedan **dos marcadores `[PENDIENTE]`**, ambos en sinopsis de libros. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
+El contenido recibido durante agosto ya está integrado. En todo `src/` solo queda **un marcador `[PENDIENTE]`**, correspondiente a la sinopsis del *Primer Certamen Literario Escolar 25N FRS-UE*. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
 
 | Libro | Archivo | Qué falta publicar | Material ya disponible |
 |---|---|---|---|
-| **Maleidra y el anillo mágico** | `src/content/books/maleidra-y-el-anillo-magico.json` | Sinopsis argumental: reino de Magística, maga rival y anillo mágico; decidir si se añade el párrafo promocional dirigido al público infantil | Contraportada de `Cubierta Maleidra_IMPRENTA_compressed.pdf` |
 | **Primer Certamen Literario Escolar 25N FRS-UE** | `src/content/books/primer-certamen-literario-25n.json` | Descripción oficial del proyecto y de la antología resultante | Contraportada de `Cubierta_Certamen.pdf`: potencia feminista, resistencia literaria, escritura creativa/educación social, confianza juvenil y prevención de violencia de género |
-**Decisión pendiente de Marcos:** confirmar si las contraportadas de *Maleidra* y *Primer Certamen 25N* se transcriben literalmente o se adaptan a una versión web más breve. No sustituir esos JSON hasta recibir confirmación.
+
+**Decisión pendiente de Marcos:** confirmar si la contraportada de *Primer Certamen 25N* se transcribe literalmente o se adapta a una versión web más breve. No sustituir ese JSON hasta recibir confirmación.
 
 ### Resuelto en agosto de 2026
 
@@ -22,6 +22,7 @@ El contenido recibido durante agosto ya está integrado. En todo `src/` solo que
 - ✅ Aviso legal, condiciones de envío y consentimiento RGPD del formulario.
 - ✅ Enlaces de prensa con presentación visual y URLs revisadas.
 - ✅ Sinopsis web de *Voces diversas de Guinea Ecuatorial*, adaptada fielmente de su contraportada.
+- ✅ Sinopsis web de *Maleidra y el anillo mágico*, adaptada fielmente de su contraportada.
 
 ### Pendientes operativos que requieren confirmación actual
 
