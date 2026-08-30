@@ -105,20 +105,20 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 |---|---|
 | **Rama activa** | `main` |
 | **Build** | ✅ 19 páginas estáticas, sin errores (verificado 30 agosto 2026) |
-| **Paso en curso** | Cierre editorial de las 3 sinopsis pendientes |
-| **Último paso completado** | Portadas frontales correctas de los 5 libros ✅ |
-| **Siguiente paso** | Confirmar y transcribir los textos de contraportada de Maleidra, Certamen 25N y Voces diversas |
+| **Paso en curso** | Cierre y publicación de la revisión editorial de agosto |
+| **Último paso completado** | Catálogo completo: 5 portadas y 5 sinopsis revisadas ✅ |
+| **Siguiente paso** | Verificar el autodeploy de Netlify y confirmar Stripe, dominio/email y accesos CMS |
 | **Deploy Netlify** | ✅ https://steady-scone-31c2af.netlify.app/ (auto-deploy en push a `main`) |
-| **Bloqueantes de contenido** | Solo 3 sinopsis; el material base ya está localizado en las cubiertas de imprenta |
+| **Bloqueantes de contenido** | Ninguno en `src/` |
 | **Pendiente confirmar** | Stripe · dominio/email corporativo · onboarding/accesos CMS |
-| **Contenido real integrado** | 5 libros · 4 autorías · 5 portadas · textos institucionales · estatutos · prensa · legal/RGPD |
+| **Contenido real integrado** | 5 libros · 4 autorías · 5 portadas · 5 sinopsis · textos institucionales · estatutos · prensa · legal/RGPD |
 
 ## PRIORIDAD ACTUAL
 
-1. Confirmar con Marcos si las contraportadas son la fuente editorial definitiva para las tres sinopsis.
-2. Sustituir los tres marcadores `[PENDIENTE]` en `src/content/books/` en un único cambio de contenido.
-3. Ejecutar `npm run build`, revisar las tres fichas y publicar el cambio.
-4. Confirmar después el estado real de Stripe, dominio/email y accesos CMS antes de reabrir esas fases.
+1. Publicar en `main` la sinopsis del Certamen, la regla de compra y el lenguaje inclusivo aprobados.
+2. Verificar el autodeploy y revisar las páginas afectadas en Netlify.
+3. Confirmar el estado real de Stripe, dominio/email y accesos CMS antes de reabrir esas fases.
+4. Ejecutar una revisión final de lanzamiento cuando estén resueltos esos servicios externos.
 
 > **Nota histórica:** las fases detalladas que siguen documentan cómo se construyó el proyecto desde mayo. Sus casillas antiguas no deben usarse para decidir el siguiente trabajo cuando contradigan el estado vigente anterior.
 

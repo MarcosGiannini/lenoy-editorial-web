@@ -4,13 +4,9 @@
 
 ## Estado vigente — 30 agosto 2026
 
-El contenido recibido durante agosto ya está integrado. En todo `src/` solo queda **un marcador `[PENDIENTE]`**, correspondiente a la sinopsis del *Primer Certamen Literario Escolar 25N FRS-UE*. Las portadas de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
+El contenido recibido durante agosto ya está integrado. **No quedan marcadores `[PENDIENTE]` en `src/`.** Las portadas y sinopsis de los cinco libros y las fotos de las cuatro autorías ya existen en el repositorio.
 
-| Libro | Archivo | Qué falta publicar | Material ya disponible |
-|---|---|---|---|
-| **Primer Certamen Literario Escolar 25N FRS-UE** | `src/content/books/primer-certamen-literario-25n.json` | Descripción oficial del proyecto y de la antología resultante | Contraportada de `Cubierta_Certamen.pdf`: potencia feminista, resistencia literaria, escritura creativa/educación social, confianza juvenil y prevención de violencia de género |
-
-**Decisión pendiente de Marcos:** confirmar si la contraportada de *Primer Certamen 25N* se transcribe literalmente o se adapta a una versión web más breve. No sustituir ese JSON hasta recibir confirmación.
+Las sinopsis de *Voces diversas de Guinea Ecuatorial*, *Maleidra y el anillo mágico* y *Primer Certamen Literario Escolar 25N FRS-UE* se han adaptado a versiones web breves y fieles a sus contraportadas.
 
 ### Resuelto en agosto de 2026
 
@@ -23,6 +19,9 @@ El contenido recibido durante agosto ya está integrado. En todo `src/` solo que
 - ✅ Enlaces de prensa con presentación visual y URLs revisadas.
 - ✅ Sinopsis web de *Voces diversas de Guinea Ecuatorial*, adaptada fielmente de su contraportada.
 - ✅ Sinopsis web de *Maleidra y el anillo mágico*, adaptada fielmente de su contraportada.
+- ✅ Sinopsis web de *Primer Certamen Literario Escolar 25N FRS-UE*, adaptada fielmente de los objetivos de su contraportada.
+- ✅ Regla de compra confirmada por Marcos: solo las obras propias de Editorial Lenoy muestran opciones de compra; las colaboraciones con ONGs se presentan como proyectos culturales.
+- ✅ Lenguaje inclusivo en autorías: "Sobre quien escribe" en las fichas y "Nuestras voces" en el catálogo, sin inferir género por el nombre.
 
 ### Pendientes operativos que requieren confirmación actual
 

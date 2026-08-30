@@ -62,19 +62,20 @@ Formato de respuesta OBLIGATORIO (copiar exacto):
 ✅ He leído PENDIENTES_ANDREA.md
 
 Estado actual del proyecto:
-- Último hito: portadas frontales correctas de los 5 libros integradas ✅
+- Último hito: catálogo completo con 5 portadas y 5 sinopsis revisadas ✅
 - Deploy activo: https://steady-scone-31c2af.netlify.app/
 - Rama activa: main (limpia, sincronizada)
 - Build: ✅ 19 páginas estáticas, sin errores
 - Datos reales integrados: 5 libros, 4 autorías, 5 portadas, textos institucionales, estatutos, prensa, legal/RGPD, logo y paleta terracota + índigo
-- Únicos marcadores [PENDIENTE] en src/: sinopsis de Maleidra, Primer Certamen 25N y Voces diversas
-- Material localizado: las tres cubiertas de imprenta contienen textos de contraportada aprovechables; falta confirmación editorial de Marcos
+- Marcadores [PENDIENTE] en src/: ninguno
+- Regla de compra: solo las obras propias muestran compra; las colaboraciones ONG son proyectos culturales
+- Lenguaje de autorías: "Sobre quien escribe" y "Nuestras voces"
 - Pendiente confirmar: Stripe, dominio/email corporativo y onboarding/accesos CMS
 
 Siguiente paso permitido según ROADMAP:
-→ Confirmar y transcribir las tres sinopsis; después ejecutar build y revisión visual
+→ Verificar el autodeploy y confirmar Stripe, dominio/email y accesos CMS
 
-¿Confirmas qué texto de contraportada debe publicarse en cada ficha?
+¿Confirmas cuál de esos pendientes operativos abordamos primero?
 ---
 
 REGLAS ABSOLUTAS:
