@@ -63,14 +63,22 @@ const recentBooks = booksData.slice(0, 3);
       {featuredBook && (
         <div data-reveal style="--reveal-delay: 120ms" class="relative flex justify-center">
           <div class="relative w-64 transform rotate-2 hover:rotate-0 transition-transform duration-300">
-            <div class="aspect-[2/3] bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-lg shadow-2xl p-8 flex flex-col items-center justify-center text-center">
-              <div class="w-16 h-0.5 bg-white/50 mb-6 rounded"></div>
-              <h2 class="font-serif text-xl font-bold text-white leading-tight mb-4">
-                {featuredBook.title}
-              </h2>
-              <div class="w-10 h-0.5 bg-white/40 mb-4 rounded"></div>
-              <p class="text-terracotta-100 text-sm font-medium">{featuredBook.author}</p>
-              <div class="mt-8 text-xs text-terracotta-200 uppercase tracking-widest">Editorial Lenoy</div>
+            <div class="aspect-[2/3] bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-lg shadow-2xl overflow-hidden relative">
+              <div class="absolute inset-0 p-8 flex flex-col items-center justify-center text-center">
+                <div class="w-16 h-0.5 bg-white/50 mb-6 rounded"></div>
+                <h2 class="font-serif text-xl font-bold text-white leading-tight mb-4">
+                  {featuredBook.title}
+                </h2>
+                <div class="w-10 h-0.5 bg-white/40 mb-4 rounded"></div>
+                <p class="text-terracotta-100 text-sm font-medium">{featuredBook.author}</p>
+                <div class="mt-8 text-xs text-terracotta-200 uppercase tracking-widest">Editorial Lenoy</div>
+              </div>
+              <img
+                src={featuredBook.cover}
+                alt={`Portada de ${featuredBook.title}`}
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.style.display='none'"
+              />
             </div>
             <div class="absolute -bottom-4 -right-4 w-full h-full bg-terracotta-800/20 rounded-lg -z-10"></div>
           </div>
