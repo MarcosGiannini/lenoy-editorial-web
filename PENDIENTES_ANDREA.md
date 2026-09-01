@@ -1,6 +1,6 @@
 # Pendientes para Andrea — Editorial Lenoy
 > Fuente única de verdad de la información que falta pedir a Andrea/Melibea.
-> Última actualización: **30 agosto 2026 — revisión del código y de las cubiertas originales.**
+> Última actualización: **1 septiembre 2026 — contenido completo y bloqueo operativo de Netlify identificado.**
 
 ## Estado vigente — 30 agosto 2026
 
@@ -22,12 +22,15 @@ Las sinopsis de *Voces diversas de Guinea Ecuatorial*, *Maleidra y el anillo má
 - ✅ Sinopsis web de *Primer Certamen Literario Escolar 25N FRS-UE*, adaptada fielmente de los objetivos de su contraportada.
 - ✅ Regla de compra confirmada por Marcos: solo las obras propias de Editorial Lenoy muestran opciones de compra; las colaboraciones con ONGs se presentan como proyectos culturales.
 - ✅ Lenguaje inclusivo en autorías: "Sobre quien escribe" en las fichas y "Nuestras voces" en el catálogo, sin inferir género por el nombre.
+- ✅ Eliminada la afirmación no confirmada de que parte de los beneficios de las colaboraciones ONG se destina al proyecto de origen.
+- ✅ Añadidos `robots.txt` y cabeceras básicas de seguridad para Netlify.
 
 ### Pendientes operativos que requieren confirmación actual
 
 - Estado de la cuenta Stripe, precios y Payment Links por libro.
 - Dominio definitivo y email corporativo.
 - Accesos y sesión de onboarding del CMS para Andrea y Melibea.
+- Créditos de Netlify: los nuevos deploys y Agent Runners están pausados hasta ampliar el plan o comenzar el siguiente ciclo de facturación. La web pública sigue online con el deploy del 3 de julio de 2026.
 
 > **Nota histórica:** las listas extensas que siguen recogen peticiones y decisiones anteriores. Si contradicen el estado vigente de este bloque, manda este bloque.
 

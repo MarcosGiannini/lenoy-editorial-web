@@ -2,7 +2,7 @@
 
 > Usar al inicio de CADA nueva sesión de chat con GitHub Copilot.
 > Copia el bloque de abajo y pégalo como primer mensaje del chat.
-> Última actualización: **30 agosto 2026.**
+> Última actualización: **1 septiembre 2026.**
 
 ---
 
@@ -63,17 +63,19 @@ Formato de respuesta OBLIGATORIO (copiar exacto):
 
 Estado actual del proyecto:
 - Último hito: catálogo completo con 5 portadas y 5 sinopsis revisadas ✅
-- Deploy activo: https://steady-scone-31c2af.netlify.app/
-- Rama activa: main (limpia, sincronizada)
+- Deploy público activo pero desactualizado: https://steady-scone-31c2af.netlify.app/
+- Netlify: nuevos deploys pausados por créditos; último deploy publicado el 3 julio 2026
+- Rama activa de referencia: main
 - Build: ✅ 19 páginas estáticas, sin errores
 - Datos reales integrados: 5 libros, 4 autorías, 5 portadas, textos institucionales, estatutos, prensa, legal/RGPD, logo y paleta terracota + índigo
 - Marcadores [PENDIENTE] en src/: ninguno
 - Regla de compra: solo las obras propias muestran compra; las colaboraciones ONG son proyectos culturales
 - Lenguaje de autorías: "Sobre quien escribe" y "Nuestras voces"
-- Pendiente confirmar: Stripe, dominio/email corporativo y onboarding/accesos CMS
+- SEO/seguridad: robots.txt y cabeceras básicas añadidos; sitemap y CSP pendientes del dominio/servicios definitivos
+- Pendiente confirmar: créditos de Netlify, Stripe, dominio/email corporativo y onboarding/accesos CMS
 
 Siguiente paso permitido según ROADMAP:
-→ Verificar el autodeploy y confirmar Stripe, dominio/email y accesos CMS
+→ Resolver los créditos de Netlify y confirmar dominio/email, Stripe y accesos CMS
 
 ¿Confirmas cuál de esos pendientes operativos abordamos primero?
 ---

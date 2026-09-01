@@ -1,7 +1,7 @@
 # ROADMAP — EDITORIAL LENOY WEB
 > Este archivo es la fuente de verdad del avance del proyecto.
 > **El asistente de IA DEBE leer este archivo DESPUÉS de leer el PROMPT_MAESTRO y ANTES de tocar cualquier código.**
-> Última actualización: **30 agosto 2026 — portadas completas y pendientes editoriales identificados.**
+> Última actualización: **1 septiembre 2026 — SEO y seguridad básicos añadidos; deploy de Netlify pausado por créditos.**
 
 ---
 
@@ -338,10 +338,11 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 > **Objetivo:** Que Google encuentre la web y que cargue rápido. Fundamental para que el nicho cultural la descubra.
 
 ### Paso 4.1 — Sitemap XML + robots.txt
-- **Rama:** `paso-4.1-seo-basico`
-- **Estado:** ⬜ No iniciado
+- **Rama:** `fix/contenido-ong-seo-basico`
+- **Estado:** 🟡 Parcial (1 septiembre 2026)
 - **Sitemap:** Instalar `@astrojs/sitemap` (oficial de Astro, gratuito). Genera `/sitemap.xml` automáticamente en cada build con todas las URLs del sitio. Requiere definir el dominio real en `astro.config.mjs`.
-- **robots.txt:** Archivo en `/public/robots.txt` con reglas básicas: permitir todo a buscadores, disallow `/admin/`.
+- **robots.txt:** ✅ `public/robots.txt` permite el sitio público y excluye `/admin/`.
+- **Bloqueo:** el sitemap queda pendiente hasta confirmar el dominio definitivo; no se usará la URL temporal de Netlify como dominio canónico.
 
 ### Paso 4.2 — Schema.org JSON-LD en fichas de libros
 - **Rama:** `paso-4.2-schema-org`
@@ -375,7 +376,9 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 
 ### Paso 5.1 — Test manual multiplataforma
 - **Rama:** No requiere rama (es revisión)
-- **Estado:** ⬜ No iniciado
+- **Estado:** 🟡 Parcial (1 septiembre 2026)
+- **Verificación automatizada:** 18/18 rutas públicas responden HTTP 200; 10 imágenes referenciadas cargan; 21 documentos HTML sin assets locales rotos; las 19 páginas públicas tienen `main`, un único `h1`, título único y metadescripción; todas las imágenes incluyen `alt`.
+- **Pendiente:** revisión manual en navegadores y dispositivos reales, navegación por teclado, contraste y conexión lenta.
 - **Checklist:**
   - [ ] Chrome (Windows/Mac/Android)
   - [ ] Safari (Mac/iPhone)
@@ -419,8 +422,10 @@ Si hay varias rutas posibles, ofrecer máximo 2 o 3 y recomendar una. Si el repo
 > **Por qué (explicado fácil):** Una web sin medidas básicas de seguridad puede ser usada para engañar a los visitantes (phishing), ralentizar el servidor (DoS) o filtrar datos. Aunque esta web es estática y sin base de datos, hay formas de hacerla más segura.
 
 ### Paso 6.1 — Cabeceras HTTP de seguridad
-- **Rama:** `paso-6.1-security-headers`
-- **Estado:** ⬜ No iniciado
+- **Rama:** `fix/contenido-ong-seo-basico`
+- **Estado:** 🟡 Parcial (1 septiembre 2026)
+- **Implementado:** `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `X-Frame-Options` en `public/_headers`.
+- **Pendiente:** definir CSP cuando estén confirmados el dominio, Stripe y los servicios externos definitivos, para no bloquear el CMS ni futuras compras.
 - **Cómo:** Archivo `public/_headers` (específico de Netlify). Define cabeceras que el servidor envía con cada página.
 - **Cabeceras a incluir:**
   ```
