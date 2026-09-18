@@ -39,6 +39,7 @@ function getGenreBadgeClass(genre: string) {
 // El botón de compra solo es activo cuando Stripe esté configurado
 const hasStripe = Boolean(book.stripeButtonId);
 const isEditorialBook = book.category === 'obras-propias';
+const showsSpainShipping = isEditorialBook && book.id !== 'maleidra-y-el-anillo-magico';
 ---
 
 <BaseLayout
@@ -124,7 +125,7 @@ const isEditorialBook = book.category === 'obras-propias';
               Comprar — Próximamente
             </button>
           ))}
-          {isEditorialBook && (
+          {showsSpainShipping && (
             <p class="text-xs text-gray-500 dark:text-cream-400 text-center leading-relaxed">
               Envío físico desde Madrid<br />
               Plazo estimado: 3–5 días hábiles<br />
@@ -184,7 +185,7 @@ const isEditorialBook = book.category === 'obras-propias';
               Comprar — Próximamente
             </button>
           ))}
-          {isEditorialBook && (
+          {showsSpainShipping && (
             <p class="text-xs text-gray-500 dark:text-cream-400 leading-relaxed">
               Envío físico desde Madrid · Plazo estimado: 3–5 días hábiles ·{' '}
               <a href="mailto:hola@lenoyediciones.com" class="text-terracotta-500 hover:underline">Pedido por email</a>
@@ -202,9 +203,13 @@ const isEditorialBook = book.category === 'obras-propias';
         {book.category === 'colaboracion-ongs' && (
           <section data-reveal class="bg-forest-700 rounded-2xl p-6 text-cream-100" aria-labelledby="ong-heading">
             <h2 id="ong-heading" class="font-serif text-xl font-bold mb-2">Proyecto solidario</h2>
-            <p class="text-cream-300 leading-relaxed text-sm">
-              Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro comprometida con los derechos humanos y la cultura en Guinea Ecuatorial.
-            </p>
+            {book.ongPartnerHtml ? (
+              <p class="text-cream-300 leading-relaxed text-sm" set:html={book.ongPartnerHtml} />
+            ) : (
+              <p class="text-cream-300 leading-relaxed text-sm">
+                Esta obra es fruto de una colaboración entre Editorial Lenoy y una organización sin ánimo de lucro comprometida con los derechos humanos y la cultura en Guinea Ecuatorial.
+              </p>
+            )}
           </section>
         )}
 
@@ -230,7 +235,9 @@ const isEditorialBook = book.category === 'obras-propias';
               <div class="space-y-2">
                 <div>
                   <p class="font-semibold text-gray-900 dark:text-cream-100">{author.name}</p>
-                  <p class="text-sm text-gray-500 dark:text-cream-400">{author.origin}</p>
+                  {author.origin && (
+                    <p class="text-sm text-gray-500 dark:text-cream-400">{author.origin}</p>
+                  )}
                 </div>
                 <p class="text-gray-600 dark:text-cream-300 leading-relaxed text-sm">{author.bio}</p>
                 {author.socialLinks && (

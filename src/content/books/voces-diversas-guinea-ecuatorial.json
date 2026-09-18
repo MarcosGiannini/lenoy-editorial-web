@@ -3,9 +3,10 @@
   "author": "Autor colectivo",
   "synopsis": "Esta antología reúne relatos basados en vidas olvidadas cuya propia existencia se convierte en delito. A través de la poesía, la narrativa y el testimonio, propone una escritura rupturista, libre de las fronteras entre géneros literarios, para contar realidades crudas vinculadas a los derechos humanos. La obra nace de un colectivo de personas escritoras de la Comunidad Literaria Lorde de Guinea Ecuatorial, integrado por personas albinas y LGTBIQA+, mujeres, minorías étnicas y otros colectivos marginados.",
   "cover": "/images/books/voces-diversas-guinea-ecuatorial.jpg",
-  "year": 2023,
+  "year": 2025,
   "category": "colaboracion-ongs",
   "genre": ["Literatura africana", "Antología"],
   "price": 0,
-  "featured": false
+  "featured": false,
+  "ongPartnerHtml": "Esta obra es fruto de una colaboración entre Editorial Lenoy, <a href=\"https://www.sudergintza.eus/es/sudergintza/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-cream-100\">Sudergintza</a> y <a href=\"https://lumagorri.org/es/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-cream-100\">Lumagorri</a>, dos organizaciones sin ánimo de lucro comprometidas con los derechos humanos y el colectivo LGTBIAQ+."
 }

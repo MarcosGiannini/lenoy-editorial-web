@@ -20,6 +20,7 @@ const books = defineCollection({
         author: z.string(),
       })
     ).optional(),
+    ongPartnerHtml: z.string().optional(),
   }),
 });
 
@@ -29,7 +30,7 @@ const authors = defineCollection({
     name: z.string(),
     bio: z.string(),
     photo: z.string(),
-    origin: z.string(),
+    origin: z.string().optional(),
     bookIds: z.array(z.string()),
     socialLinks: z
       .object({

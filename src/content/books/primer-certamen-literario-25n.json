@@ -7,5 +7,6 @@
   "category": "colaboracion-ongs",
   "genre": ["Literatura africana", "Educación"],
   "price": 0,
-  "featured": false
+  "featured": false,
+  "ongPartnerHtml": "Esta obra es fruto de una colaboración entre Editorial Lenoy y <a href=\"https://www.fundacionfrs.es/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:text-cream-100\">FRS</a>, una organización sin ánimo de lucro comprometida con los derechos humanos, el cuidado y la promoción de la salud y de niveles dignos de bienestar social."
 }
