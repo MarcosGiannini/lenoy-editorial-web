@@ -282,10 +282,10 @@ const showsSpainShipping = isEditorialBook && book.id !== 'maleidra-y-el-anillo-
           </section>
         )}
 
-        <!-- Lo que dice la prensa (solo si el libro tiene pressQuotes) -->
+        <!-- Lo que dicen de esta novela (solo si el libro tiene pressQuotes) -->
         {book.pressQuotes && book.pressQuotes.length > 0 && (
           <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="prensa-heading">
-            <h2 id="prensa-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-6">Lo que dice la prensa</h2>
+            <h2 id="prensa-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-6">Lo que dicen de esta novela</h2>
             <div class="space-y-5">
               {book.pressQuotes.map((item) => (
                 <blockquote class="border-l-4 border-terracotta-300 pl-5">
@@ -294,6 +294,30 @@ const showsSpainShipping = isEditorialBook && book.id !== 'maleidra-y-el-anillo-
                 </blockquote>
               ))}
             </div>
+          </section>
+        )}
+
+        <!-- {book.title} en medios (solo si el libro tiene mediaLinks) -->
+        {book.mediaLinks && book.mediaLinks.length > 0 && (
+          <section data-reveal class="border-t border-cream-300 dark:border-gray-700 pt-8" aria-labelledby="medios-heading">
+            <h2 id="medios-heading" class="font-serif text-2xl font-bold text-gray-900 dark:text-cream-100 mb-6">{book.title} en medios</h2>
+            <ul class="space-y-3" role="list">
+              {book.mediaLinks.map((item) => (
+                <li>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-terracotta-500 hover:text-terracotta-700 font-medium text-sm transition-colors"
+                  >
+                    {item.label}
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 

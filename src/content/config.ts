@@ -20,6 +20,12 @@ const books = defineCollection({
         author: z.string(),
       })
     ).optional(),
+    mediaLinks: z.array(
+      z.object({
+        label: z.string(),
+        url: z.string().url(),
+      })
+    ).optional(),
     ongPartnerHtml: z.string().optional(),
   }),
 });
